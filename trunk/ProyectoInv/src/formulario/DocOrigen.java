@@ -617,10 +617,7 @@ public class DocOrigen extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "No se encuentra el registro",
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                     LimpiaCajas();
-
                 }
-
-
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
             }
