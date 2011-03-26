@@ -44,41 +44,38 @@ public class DocumentosDAO {
 
     public Vector cargarDocumentos() throws SQLException {
         abrirConexion();
-        ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg, doc.Cod_CIP_REGDOC, tb.CTip_Doc, tb.Des_TDoc "
-                                      + "FROM documentos doc,tb_tipdoc tb"
-                                      + "WHERE doc.CTip_Doc = tb.CTip_Doc");
+        ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg,"
+                + "tb.CTip_Doc, tb.Des_TDoc "
+                + "FROM documentos doc,tb_tipdoc tb"
+                + " WHERE doc.CTip_Doc = tb.CTip_Doc");
+
         while (rst.next()) {
             DocumentoDTO doc = new DocumentoDTO();
+
             doc.setNroRegistro(rst.getString("doc.Cod_RegDoc"));
             doc.setNro_Doc(rst.getString("doc.Nro_Doc"));
             doc.setSiglas(rst.getString("doc.Siglas"));
             doc.setFechReg(rst.getDate("doc.FechReg"));
-            doc.setCod_CIP_REGDOC(rst.getString("doc.Cod_CIP_REGDOC"));
-            /**/TipDocDTO tb = new TipDocDTO();
-                tb.setCTip_Doc(rst.getString("tb.CTip_Doc"));
-                tb.setTDoc(rst.getString("tb.Des_TDoc"));
-                doc.setCTip_Doc(tb);
-                vDoc.addElement(doc);
+
+            TipDocDTO tb = new TipDocDTO();
+            tb.setCTip_Doc(rst.getString("tb.CTip_Doc"));
+            tb.setTDoc(rst.getString("tb.Des_TDoc"));
+            doc.setCTip_Doc(tb);
+            vDoc.addElement(doc);
         }
         rst.close();
         cerrarConexion();
         return vDoc;
     }
 
-    public int incremenRegistro()throws SQLException{
-        abrirConexion();
-        ResultSet rst = st.executeQuery("SELECT IF(MAX(Cod_RegDoc) IS NULL,1,MAX(Cod_RegDoc)+1) as nuevo FROM documentos");
-        rst.next();
-        return rst.getInt("nuevo");
-    }
-
     public int agregarDocumento(DocumentoDTO doc) throws SQLException {
         abrirConexion();
         String sentenciaSQL = "INSERT INTO documentos VALUES('" + doc.getNroRegistro() + "','"
-                                                                + doc.getCTip_Doc().getCTip_Doc() + "','"
-                                                                + doc.getNro_Doc() + "','"
-                                                                + doc.getSiglas() + "','"
-                                                                + doc.getFechReg() +"')";
+                + doc.getCTip_Doc().getCTip_Doc() + "','"
+                + doc.getNro_Doc() + "','"
+                + doc.getSiglas() + "','"
+                + doc.getFechReg() +"')";
+
         int iResultado = st.executeUpdate(sentenciaSQL);
         cargarDocumentos();
         cerrarConexion();
@@ -87,7 +84,7 @@ public class DocumentosDAO {
 
     public int eliminarDocumentos(String codDoc) throws SQLException {
         abrirConexion();
-        String sentenciaSQL = "DELETE FROM documentos WHERE Cod_RegDoc='"+codDoc+"'";
+        String sentenciaSQL = "DELETE FROM documentos WHERE Cod_RegDoc='" + codDoc + "'";
         int iResultado = st.executeUpdate(sentenciaSQL);
         cargarDocumentos();
         cerrarConexion();
@@ -97,11 +94,12 @@ public class DocumentosDAO {
     public int actualizarDocumento(DocumentoDTO dco) throws SQLException {
         abrirConexion();
         String SQL = "UPDATE documentos SET Cod_RegDoc ='" + dco.getNroRegistro() + "',"
-                                         + "CTip_Doc   ='" + dco.getCTip_Doc().getCTip_Doc() + "',"
-                                         + "Nro_Doc    ='" + dco.getNro_Doc() + "',"
-                                         + "Siglas     ='" + dco.getSiglas() + "',"
-                                         + "FechReg    ='" + dco.getFechReg() + "'"
-                   + "WHERE Cod_RegDoc='" + dco.getNroRegistro() + "'";
+                + "CTip_Doc   ='" + dco.getCTip_Doc().getCTip_Doc() + "',"
+                + "Nro_Doc    ='" + dco.getNro_Doc() + "',"
+                + "Siglas     ='" + dco.getSiglas() + "',"
+                + "FechReg    ='" + dco.getFechReg() + "'"
+                + "WHERE Cod_RegDoc='" + dco.getNroRegistro() + "'";
+
         int iResultado = st.executeUpdate(SQL);
         cargarDocumentos();
         cerrarConexion();

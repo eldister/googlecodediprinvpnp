@@ -29,9 +29,9 @@ public class Principal extends javax.swing.JFrame {
         setDefaultLookAndFeelDecorated(true);
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.MistAquaSkin");
         SubstanceLookAndFeel.setCurrentTheme("org.jvnet.substance.theme.SubstanceAquaTheme");
-        SubstanceLookAndFeel.setCurrentWatermark(new SubstanceImageWatermark("/imagenes/fondo.jpg"));
+        SubstanceLookAndFeel.setCurrentWatermark(new SubstanceImageWatermark("c:\\fondo.jpg"));
         this.btnaceptar.putClientProperty(SubstanceLookAndFeel.BUTTON_SHAPER_PROPERTY, new StandardButtonShaper());
-        //PantallaCompleta();
+        PantallaCompleta();
     }
 
     public void PantallaCompleta() {
@@ -68,7 +68,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1200, 1200));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -116,7 +116,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(270, 350, 97, 41);
 
-        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 0, 18));
+        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inio_sesion.png"))); // NOI18N
         btnaceptar.setText("Iniciar Sesion");
         btnaceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +144,7 @@ public class Principal extends javax.swing.JFrame {
 }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
+
         if ((txtusuario.getText().isEmpty()) || (txtcontraseña.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
         } else {
@@ -155,11 +156,12 @@ public class Principal extends javax.swing.JFrame {
                 btnaceptar.setVisible(false);
                 LoginDTO objE = log.validar(txtusuario.getText(), txtcontraseña.getText());
                 if (objE != null) {
+
                     JOptionPane.showMessageDialog(this,
                             "Bienvenido " + objE.getUsuario() + "  " + objE.getPassword(),
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                     btnaceptar.setVisible(false);
-                    Cargando.setVisible(true);                    
+                    Cargando.setVisible(true);
                     new DocOrigen().setVisible(true);
                     this.dispose();
                 } else {
@@ -178,6 +180,7 @@ public class Principal extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new Principal().setVisible(true);
             }
