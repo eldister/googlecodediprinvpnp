@@ -39,8 +39,7 @@ public class DocOrigen extends javax.swing.JFrame {
         cargarComboTipoDoc();
         activaBotones(true, false, false, false, true, false);
         tabla.setVisible(false);
-    //    int xx = Integer.parseInt(txtNroRegistro.getText());
-   //     int yy = xx+1;
+    
 
     }
 
@@ -220,6 +219,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jPanel3.setBounds(300, 0, 760, 100);
 
         DocOrigenPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DOCUMENTO DE ORIGEN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        DocOrigenPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
@@ -228,6 +228,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 33, 39, 31));
 
         txtSiglas.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtSiglas.addActionListener(new java.awt.event.ActionListener() {
@@ -235,13 +236,17 @@ public class DocOrigen extends javax.swing.JFrame {
                 txtSiglasActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(txtSiglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 159, 107, 31));
 
         txtFecha.setFont(new java.awt.Font("Tahoma", 0, 14));
+        DocOrigenPanel.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 201, 91, 31));
 
         txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 0, 14));
+        DocOrigenPanel.add(txtCodTipDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 118, 104, 30));
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel15.setText("Siglas:");
+        DocOrigenPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 173, 40, -1));
 
         cbotipdoc.setFont(new java.awt.Font("Tahoma", 0, 14));
         cbotipdoc.addActionListener(new java.awt.event.ActionListener() {
@@ -249,9 +254,11 @@ public class DocOrigen extends javax.swing.JFrame {
                 cbotipdocActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(cbotipdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 117, 105, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel17.setText("Nro. de Doc.:");
+        DocOrigenPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 27));
 
         txtNroDoc.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtNroDoc.addActionListener(new java.awt.event.ActionListener() {
@@ -259,12 +266,15 @@ public class DocOrigen extends javax.swing.JFrame {
                 txtNroDocActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(txtNroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 75, 107, 31));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel1.setText("Tipo de Doc.:");
+        DocOrigenPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 125, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel2.setText("Nro. de Registro:");
+        DocOrigenPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 47, -1, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true)));
 
@@ -343,8 +353,11 @@ public class DocOrigen extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
+        DocOrigenPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 300, -1, -1));
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setText("Fecha:");
+        DocOrigenPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 215, 50, -1));
 
         txtNroRegistro.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtNroRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -352,11 +365,13 @@ public class DocOrigen extends javax.swing.JFrame {
                 txtNroRegistroActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(txtNroRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 33, 107, 31));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel13.setText("AAAA-MM-DD");
+        DocOrigenPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 215, -1, -1));
 
-        btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnAsignarTDR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/documento.png"))); // NOI18N
         btnAsignarTDR.setText("ASIGNAR TERMINO DE REFERENCIA");
         btnAsignarTDR.addActionListener(new java.awt.event.ActionListener() {
@@ -364,8 +379,9 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnAsignarTDRActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(btnAsignarTDR, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 404, 361, 36));
 
-        btnMostrarLista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMostrarLista.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnMostrarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/documento.png"))); // NOI18N
         btnMostrarLista.setText("MOSTRAR LISTA");
         btnMostrarLista.addActionListener(new java.awt.event.ActionListener() {
@@ -373,8 +389,9 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnMostrarListaActionPerformed(evt);
             }
         });
+        DocOrigenPanel.add(btnMostrarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 37, 253, 32));
 
-        tabla.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        tabla.setFont(new java.awt.Font("Tahoma", 0, 13));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -399,152 +416,59 @@ public class DocOrigen extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla);
 
-        javax.swing.GroupLayout DocOrigenPanelLayout = new javax.swing.GroupLayout(DocOrigenPanel);
-        DocOrigenPanel.setLayout(DocOrigenPanelLayout);
-        DocOrigenPanelLayout.setHorizontalGroup(
-            DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29))
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtSiglas, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNroDoc, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNroRegistro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodTipDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)))
-                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addComponent(btnMostrarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DocOrigenPanelLayout.createSequentialGroup()
-                .addContainerGap(353, Short.MAX_VALUE)
-                .addComponent(btnAsignarTDR, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(296, 296, 296))
-        );
-        DocOrigenPanelLayout.setVerticalGroup(
-            DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DocOrigenPanelLayout.createSequentialGroup()
-                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(txtNroRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(txtNroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCodTipDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DocOrigenPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DocOrigenPanelLayout.createSequentialGroup()
-                        .addComponent(btnMostrarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAsignarTDR, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
+        DocOrigenPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 80, 642, 202));
 
         getContentPane().add(DocOrigenPanel);
         DocOrigenPanel.setBounds(170, 110, 1020, 460);
 
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
         jMenuBar1.setForeground(new java.awt.Color(1, 1, 1));
-        jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 18));
 
         jMenu1.setBackground(new java.awt.Color(153, 153, 255));
         jMenu1.setText("MENU PRINCIPAL");
-        jMenu1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 16)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 16));
 
         jMenu17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ventana.png"))); // NOI18N
         jMenu17.setText("MODULO DE FORMULACION");
-        jMenu17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu17.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu1.add(jMenu17);
 
         jMenu18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ventana.png"))); // NOI18N
         jMenu18.setText("MODULO DE SEGUIMIENTO");
-        jMenu18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu18.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu1.add(jMenu18);
 
         jMenu19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ventana.png"))); // NOI18N
         jMenu19.setText("MODULO DE MANTENIMIENTO");
-        jMenu19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu19.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario-gray-icono-8922-16.png"))); // NOI18N
         jMenu20.setText("Consultor");
-        jMenu20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu20.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu28.setText("Registrar Consultor");
-        jMenu28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu28.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu20.add(jMenu28);
 
         jMenu19.add(jMenu20);
 
         jMenu21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/red-de-usuario-icono-5874-16.png"))); // NOI18N
         jMenu21.setText("Coordinador");
-        jMenu21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu21.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu27.setText("Registrar Coordinador");
-        jMenu27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu27.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu21.add(jMenu27);
 
         jMenu19.add(jMenu21);
 
         jMenu16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario-icono-6969-16.png"))); // NOI18N
         jMenu16.setText("Usuario");
-        jMenu16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu16.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu25.setText("Cambiar de Contraseña");
-        jMenu25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu25.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu25MouseClicked(evt);
@@ -553,7 +477,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jMenu16.add(jMenu25);
 
         jMenu26.setText("Registrar Usuario");
-        jMenu26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu26.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu26MouseClicked(evt);
@@ -569,10 +493,10 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jMenu9.setBackground(new java.awt.Color(153, 153, 255));
         jMenu9.setText("MODULO DE FORMULACION");
-        jMenu9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu9.setFont(new java.awt.Font("Segoe UI", 0, 16));
 
         jMenu23.setText("Documento de Origen");
-        jMenu23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu23.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu23MouseClicked(evt);
@@ -581,7 +505,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jMenu9.add(jMenu23);
 
         jMenu22.setText("TDR");
-        jMenu22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu22.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu22MouseClicked(evt);
@@ -590,7 +514,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jMenu9.add(jMenu22);
 
         jMenu24.setText("PIP");
-        jMenu24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu24.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu24MouseClicked(evt);
@@ -602,20 +526,20 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jMenu10.setBackground(new java.awt.Color(153, 153, 255));
         jMenu10.setText("MODULO DE SEGUIMIENTO");
-        jMenu10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu10.setFont(new java.awt.Font("Segoe UI", 0, 16));
         jMenuBar1.add(jMenu10);
 
         jMenu2.setBackground(new java.awt.Color(153, 153, 255));
         jMenu2.setText("MODULO DE MANTENIMIENTO");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 16));
         jMenu2.setHideActionText(true);
 
         jMenu13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario-gray-icono-8922-16.png"))); // NOI18N
         jMenu13.setText("Consultor");
-        jMenu13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu13.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu14.setText("Registrar Consultor");
-        jMenu14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu14.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu14MouseClicked(evt);
@@ -627,10 +551,10 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/red-de-usuario-icono-5874-16.png"))); // NOI18N
         jMenu12.setText("Coordinador");
-        jMenu12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu12.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu15.setText("Registrar Coordinador");
-        jMenu15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu15.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu15MouseClicked(evt);
@@ -642,10 +566,10 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario-icono-6969-16.png"))); // NOI18N
         jMenu11.setText("Usuario");
-        jMenu11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu11.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
         jMenu3.setText("Cambiar de Contraseña");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -654,7 +578,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jMenu11.add(jMenu3);
 
         jMenu8.setText("Registrar Usuario");
-        jMenu8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu8.setFont(new java.awt.Font("Segoe UI", 0, 14));
         jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu8MouseClicked(evt);
@@ -686,7 +610,6 @@ public class DocOrigen extends javax.swing.JFrame {
                     txtCodTipDoc.setText(objDoc.getCTip_Doc().getTDoc());
                     txtSiglas.setText(objDoc.getSiglas());
                     txtFecha.setText(objDoc.getFechReg().toString());
-
                     cbotipdoc.setVisible(false);
                     txtFecha.setVisible(true);
                     MostrarDatos();

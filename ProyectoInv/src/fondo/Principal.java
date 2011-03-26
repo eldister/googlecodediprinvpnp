@@ -44,8 +44,7 @@ public class Principal extends javax.swing.JFrame {
         }
         try {
             gd.setFullScreenWindow(this);
-        } catch (Exception e) {
-            //  e.printStackTrace();
+        } catch (Exception e) {            
             System.out.println("ERROR CRITICO: " + e.getMessage());
         }
     }
