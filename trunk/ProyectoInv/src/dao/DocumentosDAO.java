@@ -15,7 +15,7 @@ public class DocumentosDAO {
     private Statement st;
     Vector<DocumentoDTO> vDoc = new Vector<DocumentoDTO>();
 
-    public DocumentosDAO() {
+    public DocumentosDAO(){
     }
 
     public void abrirConexion() throws SQLException {
@@ -33,7 +33,7 @@ public class DocumentosDAO {
     }
 
     public DocumentoDTO buscar(String docREG) {
-        for (int i = 0; i < vDoc.size(); i++) {
+        for (int i = 0; i<vDoc.size(); i++) {
             String id = obtener(i).getNroRegistro();
             if (id.equals(docREG)) {
                 return obtener(i);
@@ -45,7 +45,7 @@ public class DocumentosDAO {
     public Vector cargarDocumentos() throws SQLException {
         abrirConexion();
         ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg, doc.Cod_CIP_REGDOC, tb.CTip_Doc, tb.Des_TDoc " +
-                                        "FROM documentos doc,tb_tipdoc tb" +
+                                        "FROM documentos doc,tb_tipdoc tb " +
                                         "WHERE doc.CTip_Doc = tb.CTip_Doc");
         while (rst.next()) {
             DocumentoDTO doc = new DocumentoDTO();

@@ -155,7 +155,6 @@ public class Principal extends javax.swing.JFrame {
                 btnaceptar.setVisible(false);
                 LoginDTO objE = log.validar(txtusuario.getText(), txtcontraseña.getText());
                 if (objE != null) {
-
                     JOptionPane.showMessageDialog(this,
                             "Bienvenido " + objE.getUsuario() + "  " + objE.getPassword(),
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
