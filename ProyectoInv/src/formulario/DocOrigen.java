@@ -50,11 +50,11 @@ public class DocOrigen extends javax.swing.JFrame {
     }
 
     public void LimpiaCajas() {
-        txtCodTipDoc.setText(null);
-        txtFecha.setText(null);
-        txtNroRegistro.setText(null);
-        txtSiglas.setText(null);
-        txtNroDoc.setText(null);
+        txtCodTipDoc.setText("");
+        txtFecha.setText("");
+        txtNroRegistro.setText("");
+        txtSiglas.setText("");
+        txtNroDoc.setText("");
     }
 
     public void PantallaCompleta() {
@@ -593,12 +593,14 @@ public class DocOrigen extends javax.swing.JFrame {
         if (btnBuscar.isEnabled()) {
             activaBotones(true, true, false, true, false, true);
             try {
-                String bus = JOptionPane.showInputDialog(null, "Ingrese codigo de registro a buscar....","Buscar Registro", JOptionPane.INFORMATION_MESSAGE);
+                String bus = JOptionPane.showInputDialog(null, "Ingrese Registro a buscar....","Buscar Registro", JOptionPane.INFORMATION_MESSAGE);
+                System.out.println(""+bus);
                 DocumentosDAO tip = new DocumentosDAO();
                 tip.cargarDocumentos();
-                DocumentoDTO objDoc = tip.buscar(bus);
+                DocumentoDTO objDoc = tip.buscar(bus);                
                 if (objDoc != null) {
                     txtNroRegistro.setText(objDoc.getNroRegistro());
+                    System.out.println(txtNroRegistro.getText());
                     txtNroDoc.setText(objDoc.getNro_Doc());
                     txtCodTipDoc.setText(objDoc.getCTip_Doc().getTDoc());
                     txtSiglas.setText(objDoc.getSiglas());
