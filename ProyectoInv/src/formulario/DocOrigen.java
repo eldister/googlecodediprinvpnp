@@ -12,7 +12,6 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.watermark.SubstanceImageWatermark;
 
@@ -39,8 +38,6 @@ public class DocOrigen extends javax.swing.JFrame {
         cargarComboTipoDoc();
         activaBotones(true, false, false, false, true, false);
         tabla.setVisible(false);
-    
-
     }
 
     public void activaBotones(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f) {
@@ -53,11 +50,11 @@ public class DocOrigen extends javax.swing.JFrame {
     }
 
     public void LimpiaCajas() {
-        txtCodTipDoc.setText("");
-        txtFecha.setText("");
-        txtNroRegistro.setText("");
-        txtSiglas.setText("");
-        txtNroDoc.setText("");
+        txtCodTipDoc.setText(null);
+        txtFecha.setText(null);
+        txtNroRegistro.setText(null);
+        txtSiglas.setText(null);
+        txtNroDoc.setText(null);
     }
 
     public void PantallaCompleta() {
@@ -96,8 +93,6 @@ public class DocOrigen extends javax.swing.JFrame {
         cbotipdoc.setEnabled(false);
         txtCodTipDoc.setVisible(false);
         txtNroRegistro.setEditable(false);
-
-        
     }
 
     public void MostrarDatos() {
@@ -106,7 +101,6 @@ public class DocOrigen extends javax.swing.JFrame {
         txtNroDoc.setEditable(true);
         txtSiglas.setEditable(true);
         cbotipdoc.setEnabled(true);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -599,8 +593,7 @@ public class DocOrigen extends javax.swing.JFrame {
         if (btnBuscar.isEnabled()) {
             activaBotones(true, true, false, true, false, true);
             try {
-                 String bus = JOptionPane.showInputDialog(null, "Ingrese codigo de registro a buscar....",
-                         "Buscar Registro", JOptionPane.INFORMATION_MESSAGE);
+                String bus = JOptionPane.showInputDialog(null, "Ingrese codigo de registro a buscar....","Buscar Registro", JOptionPane.INFORMATION_MESSAGE);
                 DocumentosDAO tip = new DocumentosDAO();
                 tip.cargarDocumentos();
                 DocumentoDTO objDoc = tip.buscar(bus);

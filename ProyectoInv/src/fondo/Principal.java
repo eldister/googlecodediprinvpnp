@@ -115,7 +115,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(270, 350, 97, 41);
 
-        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 0, 18));
         btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inio_sesion.png"))); // NOI18N
         btnaceptar.setText("Iniciar Sesion");
         btnaceptar.addActionListener(new java.awt.event.ActionListener() {
