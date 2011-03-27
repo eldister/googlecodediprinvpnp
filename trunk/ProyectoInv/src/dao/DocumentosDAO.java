@@ -44,24 +44,21 @@ public class DocumentosDAO {
 
     public Vector cargarDocumentos() throws SQLException {
         abrirConexion();
-        ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg,"
-                + "tb.CTip_Doc, tb.Des_TDoc "
-                + "FROM documentos doc,tb_tipdoc tb"
-                + " WHERE doc.CTip_Doc = tb.CTip_Doc");
-
+        ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg, doc.Cod_CIP_REGDOC, tb.CTip_Doc, tb.Des_TDoc " +
+                                        "FROM documentos doc,tb_tipdoc tb" +
+                                        "WHERE doc.CTip_Doc = tb.CTip_Doc");
         while (rst.next()) {
             DocumentoDTO doc = new DocumentoDTO();
-
             doc.setNroRegistro(rst.getString("doc.Cod_RegDoc"));
             doc.setNro_Doc(rst.getString("doc.Nro_Doc"));
             doc.setSiglas(rst.getString("doc.Siglas"));
             doc.setFechReg(rst.getDate("doc.FechReg"));
-
-            TipDocDTO tb = new TipDocDTO();
-            tb.setCTip_Doc(rst.getString("tb.CTip_Doc"));
-            tb.setTDoc(rst.getString("tb.Des_TDoc"));
-            doc.setCTip_Doc(tb);
-            vDoc.addElement(doc);
+            doc.setCod_CIP_REGDOC(rst.getString("doc.Cod_CIP_REGDOC"));
+            /**/TipDocDTO tb = new TipDocDTO();
+                tb.setCTip_Doc(rst.getString("tb.CTip_Doc"));
+                tb.setTDoc(rst.getString("tb.Des_TDoc"));
+                doc.setCTip_Doc(tb);
+                vDoc.addElement(doc);
         }
         rst.close();
         cerrarConexion();
@@ -104,6 +101,13 @@ public class DocumentosDAO {
         cargarDocumentos();
         cerrarConexion();
         return iResultado;
+    }
+
+    public int incrementaREG() throws SQLException{
+        abrirConexion();
+        ResultSet rst = st.executeQuery("SELECT IF(MAX(Cod_RegDoc) IS NULL,1,MAX(Cod_RegDoc)+1) as nuevo FROM documentos");
+        rst.next();
+        return rst.getInt("nuevo");
     }
 }
 
