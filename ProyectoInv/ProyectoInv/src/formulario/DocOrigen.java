@@ -825,8 +825,7 @@ public class DocOrigen extends javax.swing.JFrame {
             LimpiaCajas();
             cbotipdoc.setVisible(true);
             txtCodTipDoc.setVisible(false);
-            int xx = Integer.parseInt(txtNroRegistro.getText());
-            int yy = xx+1;
+
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
