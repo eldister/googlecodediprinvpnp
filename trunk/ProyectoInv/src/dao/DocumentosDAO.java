@@ -67,12 +67,12 @@ public class DocumentosDAO {
 
     public int agregarDocumento(DocumentoDTO doc) throws SQLException {
         abrirConexion();
-        String sentenciaSQL = "INSERT INTO documentos VALUES('" + doc.getNroRegistro() + "','"
-                + doc.getCTip_Doc().getCTip_Doc() + "','"
-                + doc.getNro_Doc() + "','"
-                + doc.getSiglas() + "','"
-                + doc.getFechReg() +"')";
-
+        String sentenciaSQL = "INSERT INTO documentos VALUES('"+doc.getNroRegistro()+
+                                                          "','"+doc.getCTip_Doc().getCTip_Doc()+
+                                                          "','"+doc.getNro_Doc()+
+                                                          "','"+doc.getSiglas()+
+                                                          "','"+doc.getFechReg()+
+                                                          "','"+doc.getCod_CIP_REGDOC()+"')";
         int iResultado = st.executeUpdate(sentenciaSQL);
         cargarDocumentos();
         cerrarConexion();
@@ -81,23 +81,24 @@ public class DocumentosDAO {
 
     public int eliminarDocumentos(String codDoc) throws SQLException {
         abrirConexion();
-        String sentenciaSQL = "DELETE FROM documentos WHERE Cod_RegDoc='" + codDoc + "'";
+        String sentenciaSQL = "DELETE FROM documentos WHERE Cod_RegDoc='"+codDoc+"'";
         int iResultado = st.executeUpdate(sentenciaSQL);
         cargarDocumentos();
         cerrarConexion();
         return iResultado;
     }
 
-    public int actualizarDocumento(DocumentoDTO dco) throws SQLException {
+    public int actualizarDocumento(DocumentoDTO dco) throws SQLException{
         abrirConexion();
-        String SQL = "UPDATE documentos SET Cod_RegDoc ='" + dco.getNroRegistro() + "',"
-                + "CTip_Doc   ='" + dco.getCTip_Doc().getCTip_Doc() + "',"
-                + "Nro_Doc    ='" + dco.getNro_Doc() + "',"
-                + "Siglas     ='" + dco.getSiglas() + "',"
-                + "FechReg    ='" + dco.getFechReg() + "'"
-                + "WHERE Cod_RegDoc='" + dco.getNroRegistro() + "'";
-
-        int iResultado = st.executeUpdate(SQL);
+        String sentenciaSQL = "UPDATE documentos SET Cod_RegDoc    ='"+dco.getNroRegistro()+"'," +
+                                                    "CTip_Doc      ='"+dco.getCTip_Doc().getCTip_Doc()+"'," +
+                                                    "Nro_Doc       ='"+dco.getNro_Doc()+"'," +
+                                                    "Siglas        ='"+dco.getSiglas()+"'," +
+                                                    "FechReg       ='"+dco.getFechReg()+"'," +
+                                                    "Cod_CIP_REGDOC='"+dco.getCod_CIP_REGDOC()+"'"+
+                              "WHERE Cod_RegDoc='"+dco.getNroRegistro()+"'";
+        System.out.println("123 "+sentenciaSQL);
+        int iResultado = st.executeUpdate(sentenciaSQL);
         cargarDocumentos();
         cerrarConexion();
         return iResultado;
