@@ -39,9 +39,10 @@ public class DocOrigen extends javax.swing.JFrame {
         cargarComboTipoDoc();
         activaBotones(true, true, false, true, true, false);
         tabla.setVisible(false);
-        ultimoRegistro();
         txtCIP.setText(Principal.CIP);
         centrar();
+        txtCIP.setVisible(false);
+
     }
 
      public void centrar() {
