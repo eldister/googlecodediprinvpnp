@@ -79,12 +79,13 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(30, 10, 760, 100);
 
-        jLabel1.setFont(new java.awt.Font("Arial Narrow", 0, 18));
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 20)); // NOI18N
         jLabel1.setText("Usuario:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(220, 300, 87, 23);
 
-        txtusuario.setFont(new java.awt.Font("Tahoma", 0, 14));
+        txtusuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtusuario.setForeground(new java.awt.Color(0, 0, 153));
         txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusuarioActionPerformed(evt);
@@ -93,16 +94,17 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(txtusuario);
         txtusuario.setBounds(320, 290, 230, 30);
 
-        txtcontraseña.setFont(new java.awt.Font("Tahoma", 0, 14));
+        txtcontraseña.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtcontraseña.setForeground(new java.awt.Color(0, 0, 153));
         jPanel1.add(txtcontraseña);
         txtcontraseña.setBounds(320, 340, 230, 32);
 
-        jLabel2.setFont(new java.awt.Font("Arial Narrow", 0, 18));
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 20)); // NOI18N
         jLabel2.setText("Contraseña:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(220, 340, 97, 41);
 
-        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 1, 20)); // NOI18N
         btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bloqueo-icono-8472-16.png"))); // NOI18N
         btnaceptar.setText("Iniciar Sesion");
         btnaceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -159,12 +161,11 @@ public class Principal extends javax.swing.JFrame {
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
+                JOptionPane.showMessageDialog(null,"Mensaje: "+ex);
             }
         }
         nombusuario = txtusuario.getText();        
         password = txtcontraseña.getText();
-   
-
 }//GEN-LAST:event_btnaceptarActionPerformed
 
     public static void main(String args[]) {
