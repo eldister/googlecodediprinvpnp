@@ -631,8 +631,9 @@ public class DocOrigen extends javax.swing.JFrame {
             activaBotones(true, false, false, false, true, false);
             try {
                 DocumentosDAO tbtipo = new DocumentosDAO();
-                tbtipo.cargarDocumentos();                
-                if (txtNroRegistro.getText() == null){
+                tbtipo.cargarDocumentos();
+                DocumentoDTO dto = tbtipo.buscar(""+tbtipo.incrementaREG());
+                if (dto != null){
                     txtNroRegistro.setText(""+tbtipo.incrementaREG());
                     DocumentoDTO xdoc = new DocumentoDTO();
                     xdoc.setNroRegistro(txtNroRegistro.getText());
