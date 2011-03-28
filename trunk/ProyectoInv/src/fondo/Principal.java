@@ -145,9 +145,10 @@ public class Principal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,
                             "Bienvenido " + objE.getUsuario() + "  " + objE.getPassword(),
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    CIP=txtusuario.getText();
                     btnaceptar.setVisible(false);
                     Cargando.setVisible(true);
-                    new DocOrigen().setVisible(true);
+                    new DocOrigen().setVisible(true);                   
                     this.dispose();
                     
                 } else {
@@ -162,7 +163,7 @@ public class Principal extends javax.swing.JFrame {
         }
         nombusuario = txtusuario.getText();
         password = txtcontraseña.getText();
-        CIP=txtusuario.getText();
+   
 }//GEN-LAST:event_btnaceptarActionPerformed
 
     public static void main(String args[]) {

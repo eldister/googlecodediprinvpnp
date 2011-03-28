@@ -20,8 +20,6 @@ import dto.departamentoDTO;
 import dto.distritoDTO;
 import dto.provinciaDTO;
 import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -30,7 +28,6 @@ import javax.swing.JOptionPane;
 
 public class PIP extends javax.swing.JFrame {
 
-    private GraphicsDevice gd = null;
     public static String departamento;
     public static String distrito;
     public static String provincia;
@@ -87,6 +84,9 @@ public class PIP extends javax.swing.JFrame {
         txtNombDepart.setEditable(false);
         txtNombDist.setEditable(false);
         txtNombProv.setEditable(false);
+
+        txtCIPUFPIPprf.setEditable(false);
+        txtCIPUiFPIPpr.setEditable(false);
     }
 
     private void Invisible() {
@@ -98,12 +98,7 @@ public class PIP extends javax.swing.JFrame {
         txtNombProv.setVisible(false);
         txtCodNE.setVisible(false);
         txtCodNC.setVisible(false);
-        txtCIPUFPIPprf.setVisible(false);
-        txtCIPUiFPIPpr.setVisible(false);
         txtNivEstudio.setVisible(false);
-        txtCIPUEPIP.setVisible(false);
-        txtCIPUiFPIPpr.setVisible(false);
-        txtCIPUEPIP.setVisible(false);
         txtNivCali.setVisible(false);
         txtCodSituPIP.setVisible(false);
         txtCodPIP.setVisible(false);
@@ -118,9 +113,11 @@ public class PIP extends javax.swing.JFrame {
         txtcomisaria.setEditable(false);
         txtdireccion.setEditable(false);
         txtSuper.setEditable(false);
+
         txtSecUEPIP.setEditable(false);
         txtCIPUEPIP.setEditable(false);
         txtCIPUFPIPprf.setEditable(false);
+
         txtCapa.setEditable(false);
         txtEquipa.setEditable(false);
         txtEstudios.setEditable(false);
@@ -154,6 +151,7 @@ public class PIP extends javax.swing.JFrame {
         txtdivision.setText("");
         txtcomisaria.setText("");
         txtdireccion.setText("");
+        txtCIPUiFPIPpr.setText("");
         txtSuper.setText("");
         txtSecUEPIP.setText("");
         txtCIPUEPIP.setText("");
@@ -176,6 +174,7 @@ public class PIP extends javax.swing.JFrame {
         txtObras.setText("");
         txtOtros.setText("");
         txtNombDepart.setText("");
+        txtNombreUE.setText("");
         txtNombDist.setText("");
         txtNombProv.setText("");
         txtGradoUFPRF.setText("");
@@ -193,8 +192,10 @@ public class PIP extends javax.swing.JFrame {
         txtdireccion.setEditable(true);
         txtSuper.setEditable(true);
         txtSecUEPIP.setEditable(true);
+
         txtCIPUEPIP.setEditable(true);
         txtCIPUFPIPprf.setEditable(true);
+        txtCIPUiFPIPpr.setEditable(true);  
         txtCapa.setEditable(true);
         txtEquipa.setEditable(true);
         txtEstudios.setEditable(true);
@@ -224,10 +225,12 @@ public class PIP extends javax.swing.JFrame {
         cboNivEstu.setVisible(true);
         cboSituPIP.setVisible(true);
 
+
         txtNombDepart.setVisible(false);
         txtNombDist.setVisible(false);
         txtNombProv.setVisible(false);
         txtNivCali.setVisible(false);
+  
         txtNivEstudio.setVisible(false);
         lblSituacion.setVisible(false);
     }
@@ -1733,6 +1736,9 @@ public class PIP extends javax.swing.JFrame {
         btnNuevo.setEnabled(true);
         btnCancelar.setEnabled(false);
         btnGrabar.setEnabled(false);
+        lblSituacion.setVisible(false);
+        cboSituPIP.setEnabled(false);
+        cboSituPIP.setVisible(true);
 
 }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -1891,6 +1897,10 @@ public class PIP extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         acticaBotones(false, false, true, false, true, false);
         Editable();
+        cboSituPIP.setEnabled(true);
+        txtCIPUFPIPprf.setEditable(false);
+        txtCIPUiFPIPpr.setEditable(false);
+        txtCIPUEPIP.setEditable(false);
         int xx = Integer.parseInt(txtPruebaNRO1.getText());
         int yy = xx + 1;
         txtCodPIP.setText("" + yy);
@@ -1905,12 +1915,11 @@ public class PIP extends javax.swing.JFrame {
             PipDTO objPIP = pd.buscar(bpip);
             if (objPIP != null) {
                 txtCodPIP.setText(objPIP.getCod_PIP());
-                //Lee
+
                 txtCodSnip.setText(objPIP.getSNIP());
                 txtFechSnip.setText(objPIP.getFechSNIP().toString());
                 txtnombProy.setText(objPIP.getNom_Proinv());
-                //Fin de Leer
-                //Lee
+
                 txtNombDepart.setText(objPIP.getCod_Dpto().getNombreDpto());
                 txtNombProv.setText(objPIP.getCod_Prov().getNombreProv());
                 txtNombDist.setText(objPIP.getCod_Dist().getNombreDIS());
@@ -1919,8 +1928,7 @@ public class PIP extends javax.swing.JFrame {
                 txtdivision.setText(objPIP.getDivisionPNP());
                 txtcomisaria.setText(objPIP.getComisaria());
                 txtotros.setText(objPIP.getOtrosPNP());
-                //Fin de Leer
-                //Lee
+
                 txtEstudios.setText(objPIP.getEst_ExpTec().toString());
                 txtObras.setText(objPIP.getObra_Civ().toString());
                 txtSuper.setText(objPIP.getSupervision().toString());
@@ -1928,18 +1936,11 @@ public class PIP extends javax.swing.JFrame {
                 txtCapa.setText(objPIP.getCapacitacion().toString());
                 txtOtros.setText(objPIP.getOtros_Imp().toString());
                 txtFuente.setText(objPIP.getFuente_Fina().toString());
-                //Fin de Leer
 
                 lblSituacion.setText(objPIP.getSituacion().getDes_SituPIP());
 
-                //  txtSeUFP.setText(objPIP.get)
-                //  txtPliUFPIP.setText(objPIP.get);
-                //  txtNomUFPIP.setText(objPIP.get)
-
-                //Lee
                 txtNivEstudio.setText(objPIP.getCod_NivEstPIP().getDesc_NivPIP());
                 txtNivCali.setText(objPIP.getCod_NivCaliPIP().getDesc_NivCaliPIP());
-                //Fin de Leer
 
                 cboSituPIP.setVisible(false);
                 cboNivEstu.setVisible(false);
@@ -1954,8 +1955,9 @@ public class PIP extends javax.swing.JFrame {
                 txtNombDepart.setVisible(true);
                 txtNombDist.setVisible(true);
                 txtNombProv.setVisible(true);
+                lblSituacion.setVisible(true);
 
-                primerRegistro();
+             //   primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2021,7 +2023,7 @@ public class PIP extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                //    primerRegistro();
+                primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2040,12 +2042,12 @@ public class PIP extends javax.swing.JFrame {
                 txtNomUFPR.setText(objDoc.getPassword());
                 JOptionPane.showMessageDialog(this, "Exito, CIP encontrado satisfactoriamente",
                         "Felicitaciones", 1);
-                cboSituPIP.setVisible(false);
-                cboSituPIP.setEnabled(false);
+               
+
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                //   primerRegistro();
+                   primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2059,7 +2061,7 @@ public class PIP extends javax.swing.JFrame {
             dc.cargarLogin();
             LoginDTO objDoc = dc.buscar1(bus);
             if (objDoc != null) {
-                txtCIPUEPIP.setText(bus);
+                txtCIPUFPIPprf.setText(bus);
                 txtGradoUFPRF.setText(objDoc.getUsuario());
                 txtNomUFPRF.setText(objDoc.getPassword());
                 JOptionPane.showMessageDialog(this, "Exito, CIP encontrado satisfactoriamente",
