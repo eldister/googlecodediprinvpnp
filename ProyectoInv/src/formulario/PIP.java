@@ -57,11 +57,11 @@ public class PIP extends javax.swing.JFrame {
         centrar();
     }
 
-      public void centrar() {
+    public void centrar() {
         Dimension pantallaTamano = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize((pantallaTamano.width), (pantallaTamano.height));
         Dimension tamanoPanel = jPanel2.getSize();
-        jPanel2.setBounds((pantallaTamano.width-tamanoPanel.width) / 2, (pantallaTamano.height - tamanoPanel.height) / 2, (int) tamanoPanel.getWidth(), (int) tamanoPanel.getHeight());
+        jPanel2.setBounds((pantallaTamano.width - tamanoPanel.width) / 2, (pantallaTamano.height - tamanoPanel.height) / 2, (int) tamanoPanel.getWidth(), (int) tamanoPanel.getHeight());
     }
 
     private void acticaBotones(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f) {
@@ -84,6 +84,9 @@ public class PIP extends javax.swing.JFrame {
         txtNombDepart.setEditable(false);
         txtNombDist.setEditable(false);
         txtNombProv.setEditable(false);
+        btnBuscar.setEnabled(false);
+        btnBuscar2.setEnabled(false);
+        btnBuscar4.setEnabled(false);
 
         txtCIPUFPIPprf.setEditable(false);
         txtCIPUiFPIPpr.setEditable(false);
@@ -101,7 +104,6 @@ public class PIP extends javax.swing.JFrame {
         txtNivEstudio.setVisible(false);
         txtNivCali.setVisible(false);
         txtCodSituPIP.setVisible(false);
-        txtCodPIP.setVisible(false);
         txtPruebaNRO1.setVisible(false);
     }
 
@@ -135,12 +137,14 @@ public class PIP extends javax.swing.JFrame {
         txtPliUEPIP.setEditable(false);
         txtObras.setEditable(false);
         txtOtros.setEditable(false);
+        txtCodPIP.setEditable(false);
         cboDepar.setEnabled(false);
         cboNivCalifi.setEnabled(false);
         cboNivEstu.setEnabled(false);
         cboSituPIP.setEnabled(false);
         cbodistri.setEnabled(false);
         cboprovin.setEnabled(false);
+
     }
 
     public void Limpiar() {
@@ -195,7 +199,7 @@ public class PIP extends javax.swing.JFrame {
 
         txtCIPUEPIP.setEditable(true);
         txtCIPUFPIPprf.setEditable(true);
-        txtCIPUiFPIPpr.setEditable(true);  
+        txtCIPUiFPIPpr.setEditable(true);
         txtCapa.setEditable(true);
         txtEquipa.setEditable(true);
         txtEstudios.setEditable(true);
@@ -211,6 +215,7 @@ public class PIP extends javax.swing.JFrame {
         txtPliUEPIP.setEditable(true);
         txtObras.setEditable(true);
         txtOtros.setEditable(true);
+        txtCodPIP.setEditable(true);
 
         cboDepar.setEnabled(true);
         cbodistri.setEnabled(true);
@@ -230,7 +235,7 @@ public class PIP extends javax.swing.JFrame {
         txtNombDist.setVisible(false);
         txtNombProv.setVisible(false);
         txtNivCali.setVisible(false);
-  
+
         txtNivEstudio.setVisible(false);
         lblSituacion.setVisible(false);
     }
@@ -262,6 +267,10 @@ public class PIP extends javax.swing.JFrame {
             txtNivEstudio.setText(vPip.firstElement().getCod_NivEstPIP().getDesc_NivPIP());
             txtNivCali.setText(vPip.firstElement().getCod_NivCaliPIP().getDesc_NivCaliPIP());
 
+            buscarCIP_UFPRF();
+            buscarCIP_UFPR();
+            buscarCIP_UEPR();
+
             cargarSituacion();
             cargarUniForPRF();
             cargarUniForPR();
@@ -269,58 +278,55 @@ public class PIP extends javax.swing.JFrame {
             cargarUniEjePR();
             cargarUNIPIP();
 
-            buscarCIP_UFPRF();
-            buscarCIP_UFPR();
-            buscarCIP_UEPR();
+
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
     }
 
-
-    private void buscarCIP_UFPRF(){
+    private void buscarCIP_UFPRF() {
         try {
             String xx = txtCIPUFPIPprf.getText();
             LoginDAO x1 = new LoginDAO();
             x1.cargarLogin();
             LoginDTO obX1 = x1.buscar1(xx);
-            if(obX1 != null){
+            if (obX1 != null) {
                 txtGradoUFPRF.setText(obX1.getUsuario());
                 txtNomUFPRF.setText(obX1.getPassword());
             }
 
         } catch (SQLException ex) {
-              System.out.println(ex.toString());
+            System.out.println(ex.toString());
         }
     }
 
-     private void buscarCIP_UFPR(){
+    private void buscarCIP_UFPR() {
         try {
             String xy = txtCIPUiFPIPpr.getText();
             LoginDAO x2 = new LoginDAO();
             x2.cargarLogin();
             LoginDTO obY2 = x2.buscar1(xy);
-            if(obY2 != null){
+            if (obY2 != null) {
                 txtGradoUFPR.setText(obY2.getUsuario());
                 txtNomUFPR.setText(obY2.getPassword());
             }
         } catch (SQLException ex) {
-             System.out.println(ex.toString());
+            System.out.println(ex.toString());
         }
     }
 
-    private void buscarCIP_UEPR(){
+    private void buscarCIP_UEPR() {
         try {
             String xZ = txtCIPUEPIP.getText();
             LoginDAO x3 = new LoginDAO();
             x3.cargarLogin();
             LoginDTO obZ3 = x3.buscar1(xZ);
-            if(obZ3 != null){
+            if (obZ3 != null) {
                 txtGrado.setText(obZ3.getUsuario());
                 txtNombreUE.setText(obZ3.getPassword());
             }
         } catch (SQLException ex) {
-             System.out.println(ex.toString());
+            System.out.println(ex.toString());
         }
     }
 
@@ -392,6 +398,7 @@ public class PIP extends javax.swing.JFrame {
         }
     }
 //bien
+
     private void cargarSituacion() {
         try {
             Tb_SituPIPDAO tb_si = new Tb_SituPIPDAO();
@@ -404,6 +411,7 @@ public class PIP extends javax.swing.JFrame {
         }
     }
 //bien
+
     private void cargarUNIPIP() {
         try {
             UniproyectosDAO uni = new UniproyectosDAO();
@@ -435,6 +443,7 @@ public class PIP extends javax.swing.JFrame {
         }
     }
 //bien
+
     private void cargarUniForPR() {
         try {
             UniproyectosDAO uFE = new UniproyectosDAO();
@@ -450,6 +459,7 @@ public class PIP extends javax.swing.JFrame {
         }
     }
 //bien
+
     private void cargarUniEjePR() {
         try {
             UniproyectosDAO uFE = new UniproyectosDAO();
@@ -467,8 +477,6 @@ public class PIP extends javax.swing.JFrame {
             System.out.println(ex.toString());
         }
     }
-
- 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -577,13 +585,14 @@ public class PIP extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         txtFechSnip = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        txtCodPIP = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtPruebaNRO1 = new javax.swing.JTextField();
         txtCodDist = new javax.swing.JTextField();
         txtCodProv = new javax.swing.JTextField();
         txtCodDep = new javax.swing.JTextField();
         txtnombProy = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtCodPIP = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -686,7 +695,7 @@ public class PIP extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -1060,36 +1069,42 @@ public class PIP extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel17.setText("Estudios/Ex. Tec.");
 
+        txtEstudios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtEstudios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstudiosActionPerformed(evt);
             }
         });
 
+        txtObras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtObras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtObrasActionPerformed(evt);
             }
         });
 
+        txtSuper.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtSuper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSuperActionPerformed(evt);
             }
         });
 
+        txtEquipa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtEquipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEquipaActionPerformed(evt);
             }
         });
 
+        txtCapa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCapaActionPerformed(evt);
             }
         });
 
+        txtOtros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtOtros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOtrosActionPerformed(evt);
@@ -1098,6 +1113,8 @@ public class PIP extends javax.swing.JFrame {
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel46.setText("Fuente de Financiamiento");
+
+        txtFuente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1534,7 +1551,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel18.setText("Nom. Proyecto");
 
-        txtFechSnip.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtFechSnip.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtFechSnip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechSnipActionPerformed(evt);
@@ -1544,8 +1561,6 @@ public class PIP extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel24.setText("Fecha del SNIP");
 
-        txtCodPIP.setFont(new java.awt.Font("Tahoma", 0, 14));
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel2.setText("REGISTRO DE PROYECTO DE INVERSION");
 
@@ -1553,7 +1568,17 @@ public class PIP extends javax.swing.JFrame {
         txtPruebaNRO1.setBorder(null);
         txtPruebaNRO1.setOpaque(false);
 
-        txtnombProy.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtnombProy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Nro. Registro PIP:");
+
+        txtCodPIP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodPIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodPIPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1567,12 +1592,14 @@ public class PIP extends javax.swing.JFrame {
                             .addComponent(txtCodProv, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCodDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCodDist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(176, 176, 176)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(137, 137, 137))
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(176, 176, 176)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(353, 353, 353)
+                                .addComponent(txtPruebaNRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1585,11 +1612,10 @@ public class PIP extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtFechSnip, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtnombProy, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(10, 10, 10)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(162, 162, 162)
-                        .addComponent(txtPruebaNRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCodPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1616,9 +1642,10 @@ public class PIP extends javax.swing.JFrame {
                                 .addGap(11, 11, 11)
                                 .addComponent(jLabel14))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtCodPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                                 .addComponent(txtFechSnip, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                                .addComponent(jLabel24)))
+                                .addComponent(jLabel24)
+                                .addComponent(jLabel1)
+                                .addComponent(txtCodPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
@@ -1691,6 +1718,7 @@ public class PIP extends javax.swing.JFrame {
         }
     }
 //bien
+
     private void cargarNivEstPIP() {
         try {
             Tb_NivEstPIPDAO tb_Niv = new Tb_NivEstPIPDAO();
@@ -1703,6 +1731,7 @@ public class PIP extends javax.swing.JFrame {
         }
     }
 //bien
+
     private void cargarNivCaliPIP() {
         try {
             Tb_NivCaliPIPDAO tb_NivCali = new Tb_NivCaliPIPDAO();
@@ -1743,25 +1772,25 @@ public class PIP extends javax.swing.JFrame {
 }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-      try {
+        try {
             PipDAO tbpip = new PipDAO();
             tbpip.cargarPIP();
             PipDTO pip = tbpip.buscar(txtCodPIP.getText());
-            if(pip == null){
+            if (pip == null) {
                 PipDTO xpip = new PipDTO();
                 xpip.setCod_PIP(txtCodPIP.getText());
                 xpip.setSNIP(txtCodSnip.getText());
                 xpip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
                 xpip.setNom_Proinv(txtnombProy.getText());
-                
+
                 departamentoDTO tde = new departamentoDTO();
                 tde.setCod_Dpto(txtCodDep.getText());
                 xpip.setCod_Dpto(tde);
-                
+
                 provinciaDTO tpro = new provinciaDTO();
                 tpro.setCod_Prov(txtCodProv.getText());
                 xpip.setCod_Prov(tpro);
-                            
+
                 distritoDTO tdis = new distritoDTO();
                 tdis.setCod_dist(txtCodDist.getText());
                 xpip.setCod_Dist(tdis);
@@ -1783,7 +1812,7 @@ public class PIP extends javax.swing.JFrame {
                 Tb_NivCaliPIP tnCa = new Tb_NivCaliPIP();
                 tnCa.setCod_NivCaliPIP(txtCodNC.getText());
                 xpip.setCod_NivCaliPIP(tnCa);
-                
+
                 Tb_SituPIP tbs = new Tb_SituPIP();
                 tbs.setCod_SituPIP(txtCodSituPIP.getText());
                 xpip.setSituacion(tbs);
@@ -1795,13 +1824,13 @@ public class PIP extends javax.swing.JFrame {
                         "Datos guardados satisfactoriamente 5555555",
                         "Exito", 1);
                 lblSituacion.setVisible(true);
-            }else{
-               PipDTO apip = new PipDTO();
+            } else {
+                PipDTO apip = new PipDTO();
                 apip.setCod_PIP(txtCodPIP.getText());
                 apip.setSNIP(txtCodSnip.getText());
                 apip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
                 apip.setNom_Proinv(txtnombProy.getText());
-                
+
                 departamentoDTO td = new departamentoDTO();
                 td.setCod_Dpto(txtCodDep.getText());
                 apip.setCod_Dpto(td);
@@ -1901,6 +1930,9 @@ public class PIP extends javax.swing.JFrame {
         txtCIPUFPIPprf.setEditable(false);
         txtCIPUiFPIPpr.setEditable(false);
         txtCIPUEPIP.setEditable(false);
+        btnBuscar.setEnabled(true);
+        btnBuscar2.setEnabled(true);
+        btnBuscar4.setEnabled(true);
         int xx = Integer.parseInt(txtPruebaNRO1.getText());
         int yy = xx + 1;
         txtCodPIP.setText("" + yy);
@@ -1956,8 +1988,6 @@ public class PIP extends javax.swing.JFrame {
                 txtNombDist.setVisible(true);
                 txtNombProv.setVisible(true);
                 lblSituacion.setVisible(true);
-
-             //   primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2010,7 +2040,7 @@ public class PIP extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            String bus = JOptionPane.showInputDialog(null, "Ingrese Numero de CIP a buscar....", "Buscar Numero de CIP", JOptionPane.INFORMATION_MESSAGE);
+            String bus = JOptionPane.showInputDialog(null, "Ingrese Numero de CIP a buscar...", "Buscar Numero de CIP", JOptionPane.INFORMATION_MESSAGE);
             LoginDAO dc = new LoginDAO();
             dc.cargarLogin();
             LoginDTO objDoc = dc.buscar1(bus);
@@ -2042,12 +2072,12 @@ public class PIP extends javax.swing.JFrame {
                 txtNomUFPR.setText(objDoc.getPassword());
                 JOptionPane.showMessageDialog(this, "Exito, CIP encontrado satisfactoriamente",
                         "Felicitaciones", 1);
-               
+
 
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                   primerRegistro();
+                primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2069,7 +2099,7 @@ public class PIP extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                    primerRegistro();
+                primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2190,6 +2220,10 @@ public class PIP extends javax.swing.JFrame {
         txtSeUFPIP.requestFocus();
     }//GEN-LAST:event_txtotrosActionPerformed
 
+    private void txtCodPIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodPIPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodPIPActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
@@ -2215,6 +2249,7 @@ public class PIP extends javax.swing.JFrame {
     private javax.swing.JComboBox cboSituPIP;
     private javax.swing.JComboBox cbodistri;
     private javax.swing.JComboBox cboprovin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
