@@ -516,13 +516,13 @@ public class DocOrigen extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
+        jMenuBar1.setBackground(new java.awt.Color(51, 204, 255));
         jMenuBar1.setForeground(new java.awt.Color(1, 1, 1));
-        jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 18));
+        jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jMenu1.setBackground(new java.awt.Color(153, 153, 255));
+        jMenu1.setBackground(new java.awt.Color(51, 204, 255));
         jMenu1.setText("MENU PRINCIPAL");
-        jMenu1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 16));
+        jMenu1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 16)); // NOI18N
 
         jMenu17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ventana.png"))); // NOI18N
         jMenu17.setText("MODULO DE FORMULACION");
@@ -586,9 +586,9 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu9.setBackground(new java.awt.Color(153, 153, 255));
+        jMenu9.setBackground(new java.awt.Color(51, 204, 255));
         jMenu9.setText("MODULO DE FORMULACION");
-        jMenu9.setFont(new java.awt.Font("Segoe UI", 0, 16));
+        jMenu9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jMenu23.setText("Documento de Origen");
         jMenu23.setFont(new java.awt.Font("Segoe UI", 0, 14));
@@ -619,14 +619,14 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu9);
 
-        jMenu10.setBackground(new java.awt.Color(153, 153, 255));
+        jMenu10.setBackground(new java.awt.Color(51, 204, 255));
         jMenu10.setText("MODULO DE SEGUIMIENTO");
-        jMenu10.setFont(new java.awt.Font("Segoe UI", 0, 16));
+        jMenu10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuBar1.add(jMenu10);
 
-        jMenu2.setBackground(new java.awt.Color(153, 153, 255));
+        jMenu2.setBackground(new java.awt.Color(51, 204, 255));
         jMenu2.setText("MODULO DE MANTENIMIENTO");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 16));
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenu2.setHideActionText(true);
 
         jMenu13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario-gray-icono-8922-16.png"))); // NOI18N
