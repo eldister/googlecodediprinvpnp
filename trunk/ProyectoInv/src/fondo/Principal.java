@@ -16,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
 
     public static String nombusuario;
     public static String password;
+    public static String CIP;
 
     public Principal() {
         initComponents();
@@ -148,6 +149,7 @@ public class Principal extends javax.swing.JFrame {
                     Cargando.setVisible(true);
                     new DocOrigen().setVisible(true);
                     this.dispose();
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "Sus datos son incorrectos, Revisalo ");
                     txtcontraseña.setText("");
@@ -160,6 +162,7 @@ public class Principal extends javax.swing.JFrame {
         }
         nombusuario = txtusuario.getText();
         password = txtcontraseña.getText();
+        CIP=txtusuario.getText();
 }//GEN-LAST:event_btnaceptarActionPerformed
 
     public static void main(String args[]) {
