@@ -41,9 +41,8 @@ public class DocOrigen extends javax.swing.JFrame {
         tabla.setVisible(false);
         txtCIP.setText(Principal.CIP);
         txtCIP.setVisible(false);
-        centrar();
-        txtCIP.setVisible(false);
-
+        centrar();        
+        ultimoRegistro();
     }
 
      public void centrar() {
@@ -69,7 +68,6 @@ public class DocOrigen extends javax.swing.JFrame {
         txtSiglas.setText(null);
         txtNroDoc.setText(null);
     }
-
 
     private void cargarComboTipoDoc() {
         try {
@@ -227,7 +225,7 @@ public class DocOrigen extends javax.swing.JFrame {
         DocOrigenPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DOCUMENTO DE ORIGEN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         DocOrigenPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda-de-archivos-de-documentos-de-zoom-icono-4140-16.png"))); // NOI18N
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +236,7 @@ public class DocOrigen extends javax.swing.JFrame {
         DocOrigenPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, 31));
 
         txtSiglas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtSiglas.setForeground(new java.awt.Color(0, 0, 153));
         txtSiglas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSiglasActionPerformed(evt);
@@ -246,16 +245,19 @@ public class DocOrigen extends javax.swing.JFrame {
         DocOrigenPanel.add(txtSiglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 112, 31));
 
         txtFecha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtFecha.setForeground(new java.awt.Color(0, 0, 153));
         DocOrigenPanel.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 112, 31));
 
         txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCodTipDoc.setForeground(new java.awt.Color(0, 0, 153));
         DocOrigenPanel.add(txtCodTipDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 112, 30));
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel15.setText("Siglas:");
         DocOrigenPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 169, 50, -1));
 
-        cbotipdoc.setFont(new java.awt.Font("Tahoma", 0, 14));
+        cbotipdoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cbotipdoc.setForeground(new java.awt.Color(0, 0, 153));
         cbotipdoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbotipdocActionPerformed(evt);
@@ -263,11 +265,12 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         DocOrigenPanel.add(cbotipdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 112, 30));
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel17.setText("Nro. de Doc.:");
         DocOrigenPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 76, -1, 27));
 
         txtNroDoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNroDoc.setForeground(new java.awt.Color(0, 0, 153));
         txtNroDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNroDocActionPerformed(evt);
@@ -275,18 +278,18 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         DocOrigenPanel.add(txtNroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 110, 31));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setText("Tipo de Doc.:");
         DocOrigenPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 121, -1, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Nro. de Registro:");
         DocOrigenPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 48, -1, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
         btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +299,7 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         jPanel5.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 140, 30));
 
-        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
         btnModificar.setText("MODIFICAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -306,7 +309,7 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         jPanel5.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 140, 30));
 
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/deletered-icono-4373-16.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +319,7 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         jPanel5.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 140, 30));
 
-        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir-de-mi-perfil-icono-3964-16.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +329,7 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 140, 30));
 
-        btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/archivos-icono-9268-16.png"))); // NOI18N
         btnNuevo.setText(" NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -338,11 +341,12 @@ public class DocOrigen extends javax.swing.JFrame {
 
         DocOrigenPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 316, 740, 50));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setText("Fecha:");
         DocOrigenPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 211, 50, -1));
 
         txtNroRegistro.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNroRegistro.setForeground(new java.awt.Color(0, 0, 153));
         txtNroRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNroRegistroActionPerformed(evt);
@@ -350,11 +354,11 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         DocOrigenPanel.add(txtNroRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 110, 31));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel13.setText("AAAA-MM-DD");
         DocOrigenPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 90, 20));
 
-        btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnAsignarTDR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Bar Chart.png"))); // NOI18N
         btnAsignarTDR.setText("ASIGNAR TERMINO DE REFERENCIA");
         btnAsignarTDR.addActionListener(new java.awt.event.ActionListener() {
@@ -364,7 +368,7 @@ public class DocOrigen extends javax.swing.JFrame {
         });
         DocOrigenPanel.add(btnAsignarTDR, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 361, 36));
 
-        btnMostrarLista.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnMostrarLista.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnMostrarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/documento.png"))); // NOI18N
         btnMostrarLista.setText("MOSTRAR LISTA");
         btnMostrarLista.addActionListener(new java.awt.event.ActionListener() {
@@ -375,6 +379,7 @@ public class DocOrigen extends javax.swing.JFrame {
         DocOrigenPanel.add(btnMostrarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 33, 253, 32));
 
         tabla.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tabla.setForeground(new java.awt.Color(0, 0, 153));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -654,21 +659,18 @@ public class DocOrigen extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
             }
-        }
-        //LimpiaCajas();
-        //NoMostrarDatos();
-        //txtCodTipDoc.setVisible(true);
+        }       
 }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         if (btnModificar.isEnabled()) {
-            activaBotones(true, false, true, false, false, true);
-        }
-        MostrarDatos();
-        txtNroDoc.requestFocus();
-        txtCodTipDoc.setVisible(false);
-        cbotipdoc.setVisible(true);
-        cbotipdoc.setSelectedItem(txtCodTipDoc.getText());
+            activaBotones(false, false, true, false, false, true);
+            MostrarDatos();
+            txtNroDoc.requestFocus();
+            txtCodTipDoc.setVisible(false);
+            cbotipdoc.setVisible(true);
+            cbotipdoc.setSelectedItem(txtCodTipDoc.getText());
+        }       
 }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -719,15 +721,13 @@ public class DocOrigen extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         if (btnNuevo.isEnabled()) {
-            activaBotones(false, false, true, false, false, true);            
+            activaBotones(false, false, true, false, false, true);
             MostrarDatos();
             LimpiaCajas();            
             txtNroDoc.requestFocus();
             cbotipdoc.setVisible(true);
             cbotipdoc.setSelectedIndex(0);
             txtCodTipDoc.setVisible(false);
-
-
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
