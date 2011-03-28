@@ -103,6 +103,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setBounds(220, 340, 97, 41);
 
         btnaceptar.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bloqueo-icono-8472-16.png"))); // NOI18N
         btnaceptar.setText("Iniciar Sesion");
         btnaceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,16 +142,15 @@ public class Principal extends javax.swing.JFrame {
                 btnaceptar.setVisible(false);
                 LoginDTO objE = log.validar(txtusuario.getText(), txtcontraseña.getText());
                 if (objE != null) {
-
                     JOptionPane.showMessageDialog(this,
                             "Bienvenido " + objE.getUsuario() + "  " + objE.getPassword(),
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                     CIP=txtusuario.getText();
                     btnaceptar.setVisible(false);
                     Cargando.setVisible(true);
-                    new DocOrigen().setVisible(true);                   
-                    this.dispose();
-                    
+                    dispose();
+                    new DocOrigen().setVisible(true);                 
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Sus datos son incorrectos, Revisalo ");
                     txtcontraseña.setText("");
@@ -161,14 +161,14 @@ public class Principal extends javax.swing.JFrame {
                 System.out.println(ex.toString());
             }
         }
-        nombusuario = txtusuario.getText();
+        nombusuario = txtusuario.getText();        
         password = txtcontraseña.getText();
    
+
 }//GEN-LAST:event_btnaceptarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             public void run() {
                 new Principal().setVisible(true);
             }
