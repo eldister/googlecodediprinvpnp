@@ -14,11 +14,9 @@ import org.jvnet.substance.button.StandardButtonShaper;
 import org.jvnet.substance.watermark.SubstanceImageWatermark;
 
 public class Principal extends javax.swing.JFrame {
-
     private GraphicsDevice gd = null;
     public static String nombusuario;
     public static String password;
-
 
     public Principal() {
         initComponents();
@@ -143,7 +141,6 @@ public class Principal extends javax.swing.JFrame {
 }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
-
         if ((txtusuario.getText().isEmpty()) || (txtcontraseña.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
         } else {
@@ -160,8 +157,9 @@ public class Principal extends javax.swing.JFrame {
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                     btnaceptar.setVisible(false);
                     Cargando.setVisible(true);
-                    new DocOrigen().setVisible(true);
+                    nombusuario = txtusuario.getText();
                     this.dispose();
+                    new DocOrigen().setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Sus datos son incorrectos, Revisalo ");
                     txtcontraseña.setText("");
@@ -171,14 +169,13 @@ public class Principal extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
             }
-        }
-        nombusuario = txtusuario.getText();
+        }        
         password = txtcontraseña.getText();
+        
 }//GEN-LAST:event_btnaceptarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             public void run() {
                 new Principal().setVisible(true);
             }

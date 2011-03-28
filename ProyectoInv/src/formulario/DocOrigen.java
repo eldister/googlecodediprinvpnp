@@ -4,11 +4,14 @@ import dao.DocumentosDAO;
 import dao.TipDocDAO;
 import dto.DocumentoDTO;
 import dto.TipDocDTO;
+import fondo.Principal;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -36,8 +39,10 @@ public class DocOrigen extends javax.swing.JFrame {
         PantallaCompleta();
         NoMostrarDatos();
         cargarComboTipoDoc();
-        activaBotones(true, false, false, false, true, false);
+        activaBotones(true, true, false, true, true, false);
         tabla.setVisible(false);
+        ultimoRegistro();
+        txtCIP.setText(Principal.nombusuario);        
     }
 
     public void activaBotones(boolean a, boolean b, boolean c, boolean d, boolean e, boolean f) {
@@ -50,11 +55,11 @@ public class DocOrigen extends javax.swing.JFrame {
     }
 
     public void LimpiaCajas() {
-        txtCodTipDoc.setText("");
-        txtFecha.setText("");
-        txtNroRegistro.setText("");
-        txtSiglas.setText("");
-        txtNroDoc.setText("");
+        txtCodTipDoc.setText(null);
+        txtFecha.setText(null);
+        txtNroRegistro.setText(null);
+        txtSiglas.setText(null);
+        txtNroDoc.setText(null);
     }
 
     public void PantallaCompleta() {
@@ -90,8 +95,7 @@ public class DocOrigen extends javax.swing.JFrame {
         txtFecha.setEditable(false);
         txtSiglas.setEditable(false);
         txtNroDoc.setEditable(false);
-        cbotipdoc.setEnabled(false);
-        txtCodTipDoc.setVisible(false);
+        cbotipdoc.setEnabled(false);        
         txtNroRegistro.setEditable(false);
     }
 
@@ -101,6 +105,23 @@ public class DocOrigen extends javax.swing.JFrame {
         txtNroDoc.setEditable(true);
         txtSiglas.setEditable(true);
         cbotipdoc.setEnabled(true);
+    }
+
+    private void ultimoRegistro(){
+        try {
+            DocumentosDAO buscado = new DocumentosDAO();
+            buscado.cargarDocumentos();
+            int xx = buscado.incrementaREG();
+            int yy = xx - 1;            
+            DocumentoDTO objEnc = buscado.buscar(""+yy);
+                txtNroRegistro.setText(objEnc.getNroRegistro());
+                txtCodTipDoc.setText(objEnc.getCTip_Doc().getTDoc());                
+                txtNroDoc.setText(objEnc.getNro_Doc());
+                txtSiglas.setText(objEnc.getSiglas());
+                txtFecha.setText(objEnc.getFechReg().toString());
+        } catch (SQLException ex) {
+            Logger.getLogger(DocOrigen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -144,6 +165,7 @@ public class DocOrigen extends javax.swing.JFrame {
         btnMostrarLista = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        txtCIP = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu17 = new javax.swing.JMenu();
@@ -191,7 +213,7 @@ public class DocOrigen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
         setResizable(false);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -209,20 +231,20 @@ public class DocOrigen extends javax.swing.JFrame {
         jPanel3.add(lblImagenEscudo1);
         lblImagenEscudo1.setBounds(0, 0, 120, 100);
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(300, 0, 760, 100);
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 760, 100));
 
         DocOrigenPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DOCUMENTO DE ORIGEN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         DocOrigenPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
+        btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 33, 39, 31));
+        DocOrigenPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 33, 110, 31));
 
         txtSiglas.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtSiglas.addActionListener(new java.awt.event.ActionListener() {
@@ -233,10 +255,10 @@ public class DocOrigen extends javax.swing.JFrame {
         DocOrigenPanel.add(txtSiglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 159, 107, 31));
 
         txtFecha.setFont(new java.awt.Font("Tahoma", 0, 14));
-        DocOrigenPanel.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 201, 91, 31));
+        DocOrigenPanel.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 201, 110, 31));
 
         txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 0, 14));
-        DocOrigenPanel.add(txtCodTipDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 118, 104, 30));
+        DocOrigenPanel.add(txtCodTipDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 110, 30));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel15.setText("Siglas:");
@@ -248,7 +270,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 cbotipdocActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(cbotipdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 117, 105, 30));
+        DocOrigenPanel.add(cbotipdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 110, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel17.setText("Nro. de Doc.:");
@@ -271,6 +293,7 @@ public class DocOrigen extends javax.swing.JFrame {
         DocOrigenPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 47, -1, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true)));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
@@ -280,6 +303,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
+        jPanel5.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 140, 30));
 
         btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
@@ -289,6 +313,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
+        jPanel5.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 140, 30));
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/deletered-icono-4373-16.png"))); // NOI18N
@@ -298,6 +323,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        jPanel5.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 140, 30));
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir-de-mi-perfil-icono-3964-16.png"))); // NOI18N
@@ -307,6 +333,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 140, 30));
 
         btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/manila-nuevo-icono-3676-16.png"))); // NOI18N
@@ -316,38 +343,9 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnNuevoActionPerformed(evt);
             }
         });
+        jPanel5.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 118, 30));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
-        );
-
-        DocOrigenPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 300, -1, -1));
+        DocOrigenPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 740, 50));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setText("Fecha:");
@@ -363,7 +361,7 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel13.setText("AAAA-MM-DD");
-        DocOrigenPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 215, -1, -1));
+        DocOrigenPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
 
         btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnAsignarTDR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/documento.png"))); // NOI18N
@@ -373,7 +371,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnAsignarTDRActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(btnAsignarTDR, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 404, 361, 36));
+        DocOrigenPanel.add(btnAsignarTDR, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 361, 36));
 
         btnMostrarLista.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnMostrarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/documento.png"))); // NOI18N
@@ -412,8 +410,8 @@ public class DocOrigen extends javax.swing.JFrame {
 
         DocOrigenPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 80, 642, 202));
 
-        getContentPane().add(DocOrigenPanel);
-        DocOrigenPanel.setBounds(170, 110, 1020, 460);
+        getContentPane().add(DocOrigenPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 1020, 460));
+        getContentPane().add(txtCIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 80, -1));
 
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
         jMenuBar1.setForeground(new java.awt.Color(1, 1, 1));
@@ -591,16 +589,14 @@ public class DocOrigen extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         if (btnBuscar.isEnabled()) {
-            activaBotones(true, true, false, true, false, true);
+            activaBotones(true, true, false, true, true, false);
             try {
-                String bus = JOptionPane.showInputDialog(null, "Ingrese Registro a buscar....","Buscar Registro", JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(""+bus);
+                String bus = JOptionPane.showInputDialog(null, "Ingrese Registro a buscar....","Buscar Registro", JOptionPane.INFORMATION_MESSAGE);                
                 DocumentosDAO tip = new DocumentosDAO();
                 tip.cargarDocumentos();
                 DocumentoDTO objDoc = tip.buscar(bus);                
                 if (objDoc != null) {
-                    txtNroRegistro.setText(objDoc.getNroRegistro());
-                    System.out.println(txtNroRegistro.getText());
+                    txtNroRegistro.setText(objDoc.getNroRegistro());                    
                     txtNroDoc.setText(objDoc.getNro_Doc());
                     txtCodTipDoc.setText(objDoc.getCTip_Doc().getTDoc());
                     txtSiglas.setText(objDoc.getSiglas());
@@ -611,7 +607,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "No se encuentra el registro",
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-                    LimpiaCajas();
+                    ultimoRegistro();
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
@@ -635,48 +631,41 @@ public class DocOrigen extends javax.swing.JFrame {
             activaBotones(true, false, false, false, true, false);
             try {
                 DocumentosDAO tbtipo = new DocumentosDAO();
-                tbtipo.cargarDocumentos();
-                DocumentoDTO doc = tbtipo.buscar(txtNroRegistro.getText());
-                if (doc == null) {
+                tbtipo.cargarDocumentos();                
+                if (txtNroRegistro.getText() == null){
+                    txtNroRegistro.setText(""+tbtipo.incrementaREG());
                     DocumentoDTO xdoc = new DocumentoDTO();
-
                     xdoc.setNroRegistro(txtNroRegistro.getText());
                     xdoc.setNro_Doc(txtNroDoc.getText());
                     xdoc.setSiglas(txtSiglas.getText());
                     xdoc.setFechReg(Date.valueOf(txtFecha.getText()));
-
-                    TipDocDTO tidoc = new TipDocDTO();
-                    tidoc.setCTip_Doc(txtCodTipDoc.getText());
-                    xdoc.setCTip_Doc(tidoc);
-                    tbtipo.agregarDocumento(xdoc);
-                    JOptionPane.showMessageDialog(this,
-                            "Datos guardados satisfactoriamente", "Mensaje", 1);
-                    
-                } else {
-
-                    DocumentoDTO dcm = new DocumentoDTO();
-
-                    dcm.setNroRegistro(txtNroRegistro.getText());
-
-                    dcm.setNro_Doc(txtNroDoc.getText());
-                    dcm.setSiglas(txtSiglas.getText());
-                    dcm.setFechReg(Date.valueOf(txtFecha.getText()));
-
-                    TipDocDTO acc = new TipDocDTO();
-
-                    acc.setCTip_Doc(txtCodTipDoc.getText());
-                    dcm.setCTip_Doc(acc);
-                    tbtipo.actualizarDocumento(dcm);
-                    JOptionPane.showMessageDialog(this, "Se actualizo registro de datos", "Mensaje", 1);
-                    
-                }
+                    xdoc.setCod_CIP_REGDOC(txtCIP.getText());
+                    /**/TipDocDTO tidoc = new TipDocDTO();
+                        tidoc.setCTip_Doc(txtCodTipDoc.getText());
+                        xdoc.setCTip_Doc(tidoc);
+                        tbtipo.agregarDocumento(xdoc);
+                        JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente", "Mensaje", 1);
+                        ultimoRegistro();
+                } else{
+                    DocumentoDTO xdoc = new DocumentoDTO();
+                    xdoc.setNroRegistro(txtNroRegistro.getText());
+                    xdoc.setNro_Doc(txtNroDoc.getText());
+                    xdoc.setSiglas(txtSiglas.getText());
+                    xdoc.setFechReg(Date.valueOf(txtFecha.getText()));
+                    xdoc.setCod_CIP_REGDOC(txtCIP.getText());
+                    /**/TipDocDTO tid = new TipDocDTO();
+                        tid.setCTip_Doc(txtCodTipDoc.getText());                    
+                        xdoc.setCTip_Doc(tid);
+                        tbtipo.actualizarDocumento(xdoc);
+                        JOptionPane.showMessageDialog(this, "Se actualizo registro de datos", "Mensaje", 1);
+                    }                
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
             }
         }
-        LimpiaCajas();
-        NoMostrarDatos();
-        txtCodTipDoc.setVisible(true);
+        //LimpiaCajas();
+        //NoMostrarDatos();
+        //txtCodTipDoc.setVisible(true);
 }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -684,31 +673,26 @@ public class DocOrigen extends javax.swing.JFrame {
             activaBotones(true, false, true, false, false, true);
         }
         MostrarDatos();
-
+        txtNroDoc.requestFocus();
         txtCodTipDoc.setVisible(false);
         cbotipdoc.setVisible(true);
+        cbotipdoc.setSelectedItem(txtCodTipDoc.getText());
 }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
         try {
             DocumentosDAO tip = new DocumentosDAO();
             tip.cargarDocumentos();
             DocumentoDTO objE = tip.buscar(txtNroRegistro.getText());
-            int n = JOptionPane.showConfirmDialog(this,
-                    "¿Esta seguro que desea borrar estos datos?",
-                    "Mensaje",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.INFORMATION_MESSAGE);
+            int n = JOptionPane.showConfirmDialog(this,"¿Esta seguro que desea borrar estos datos?","Mensaje",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
             if (n == 0) {
                 if (objE != null) {
                     tip.eliminarDocumentos(txtNroRegistro.getText());
                 }
-                JOptionPane.showMessageDialog(this, "Los Datos se Eliminaron Satisfactoriamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-                LimpiaCajas();
+                JOptionPane.showMessageDialog(this, "Los Datos se Eliminaron Satisfactoriamente","Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                ultimoRegistro();
             } else {
-                JOptionPane.showMessageDialog(this, "No se Eliminaron los Datos...", "Mensaje",
-                        JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No se Eliminaron los Datos...", "Mensaje",JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException f) {
             System.out.println(f.toString());
@@ -718,13 +702,11 @@ public class DocOrigen extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         if (btnCancelar.isEnabled()) {
-            activaBotones(true, false, false, false, true, false);
+            activaBotones(true, true, false, true, true, false);
             LimpiaCajas();
-            cbotipdoc.setVisible(true);
-            txtNroRegistro.setEditable(true);
-
-
-
+            cbotipdoc.setVisible(false);            
+            txtCodTipDoc.setVisible(true);
+            ultimoRegistro();
         }
         NoMostrarDatos();
 }//GEN-LAST:event_btnCancelarActionPerformed
@@ -747,11 +729,12 @@ public class DocOrigen extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         if (btnNuevo.isEnabled()) {
-            activaBotones(false, false, true, false, false, true);
-            btnNuevo.setEnabled(false);
+            activaBotones(false, false, true, false, false, true);            
             MostrarDatos();
-            LimpiaCajas();
+            LimpiaCajas();            
+            txtNroDoc.requestFocus();
             cbotipdoc.setVisible(true);
+            cbotipdoc.setSelectedIndex(0);
             txtCodTipDoc.setVisible(false);
 
 
@@ -843,8 +826,6 @@ public class DocOrigen extends javax.swing.JFrame {
 
             public void run() {
                 new DocOrigen().setVisible(true);
-
-
             }
         });
 
@@ -908,6 +889,7 @@ public class DocOrigen extends javax.swing.JFrame {
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtCIP;
     private javax.swing.JTextField txtCodTipDoc;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtNroDoc;
