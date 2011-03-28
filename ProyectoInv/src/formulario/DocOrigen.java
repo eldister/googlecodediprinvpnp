@@ -250,21 +250,21 @@ public class DocOrigen extends javax.swing.JFrame {
             }
         });
 
-        txtSiglas.setFont(new java.awt.Font("Tahoma", 0, 14));
+        txtSiglas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtSiglas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSiglasActionPerformed(evt);
             }
         });
 
-        txtFecha.setFont(new java.awt.Font("Tahoma", 0, 14));
+        txtFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 0, 14));
+        txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel15.setText("Siglas:");
 
-        cbotipdoc.setFont(new java.awt.Font("Tahoma", 0, 14));
+        cbotipdoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbotipdoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbotipdocActionPerformed(evt);
@@ -289,7 +289,7 @@ public class DocOrigen extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true)));
 
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
         btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -390,7 +390,7 @@ public class DocOrigen extends javax.swing.JFrame {
             }
         });
 
-        tabla.setFont(new java.awt.Font("Tahoma", 0, 13));
+        tabla.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -426,38 +426,35 @@ public class DocOrigen extends javax.swing.JFrame {
                 .addGap(335, 335, 335)
                 .addComponent(btnAsignarTDR, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel2)
-                            .addGap(10, 10, 10)
-                            .addComponent(txtNroRegistro))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DocOrigenPanelLayout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel17)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(27, 27, 27)
-                            .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                .addComponent(txtSiglas)
-                                .addComponent(txtCodTipDoc)
-                                .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(txtNroDoc)))))
+                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(txtCIP, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtNroRegistro))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(txtNroDoc))
+                            .addComponent(cbotipdoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSiglas)
+                            .addComponent(txtCodTipDoc))))
                 .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DocOrigenPanelLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel13)
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DocOrigenPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -477,12 +474,9 @@ public class DocOrigen extends javax.swing.JFrame {
                             .addGap(14, 14, 14)
                             .addComponent(jLabel2))
                         .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DocOrigenPanelLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
@@ -497,19 +491,22 @@ public class DocOrigen extends javax.swing.JFrame {
                                 .addComponent(txtNroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
                                 .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodTipDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(9, 9, 9)
+                                .addComponent(txtSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                        .addComponent(txtCodTipDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(60, 60, 60)
+                                        .addGap(20, 20, 20)
                                         .addComponent(jLabel13))
                                     .addGroup(DocOrigenPanelLayout.createSequentialGroup()
-                                        .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(txtSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(11, 11, 11)
-                                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
+                                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnAsignarTDR, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -697,14 +694,20 @@ public class DocOrigen extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(DocOrigenPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
+                        .addGap(66, 66, 66)
+                        .addComponent(txtCIP, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(txtCIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(DocOrigenPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -759,7 +762,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 DocumentosDAO tbtipo = new DocumentosDAO();
                 tbtipo.cargarDocumentos();
                 DocumentoDTO dto = tbtipo.buscar(""+tbtipo.incrementaREG());
-                if (dto != null){
+                if (dto == null){
                     txtNroRegistro.setText(""+tbtipo.incrementaREG());
                     DocumentoDTO xdoc = new DocumentoDTO();
                     xdoc.setNroRegistro(txtNroRegistro.getText());
@@ -907,11 +910,11 @@ public class DocOrigen extends javax.swing.JFrame {
             DocumentoDTO objE = tip.buscar(txtNroRegistro.getText());
 
             for (int i = 0; i <= f; i++) {
-                datos[0] = vDocu.firstElement().getNroRegistro();
-                datos[1] = vDocu.firstElement().getNro_Doc();
-                datos[2] = vDocu.firstElement().getCTip_Doc().getTDoc();
-                datos[3] = vDocu.firstElement().getSiglas();
-                datos[4] = vDocu.firstElement().getFechReg().toString();
+                datos[0] = vDocu.lastElement().getNroRegistro();
+                datos[1] = vDocu.lastElement().getNro_Doc();
+                datos[2] = vDocu.lastElement().getCTip_Doc().getTDoc();
+                datos[3] = vDocu.lastElement().getSiglas();
+                datos[4] = vDocu.lastElement().getFechReg().toString();
                 model.addRow(datos);
             }
 
