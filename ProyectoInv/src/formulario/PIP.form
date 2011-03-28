@@ -24,9 +24,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -35,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,19 +57,13 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel3" min="-2" max="-2" attributes="1"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtCodProv" alignment="0" min="-2" pref="6" max="-2" attributes="1"/>
                               <Component id="txtCodDep" alignment="0" min="-2" max="-2" attributes="1"/>
                               <Component id="txtCodDist" min="-2" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                          <Component id="txtPruebaNRO1" min="-2" pref="33" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" pref="380" max="-2" attributes="0"/>
@@ -82,7 +76,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="1">
+                                      <Group type="102" alignment="0" attributes="1">
                                           <Component id="txtCodSnip" min="-2" pref="132" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
@@ -96,9 +90,15 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtCodPIP" min="-2" pref="54" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                          <Component id="txtPruebaNRO1" min="-2" pref="33" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="1"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,19 +107,16 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtPruebaNRO1" min="-2" pref="21" max="-2" attributes="1"/>
                       <Group type="102" attributes="0">
                           <Component id="txtCodDep" min="-2" pref="31" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtCodProv" pref="37" max="32767" attributes="1"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txtCodDist" pref="34" max="32767" attributes="1"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtPruebaNRO1" alignment="0" min="-2" pref="21" max="-2" attributes="1"/>
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="1"/>
-                          </Group>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="1"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtCodSnip" alignment="0" pref="31" max="32767" attributes="1"/>
@@ -134,20 +131,20 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="1">
+                              <Group type="102" alignment="0" attributes="1">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtnombProy" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -207,21 +204,21 @@
                                           <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="cboNivEstu" pref="250" max="32767" attributes="1"/>
-                                          <Component id="cboNivCalifi" alignment="1" pref="250" max="32767" attributes="1"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cboNivCalifi" max="32767" attributes="1"/>
+                                          <Component id="cboNivEstu" alignment="0" pref="184" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtNivEstudio" pref="171" max="32767" attributes="1"/>
-                                          <Component id="txtNivCali" alignment="1" pref="171" max="32767" attributes="1"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtNivEstudio" pref="154" max="32767" attributes="1"/>
+                                          <Component id="txtNivCali" pref="154" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtCodNE" max="32767" attributes="1"/>
-                                          <Component id="txtCodNC" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="txtCodNC" max="32767" attributes="1"/>
+                                          <Component id="txtCodNE" alignment="0" pref="20" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
@@ -260,9 +257,9 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel31" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="txtNivEstudio" alignment="3" pref="32" max="32767" attributes="1"/>
                                       <Component id="cboNivEstu" alignment="3" min="-2" pref="32" max="-2" attributes="1"/>
                                       <Component id="txtCodNE" alignment="3" min="-2" pref="33" max="-2" attributes="1"/>
+                                      <Component id="txtNivEstudio" alignment="3" pref="32" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -531,10 +528,7 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btnBuscar2" min="-2" pref="39" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="txtNomUFPRF" min="-2" pref="267" max="-2" attributes="1"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtNomUFPRF" min="-2" pref="267" max="-2" attributes="1"/>
                                       </Group>
                                   </Group>
                                   <Component id="txtSeUFPIP" alignment="0" pref="330" max="32767" attributes="1"/>

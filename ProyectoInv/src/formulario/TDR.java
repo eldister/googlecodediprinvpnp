@@ -2,21 +2,18 @@ package formulario;
 
 import dao.CoordinadorDAO;
 import dto.CoordinadorDTO;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class TDR extends javax.swing.JFrame {
 
-    private GraphicsDevice gd = null;
     public static String DocCIP;
 
     public TDR() {
         initComponents();
-
-        PantallaCompleta();
-
+        centrar();
         this.setDefaultCloseOperation(TDR.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
@@ -46,20 +43,11 @@ public class TDR extends javax.swing.JFrame {
 
 
     }
-
-    public void PantallaCompleta() {
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        gd = ge.getDefaultScreenDevice();
-        if (!gd.isFullScreenSupported()) {
-            System.out.println("WARNING: No hay soporte.\n");
-        } else {
-            System.out.println("INFO: Detectado soporte\n");
-        }
-        try {
-            gd.setFullScreenWindow(this);
-        } catch (Exception e) {
-            System.out.println("ERROR CRITICO: " + e.getMessage());
-        }
+     public void centrar() {
+        Dimension pantallaTamano = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize((pantallaTamano.width), (pantallaTamano.height));
+        Dimension tamanoPanel = TDRPanel.getSize();
+        TDRPanel.setBounds((pantallaTamano.width-tamanoPanel.width) / 2, (pantallaTamano.height - tamanoPanel.height) / 2, (int) tamanoPanel.getWidth(), (int) tamanoPanel.getHeight());
     }
 
     private void NoMostrarDatosPIP() {
@@ -142,7 +130,7 @@ public class TDR extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(179, 179, 179))
         );
@@ -516,7 +504,7 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        btnEnviaLog.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEnviaLog.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnEnviaLog.setText("ENVIAR LOGISTICA");
         btnEnviaLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,7 +540,7 @@ public class TDR extends javax.swing.JFrame {
                                             .addComponent(btnCancelar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
                                     .addComponent(btnEnviaLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap(31, Short.MAX_VALUE))
+                        .addContainerGap(41, Short.MAX_VALUE))
                     .addGroup(TDRPanelLayout.createSequentialGroup()
                         .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -564,7 +552,7 @@ public class TDR extends javax.swing.JFrame {
                                     .addComponent(txtAsigNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                         .addComponent(btnPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))))
+                        .addGap(102, 102, 102))))
         );
         TDRPanelLayout.setVerticalGroup(
             TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -614,11 +602,11 @@ public class TDR extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TDRPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TDRPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
