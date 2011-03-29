@@ -73,18 +73,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setText("DE PROYECTOS DE INVERSION");
         jPanel3.add(jLabel4);
         jLabel4.setBounds(214, 50, 476, 51);
+
+        lblImagenEscudo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img.jpg"))); // NOI18N
         jPanel3.add(lblImagenEscudo1);
-        lblImagenEscudo1.setBounds(0, 0, 120, 100);
+        lblImagenEscudo1.setBounds(30, 0, 120, 100);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(30, 10, 760, 100);
+        jPanel3.setBounds(30, 10, 760, 110);
 
-        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 20));
         jLabel1.setText("Usuario:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(220, 300, 87, 23);
 
-        txtusuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtusuario.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtusuario.setForeground(new java.awt.Color(0, 0, 153));
         txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,17 +96,17 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(txtusuario);
         txtusuario.setBounds(320, 290, 230, 30);
 
-        txtcontraseña.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtcontraseña.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtcontraseña.setForeground(new java.awt.Color(0, 0, 153));
         jPanel1.add(txtcontraseña);
         txtcontraseña.setBounds(320, 340, 230, 32);
 
-        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 20)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 20));
         jLabel2.setText("Contraseña:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(220, 340, 97, 41);
 
-        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 1, 20)); // NOI18N
+        btnaceptar.setFont(new java.awt.Font("Arial Narrow", 1, 20));
         btnaceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bloqueo-icono-8472-16.png"))); // NOI18N
         btnaceptar.setText("Iniciar Sesion");
         btnaceptar.addActionListener(new java.awt.event.ActionListener() {
