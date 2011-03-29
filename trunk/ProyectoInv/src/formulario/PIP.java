@@ -84,7 +84,7 @@ public class PIP extends javax.swing.JFrame {
         txtNombDepart.setEditable(false);
         txtNombDist.setEditable(false);
         txtNombProv.setEditable(false);
-        btnBuscar.setEnabled(false);
+        btnBuscar3.setEnabled(false);
         btnBuscar2.setEnabled(false);
         btnBuscar4.setEnabled(false);
         txtCIPUFPIPprf.setEditable(false);
@@ -143,7 +143,6 @@ public class PIP extends javax.swing.JFrame {
         cboSituPIP.setEnabled(false);
         cbodistri.setEnabled(false);
         cboprovin.setEnabled(false);
-
     }
 
     public void Limpiar() {
@@ -195,10 +194,6 @@ public class PIP extends javax.swing.JFrame {
         txtdireccion.setEditable(true);
         txtSuper.setEditable(true);
         txtSecUEPIP.setEditable(true);
-
-        txtCIPUEPIP.setEditable(true);
-        txtCIPUFPIPprf.setEditable(true);
-        txtCIPUiFPIPpr.setEditable(true);
         txtCapa.setEditable(true);
         txtEquipa.setEditable(true);
         txtEstudios.setEditable(true);
@@ -530,7 +525,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         txtGrado = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
+        btnBuscar3 = new javax.swing.JButton();
         txtCIPUEPIP = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -950,11 +945,11 @@ public class PIP extends javax.swing.JFrame {
 
         txtGrado.setFont(new java.awt.Font("Tahoma", 0, 14));
 
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11));
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar3.setFont(new java.awt.Font("Tahoma", 1, 11));
+        btnBuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
+        btnBuscar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnBuscar3ActionPerformed(evt);
             }
         });
 
@@ -984,7 +979,7 @@ public class PIP extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCIPUEPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel39)
@@ -1037,7 +1032,7 @@ public class PIP extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtCIPUEPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -1666,16 +1661,15 @@ public class PIP extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -1771,7 +1765,6 @@ public class PIP extends javax.swing.JFrame {
         lblSituacion.setVisible(false);
         cboSituPIP.setEnabled(false);
         cboSituPIP.setVisible(true);
-
 }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
@@ -1905,25 +1898,23 @@ public class PIP extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-        cboDepar.setVisible(true);
         cboDepar.setSelectedItem(txtNombDepart.getText());
-        cboprovin.setVisible(true);
         cboprovin.setSelectedItem(txtNombProv.getText());
-        cbodistri.setVisible(true);
         cbodistri.setSelectedItem(txtNombDist.getText());
-        cboSituPIP.setVisible(true);
         cboSituPIP.setSelectedItem(lblSituacion.getText());
-        lblSituacion.setVisible(false);
-        cboNivEstu.setVisible(true);
         cboNivEstu.setSelectedItem(txtNivEstudio.getText());
-        cboNivCalifi.setVisible(true);
         cboNivCalifi.setSelectedItem(txtNivCali.getText());
-        btnNuevo.setEnabled(false);
-        btnBuscar.setEnabled(false);
-        btnEditar.setEnabled(false);
-        btnEliminar.setEnabled(false);
-        btnGrabar.setEnabled(true);
-        btnCancelar.setEnabled(true);
+        btnBuscar4.setEnabled(true);
+        btnBuscar3.setEnabled(true);
+        btnBuscar2.setEnabled(true);
+
+        txtCIPUFPIPprf.setEditable(false);
+        txtCIPUiFPIPpr.setEditable(false);
+        txtCIPUEPIP.setEditable(false);
+        
+        Editable();
+        acticaBotones(true, false,true, false, true, false);
+
 }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -1933,7 +1924,7 @@ public class PIP extends javax.swing.JFrame {
         txtCIPUFPIPprf.setEditable(false);
         txtCIPUiFPIPpr.setEditable(false);
         txtCIPUEPIP.setEditable(false);
-        btnBuscar.setEnabled(true);
+        btnBuscar3.setEnabled(true);
         btnBuscar2.setEnabled(true);
         btnBuscar4.setEnabled(true);
         int xx = Integer.parseInt(txtPruebaNRO1.getText());
@@ -1991,6 +1982,15 @@ public class PIP extends javax.swing.JFrame {
                 txtNombDist.setVisible(true);
                 txtNombProv.setVisible(true);
                 lblSituacion.setVisible(true);
+                cargarUNIPIP();
+                cargarUniEjePR();
+                cargarUniForPRF();
+                cargarUniForPR();
+
+                buscarCIP_UEPR();
+                buscarCIP_UFPR();
+                buscarCIP_UFPRF();
+
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2041,7 +2041,7 @@ public class PIP extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_cboSituPIPActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar3ActionPerformed
         try {
             String bus = JOptionPane.showInputDialog(null, "Ingrese Numero de CIP a buscar...", "Buscar Numero de CIP", JOptionPane.INFORMATION_MESSAGE);
             LoginDAO dc = new LoginDAO();
@@ -2056,12 +2056,11 @@ public class PIP extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-}//GEN-LAST:event_btnBuscarActionPerformed
+}//GEN-LAST:event_btnBuscar3ActionPerformed
 
     private void btnBuscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar4ActionPerformed
         try {
@@ -2080,7 +2079,6 @@ public class PIP extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2102,7 +2100,6 @@ public class PIP extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "El CIP no existe, verifique...",
                         "Error", 2);
-                primerRegistro();
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
@@ -2236,8 +2233,8 @@ public class PIP extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscar2;
+    private javax.swing.JButton btnBuscar3;
     private javax.swing.JButton btnBuscar4;
     private javax.swing.JButton btnBuscarPIP;
     private javax.swing.JButton btnCancelar;
