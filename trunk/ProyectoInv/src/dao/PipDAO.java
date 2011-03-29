@@ -193,4 +193,12 @@ import java.util.Vector;
         CerrarConexiones();
         return iResultado;
     }
+        public int eliminarPIP(String Cod_PIP) throws SQLException {
+        abrirConexiones();
+        String sentenciaSQL = "DELETE FROM pip WHERE Cod_PIP='"+Cod_PIP+"'";
+        int iResultado = st.executeUpdate(sentenciaSQL);
+        cargarPIP();
+        CerrarConexiones();
+        return iResultado;
+    }
 }

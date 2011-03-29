@@ -74,6 +74,7 @@ public class PIP extends javax.swing.JFrame {
     }
 
     private void NoMostrarDatos() {
+        txtCodPIP.setEditable(false);
         txtGradoUFPRF.setEditable(false);
         txtNomUFPRF.setEditable(false);
         txtGradoUFPR.setEditable(false);
@@ -146,6 +147,7 @@ public class PIP extends javax.swing.JFrame {
     }
 
     public void Limpiar() {
+        txtCodPIP.setText("");
         txtCodSnip.setText("");
         txtotros.setText("");
         txtnombProy.setText("");
@@ -1542,7 +1544,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel24.setText("Fecha del SNIP");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("REGISTRO DE PROYECTO DE INVERSION");
 
         txtPruebaNRO1.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -1584,9 +1586,9 @@ public class PIP extends javax.swing.JFrame {
                             .addComponent(txtCodDist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(176, 176, 176)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(353, 353, 353)
+                                .addGap(215, 215, 215)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(186, 186, 186)
                                 .addComponent(txtPruebaNRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(74, 74, 74)
@@ -1629,7 +1631,7 @@ public class PIP extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCodDist, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1875,25 +1877,66 @@ public class PIP extends javax.swing.JFrame {
 }//GEN-LAST:event_btnGrabarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        /*try {
-        DocumentosDAO empr = new DocumentosDAO();
-        empr.cargarDocumentos();
-        Documentos objE = empr.buscar(txtNroRegistro.getText());
-        if(objE != null){
-        empr.eliminarDocumentos(txtNroRegistro.getText());
-        JOptionPane.showMessageDialog(this,
-        "Datos Eliminados satisfactoriamente",
-        "Exito", 1);
-        primerRegistro();
-        }else{
-        JOptionPane.showMessageDialog(this,
-        "El codigo no existe",
-        "Error", 2);
-        primerRegistro();
-        }
-        } catch (SQLException f) {
+     if(btnEliminar.isEnabled()){
+        try{
+        PipDAO empr = new PipDAO();
+        empr.cargarPIP();
+        PipDTO objE = empr.buscar(txtCodPIP.getText());
+         int n = JOptionPane.showConfirmDialog(this,"¿Esta seguro que desea borrar estos datos?","Mensaje",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
+            if (n == 0) {
+                if (objE != null) {
+                PipDTO apip = new PipDTO();
+                apip.setCod_PIP(txtCodPIP.getText());
+                apip.setSNIP(txtCodSnip.getText());
+                apip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
+                apip.setNom_Proinv(txtnombProy.getText());
+
+                departamentoDTO td = new departamentoDTO();
+                td.setCod_Dpto(txtCodDep.getText());
+                apip.setCod_Dpto(td);
+
+                provinciaDTO tpr = new provinciaDTO();
+                tpr.setCod_Prov(txtCodProv.getText());
+                apip.setCod_Prov(tpr);
+
+                distritoDTO tdi = new distritoDTO();
+                tdi.setCod_dist(txtCodDist.getText());
+                apip.setCod_Dist(tdi);
+
+                apip.setLocaliPNP(txtlocal.getText());
+                apip.setDireccPNP(txtdireccion.getText());
+                apip.setEst_ExpTec(Double.parseDouble(txtEstudios.getText()));
+                apip.setObra_Civ(Double.parseDouble(txtObras.getText()));
+                apip.setSupervision(Double.parseDouble(txtSuper.getText()));
+                apip.setEquipamiento(Double.parseDouble(txtEquipa.getText()));
+                apip.setCapacitacion(Double.parseDouble(txtCapa.getText()));
+                apip.setOtros_Imp(Double.parseDouble(txtOtros.getText()));
+                apip.setFuente_Fina(Double.parseDouble(txtFuente.getText()));
+
+                Tb_NivEstPIP tnE = new Tb_NivEstPIP();
+                tnE.setCod_EstPIP(txtCodNE.getText());
+                apip.setCod_NivEstPIP(tnE);
+
+                Tb_NivCaliPIP tnC = new Tb_NivCaliPIP();
+                tnC.setCod_NivCaliPIP(txtCodNC.getText());
+                apip.setCod_NivCaliPIP(tnC);
+
+                Tb_SituPIP tb = new Tb_SituPIP();
+                tb.setCod_SituPIP(txtCodSituPIP.getText());
+                apip.setSituacion(tb);
+                empr.agregarPIP(apip);
+
+                empr.eliminarPIP(txtCodPIP.getText());
+                }
+                JOptionPane.showMessageDialog(this, "Los Datos se Eliminaron Satisfactoriamente","Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+            }    JOptionPane.showMessageDialog(this, "No se Eliminaron los Datos...", "Mensaje",JOptionPane.INFORMATION_MESSAGE);
+           
+        } catch(SQLException f) {
         System.out.println(f.toString());
-        }*/
+        }
+        Limpiar();
+     }
 }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -1990,12 +2033,14 @@ public class PIP extends javax.swing.JFrame {
                 buscarCIP_UEPR();
                 buscarCIP_UFPR();
                 buscarCIP_UFPRF();
-
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
         NoEditable();
+        btnBuscar2.setEnabled(false);
+        btnBuscar3.setEnabled(false);
+        btnBuscar4.setEnabled(false);
 }//GEN-LAST:event_btnBuscarPIPActionPerformed
 
     private void txtNivEstudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNivEstudioActionPerformed
