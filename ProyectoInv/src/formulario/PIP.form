@@ -35,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,10 +87,13 @@
                                       </Group>
                                       <Component id="txtnombProy" min="-2" pref="446" max="-2" attributes="1"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtCodPIP" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCodPIP" min="-2" pref="86" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="btnBuscarPIP" min="-2" max="-2" attributes="1"/>
                               </Group>
                           </Group>
                       </Group>
@@ -108,7 +111,11 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtPruebaNRO1" min="-2" pref="21" max="-2" attributes="1"/>
+                      <Group type="102" attributes="0">
+                          <Component id="txtPruebaNRO1" min="-2" pref="21" max="-2" attributes="1"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnBuscarPIP" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Component id="txtCodDep" min="-2" pref="31" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -129,7 +136,6 @@
                                   <Component id="txtFechSnip" alignment="3" pref="31" max="32767" attributes="1"/>
                                   <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCodPIP" alignment="3" pref="31" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -139,7 +145,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="1">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtnombProy" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtnombProy" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="txtCodPIP" alignment="3" pref="31" max="32767" attributes="1"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -223,11 +232,8 @@
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="btnBuscarPIP" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="jPanel1" alignment="0" max="32767" attributes="1"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -273,11 +279,9 @@
                                   </Group>
                                   <Component id="jLabel27" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="btnBuscarPIP" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jTabbedPane1" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
                       </Group>
@@ -731,7 +735,7 @@
                           <Font name="Tahoma" size="11" style="1"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Imagenes/buscar-buscar-ampliar-icono-9630-16.png"/>
+                          <Image iconType="3" name="/imagenes/editar.png"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -812,7 +816,7 @@
                           <Font name="Tahoma" size="11" style="1"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Imagenes/buscar-buscar-ampliar-icono-9630-16.png"/>
+                          <Image iconType="3" name="/imagenes/buscar-ayuda-icono-6888-16.png"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1409,20 +1413,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNivEstudioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnBuscarPIP">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/busqueda-de-archivos-de-documentos-de-zoom-icono-4140-16.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="BUSCAR PIP"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarPIPActionPerformed"/>
-              </Events>
-            </Component>
             <Container class="javax.swing.JPanel" name="jPanel1">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1436,25 +1426,25 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnNuevo" pref="124" max="32767" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnEditar" pref="124" max="32767" attributes="1"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnCancelar" pref="124" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRegresar" min="-2" pref="124" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnEliminar" pref="124" max="32767" attributes="1"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnGrabar" pref="124" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnNuevo" pref="125" max="32767" attributes="1"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="btnEditar" pref="125" max="32767" attributes="1"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnEliminar" pref="126" max="32767" attributes="1"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                          <Component id="btnRegresar" min="-2" pref="164" max="-2" attributes="0"/>
+                          <EmptySpace pref="123" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="btnGrabar" pref="126" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1463,20 +1453,18 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnEditar" alignment="3" pref="30" max="32767" attributes="1"/>
                               <Component id="btnNuevo" alignment="3" pref="30" max="32767" attributes="1"/>
+                              <Component id="btnEditar" alignment="3" pref="30" max="32767" attributes="1"/>
+                              <Component id="btnEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnGrabar" alignment="3" min="-2" pref="30" max="-2" attributes="1"/>
-                              <Component id="btnEliminar" alignment="3" min="-2" pref="33" max="-2" attributes="1"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnRegresar" alignment="3" pref="31" max="32767" attributes="1"/>
                               <Component id="btnCancelar" alignment="3" min="-2" pref="30" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnRegresar" pref="31" max="32767" attributes="1"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1488,7 +1476,7 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/vacio-icono-8134-16.png"/>
+                      <Image iconType="3" name="/imagenes/anadir-informe-icono-6797-16.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="NUEVO"/>
                   </Properties>
@@ -1516,7 +1504,7 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/alt-vaciar-la-papelera-icono-8617-16.png"/>
+                      <Image iconType="3" name="/imagenes/Delete.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="ELIMINAR"/>
                   </Properties>
@@ -1544,7 +1532,7 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/deletered-icono-4373-16.png"/>
+                      <Image iconType="3" name="/imagenes/Warning.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="CANCELAR"/>
                   </Properties>
@@ -1560,7 +1548,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagenes/salir-de-mi-perfil-icono-3964-16.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="REGRESAR"/>
+                    <Property name="text" type="java.lang.String" value="ASIGNAR TDR "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegresarActionPerformed"/>
@@ -1863,6 +1851,20 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodPIPActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBuscarPIP">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/Search.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="BUSCAR PIP"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarPIPActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

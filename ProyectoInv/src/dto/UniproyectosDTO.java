@@ -2,19 +2,19 @@
 package dto;
 
 
-public class Uniproyectos {
+public class UniproyectosDTO {
     private String Cod_UniPIP;
     private String Cod_CIP;
-    private Tb_NomuniII Cod_NomUni;
+    private Tb_NomuniII Cod_NomUni; /**TABLA RELACIONADA**/
     private String Sector;
     private String Pliego;
     private String NomUni;
-    private PipDTO Cod_PIP;
+    private PipDTO Cod_PIP;         /**TABLA RELACIONADA**/
 
-    public Uniproyectos() {
+    public UniproyectosDTO() {
     }
 
-    public Uniproyectos(String Cod_UniPIP, String Cod_CIP, Tb_NomuniII Cod_NomUni, String Sector, String Pliego, String NomUni, PipDTO Cod_PIP) {
+    public UniproyectosDTO(String Cod_UniPIP, String Cod_CIP, Tb_NomuniII Cod_NomUni, String Sector, String Pliego, String NomUni, PipDTO Cod_PIP) {
         this.Cod_UniPIP = Cod_UniPIP;
         this.Cod_CIP = Cod_CIP;
         this.Cod_NomUni = Cod_NomUni;
