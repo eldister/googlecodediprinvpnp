@@ -205,25 +205,46 @@ public class DocOrigen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 36));
         jLabel3.setText("SISTEMA Y SUPERVISION ");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 4, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 36));
         jLabel4.setText("DE PROYECTOS DE INVERSION");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 52, 476, 51));
-        jPanel3.add(lblImagenEscudo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 143, 90));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 760, 100));
+        lblImagenEscudo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblImagenEscudo1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel3))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblImagenEscudo1, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel3)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         DocOrigenPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DOCUMENTO DE ORIGEN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
-        DocOrigenPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda-de-archivos-de-documentos-de-zoom-icono-4140-16.png"))); // NOI18N
@@ -233,61 +254,50 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, 31));
 
-        txtSiglas.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtSiglas.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtSiglas.setForeground(new java.awt.Color(0, 0, 153));
         txtSiglas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSiglasActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(txtSiglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 112, 31));
 
-        txtFecha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtFecha.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtFecha.setForeground(new java.awt.Color(0, 0, 153));
-        DocOrigenPanel.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 112, 31));
 
-        txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCodTipDoc.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCodTipDoc.setForeground(new java.awt.Color(0, 0, 153));
-        DocOrigenPanel.add(txtCodTipDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 112, 30));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel15.setText("Siglas:");
-        DocOrigenPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 169, 50, -1));
 
-        cbotipdoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cbotipdoc.setFont(new java.awt.Font("Tahoma", 1, 13));
         cbotipdoc.setForeground(new java.awt.Color(0, 0, 153));
         cbotipdoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbotipdocActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(cbotipdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 112, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel17.setText("Nro. de Doc.:");
-        DocOrigenPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 76, -1, 27));
 
-        txtNroDoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNroDoc.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNroDoc.setForeground(new java.awt.Color(0, 0, 153));
         txtNroDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNroDocActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(txtNroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 110, 31));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setText("Tipo de Doc.:");
-        DocOrigenPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 121, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Nro. de Registro:");
-        DocOrigenPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 48, -1, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true)));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
@@ -297,7 +307,6 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 140, 30));
 
         btnModificar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
@@ -307,7 +316,6 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 140, 30));
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/deletered-icono-4373-16.png"))); // NOI18N
@@ -317,7 +325,6 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 140, 30));
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir-de-mi-perfil-icono-3964-16.png"))); // NOI18N
@@ -327,7 +334,6 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 140, 30));
 
         btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/archivos-icono-9268-16.png"))); // NOI18N
@@ -337,26 +343,48 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnNuevoActionPerformed(evt);
             }
         });
-        jPanel5.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 118, 30));
 
-        DocOrigenPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 316, 740, 50));
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setText("Fecha:");
-        DocOrigenPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 211, 50, -1));
 
-        txtNroRegistro.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNroRegistro.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNroRegistro.setForeground(new java.awt.Color(0, 0, 153));
         txtNroRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNroRegistroActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(txtNroRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 110, 31));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel13.setText("AAAA-MM-DD");
-        DocOrigenPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 90, 20));
 
         btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnAsignarTDR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Bar Chart.png"))); // NOI18N
@@ -366,7 +394,6 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnAsignarTDRActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(btnAsignarTDR, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 361, 36));
 
         btnMostrarLista.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnMostrarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/documento.png"))); // NOI18N
@@ -376,9 +403,8 @@ public class DocOrigen extends javax.swing.JFrame {
                 btnMostrarListaActionPerformed(evt);
             }
         });
-        DocOrigenPanel.add(btnMostrarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 33, 253, 32));
 
-        tabla.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tabla.setFont(new java.awt.Font("Tahoma", 1, 13));
         tabla.setForeground(new java.awt.Color(0, 0, 153));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -404,10 +430,91 @@ public class DocOrigen extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla);
 
-        DocOrigenPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 84, 610, 202));
-
-        getContentPane().add(DocOrigenPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 980, 440));
-        getContentPane().add(txtCIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 28, 80, -1));
+        javax.swing.GroupLayout DocOrigenPanelLayout = new javax.swing.GroupLayout(DocOrigenPanel);
+        DocOrigenPanel.setLayout(DocOrigenPanelLayout);
+        DocOrigenPanelLayout.setHorizontalGroup(
+            DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2)
+                .addGap(4, 4, 4)
+                .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnBuscar)
+                .addGap(177, 177, 177)
+                .addComponent(btnMostrarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodTipDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                .addGap(335, 335, 335)
+                .addComponent(btnAsignarTDR, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        DocOrigenPanelLayout.setVerticalGroup(
+            DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnMostrarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15)
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel5))
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addComponent(txtNroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbotipdoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodTipDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(txtSiglas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addGroup(DocOrigenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(DocOrigenPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(btnAsignarTDR, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         jMenuBar1.setBackground(new java.awt.Color(51, 204, 255));
         jMenuBar1.setForeground(new java.awt.Color(1, 1, 1));
@@ -580,6 +687,36 @@ public class DocOrigen extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(txtCIP, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(DocOrigenPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(txtCIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DocOrigenPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -627,7 +764,7 @@ public class DocOrigen extends javax.swing.JFrame {
             activaBotones(true, false, false, false, true, false);
             try {
                 DocumentosDAO tbtipo = new DocumentosDAO();
-                tbtipo.cargarDocumentos();                
+                tbtipo.cargarDocumentos();   
                 if (txtNroRegistro.getText().isEmpty()){
                     txtNroRegistro.setText(""+tbtipo.incrementaREG());
                     DocumentoDTO xdoc = new DocumentoDTO();
@@ -767,8 +904,6 @@ public class DocOrigen extends javax.swing.JFrame {
 
             DocumentosDAO tip = new DocumentosDAO();
             Vector<DocumentoDTO> vDocu = tip.cargarDocumentos();
-            DocumentoDTO objE = tip.buscar(txtNroRegistro.getText());
-
             for (int i = 0; i <= f; i++) {
                 datos[0] = vDocu.lastElement().getNroRegistro();
                 datos[1] = vDocu.lastElement().getNro_Doc();
@@ -777,7 +912,6 @@ public class DocOrigen extends javax.swing.JFrame {
                 datos[4] = vDocu.lastElement().getFechReg().toString();
                 model.addRow(datos);
             }
-
         } catch (SQLException f) {
             System.out.println(f.toString());
         }

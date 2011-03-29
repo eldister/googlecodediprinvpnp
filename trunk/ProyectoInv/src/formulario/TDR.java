@@ -145,14 +145,11 @@ public class TDR extends javax.swing.JFrame {
 
         TDRPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATOS GENERALES", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
         TDRPanel.setFont(new java.awt.Font("Arial Narrow", 1, 24));
-        TDRPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setText("Nombre del Proyecto:");
-        TDRPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 173, -1, 20));
 
         txtnomProy.setFont(new java.awt.Font("Tahoma", 1, 14));
-        TDRPanel.add(txtnomProy, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 163, 380, 30));
 
         Localizacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "LOCALIZACION GEOGRAFICA DEL TDR:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
@@ -237,8 +234,6 @@ public class TDR extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TDRPanel.add(Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 211, -1, -1));
-
         Ubicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION POLICIAL:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
         txtotros.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -310,21 +305,15 @@ public class TDR extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        TDRPanel.add(Ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 309, -1, -1));
-
         Coordinador.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "COORDINADOR:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
-        Coordinador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14));
-        Coordinador.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 37, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel22.setText("CIP:");
-        Coordinador.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 37, -1, -1));
 
         txtNombre.setEditable(false);
         txtNombre.setFont(new java.awt.Font("Tahoma", 1, 14));
-        Coordinador.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 74, 330, 30));
 
         btnBuscarCoor.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnBuscarCoor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
@@ -334,7 +323,6 @@ public class TDR extends javax.swing.JFrame {
                 btnBuscarCoorActionPerformed(evt);
             }
         });
-        Coordinador.add(btnBuscarCoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, 31));
 
         btnRegCoord.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnRegCoord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-usuario-icono-4000-16.png"))); // NOI18N
@@ -344,15 +332,11 @@ public class TDR extends javax.swing.JFrame {
                 btnRegCoordActionPerformed(evt);
             }
         });
-        Coordinador.add(btnRegCoord, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 120, 30));
 
         txtCIP1.setFont(new java.awt.Font("Tahoma", 0, 14));
-        Coordinador.add(txtCIP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 37, 73, 31));
-        Coordinador.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 37, 248, 31));
 
         txtGrado.setEditable(false);
         txtGrado.setFont(new java.awt.Font("Tahoma", 1, 14));
-        Coordinador.add(txtGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 74, 106, 29));
 
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vacio-icono-8134-16.png"))); // NOI18N
@@ -362,9 +346,54 @@ public class TDR extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        Coordinador.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, 31));
 
-        TDRPanel.add(Coordinador, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 409, 480, 120));
+        javax.swing.GroupLayout CoordinadorLayout = new javax.swing.GroupLayout(Coordinador);
+        Coordinador.setLayout(CoordinadorLayout);
+        CoordinadorLayout.setHorizontalGroup(
+            CoordinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CoordinadorLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel12)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel22)
+                .addGap(10, 10, 10)
+                .addComponent(txtCIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnBuscarCoor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLimpiar)
+                .addGap(9, 9, 9)
+                .addComponent(btnRegCoord, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(CoordinadorLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        CoordinadorLayout.setVerticalGroup(
+            CoordinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CoordinadorLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(CoordinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel22)
+                    .addComponent(txtCIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CoordinadorLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnBuscarCoor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CoordinadorLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CoordinadorLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnRegCoord, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addGroup(CoordinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         btnPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnPIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/la-flecha-verde-de-la-derecha-icono-6651-32.png"))); // NOI18N
@@ -374,7 +403,6 @@ public class TDR extends javax.swing.JFrame {
                 btnPIPActionPerformed(evt);
             }
         });
-        TDRPanel.add(btnPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 143, 160, 30));
 
         txtAsigNumero.setFont(new java.awt.Font("Tahoma", 1, 11));
         txtAsigNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -382,11 +410,9 @@ public class TDR extends javax.swing.JFrame {
                 txtAsigNumeroActionPerformed(evt);
             }
         });
-        TDRPanel.add(txtAsigNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 121, 116, 31));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel11.setText("Nº. TDR:");
-        TDRPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 128, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
 
@@ -458,17 +484,13 @@ public class TDR extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        TDRPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 26, -1, -1));
-
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
         btnEditar.setText("MODIFICAR");
-        TDRPanel.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 414, 151, 32));
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/no.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
-        TDRPanel.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 452, 136, 30));
 
         btnCancelar1.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Warning.png"))); // NOI18N
@@ -478,7 +500,6 @@ public class TDR extends javax.swing.JFrame {
                 btnCancelar1ActionPerformed(evt);
             }
         });
-        TDRPanel.add(btnCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 452, 151, 30));
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
@@ -488,7 +509,6 @@ public class TDR extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        TDRPanel.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 414, 136, 32));
 
         btnEnviaLog.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEnviaLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/la-flecha-verde-de-la-derecha-icono-6651-32.png"))); // NOI18N
@@ -498,7 +518,83 @@ public class TDR extends javax.swing.JFrame {
                 btnEnviaLogActionPerformed(evt);
             }
         });
-        TDRPanel.add(btnEnviaLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 488, 314, 30));
+
+        javax.swing.GroupLayout TDRPanelLayout = new javax.swing.GroupLayout(TDRPanel);
+        TDRPanel.setLayout(TDRPanelLayout);
+        TDRPanelLayout.setHorizontalGroup(
+            TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TDRPanelLayout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(TDRPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel5))
+                .addGap(4, 4, 4)
+                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAsigNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnomProy, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(183, 183, 183)
+                .addComponent(btnPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(TDRPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Localizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(TDRPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(TDRPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Coordinador, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TDRPanelLayout.createSequentialGroup()
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(TDRPanelLayout.createSequentialGroup()
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        TDRPanelLayout.setVerticalGroup(
+            TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TDRPanelLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TDRPanelLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel11)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(TDRPanelLayout.createSequentialGroup()
+                        .addComponent(txtAsigNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(txtnomProy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(TDRPanelLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(btnPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(Localizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Coordinador, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(TDRPanelLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

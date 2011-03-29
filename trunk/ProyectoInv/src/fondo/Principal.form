@@ -59,7 +59,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="10" width="760" height="100"/>
+              <AbsoluteConstraints x="30" y="10" width="760" height="110"/>
             </Constraint>
           </Constraints>
 
@@ -94,9 +94,14 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="lblImagenEscudo1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/img.jpg"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="0" width="120" height="100"/>
+                  <AbsoluteConstraints x="30" y="0" width="120" height="100"/>
                 </Constraint>
               </Constraints>
             </Component>
