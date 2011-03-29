@@ -15,7 +15,7 @@ import dto.Tb_NivCaliPIP;
 import dto.Tb_NivEstPIP;
 import dto.Tb_NomuniII;
 import dto.Tb_SituPIP;
-import dto.Uniproyectos;
+import dto.UniproyectosDTO;
 import dto.departamentoDTO;
 import dto.distritoDTO;
 import dto.provinciaDTO;
@@ -87,7 +87,6 @@ public class PIP extends javax.swing.JFrame {
         btnBuscar.setEnabled(false);
         btnBuscar2.setEnabled(false);
         btnBuscar4.setEnabled(false);
-
         txtCIPUFPIPprf.setEditable(false);
         txtCIPUiFPIPpr.setEditable(false);
     }
@@ -334,9 +333,9 @@ public class PIP extends javax.swing.JFrame {
         try {
             UniproyectosDAO upro = new UniproyectosDAO();
             upro.cargarUniproyectos();
-            Uniproyectos u = upro.buscar(txtPruebaNRO1.getText());
+            UniproyectosDTO u = upro.buscar(txtPruebaNRO1.getText());
             if (u == null & txtCIPUFPIPprf.getText() != null) {
-                Uniproyectos up = new Uniproyectos();
+                UniproyectosDTO up = new UniproyectosDTO();
                 up.setCod_UniPIP(txtPruebaNRO1.getText());
                 up.setCod_CIP(txtCIPUFPIPprf.getText());
                 Tb_NomuniII tn = new Tb_NomuniII();
@@ -354,7 +353,7 @@ public class PIP extends javax.swing.JFrame {
                         "Exito", 1);
             }
             if (txtCIPUiFPIPpr.getText() != null) {
-                Uniproyectos up = new Uniproyectos();
+                UniproyectosDTO up = new UniproyectosDTO();
                 int a1 = Integer.parseInt(txtPruebaNRO1.getText());
                 int a2 = a1 + 1;
                 up.setCod_UniPIP("" + a2);
@@ -374,7 +373,7 @@ public class PIP extends javax.swing.JFrame {
                         "Exito", 1);
             }
             if (txtCIPUEPIP.getText() != null) {
-                Uniproyectos up = new Uniproyectos();
+                UniproyectosDTO up = new UniproyectosDTO();
                 int a3 = Integer.parseInt(txtPruebaNRO1.getText());
                 int a4 = a3 + 2;
                 up.setCod_UniPIP("" + a4);
@@ -415,7 +414,7 @@ public class PIP extends javax.swing.JFrame {
     private void cargarUNIPIP() {
         try {
             UniproyectosDAO uni = new UniproyectosDAO();
-            Vector<Uniproyectos> vU = uni.cargarUniproyectos();
+            Vector<UniproyectosDTO> vU = uni.cargarUniproyectos();
             for (int i = 0; i < vU.size(); i++) {
                 txtPruebaNRO1.setText(vU.lastElement().getCod_UniPIP());
             }
@@ -431,7 +430,7 @@ public class PIP extends javax.swing.JFrame {
             String pi = txtCodPIP.getText();
             String ww = "1";
             System.out.println("" + ww);
-            Vector<Uniproyectos> vUni = uFE.ubicar(pi, ww);
+            Vector<UniproyectosDTO> vUni = uFE.ubicar(pi, ww);
             for (int i = 0; i < vUni.size(); i++) {
                 txtSeUFPIP.setText(vUni.elementAt(i).getSector());
                 txtPliUFPIP.setText(vUni.elementAt(i).getPliego());
@@ -450,7 +449,7 @@ public class PIP extends javax.swing.JFrame {
             String pi = txtCodPIP.getText();
             String ww = "2";
             System.out.println("" + ww);
-            Vector<Uniproyectos> vUni = uFE.ubicar(pi, ww);
+            Vector<UniproyectosDTO> vUni = uFE.ubicar(pi, ww);
             for (int i = 0; i < vUni.size(); i++) {
                 txtCIPUiFPIPpr.setText(vUni.elementAt(i).getCod_CIP());
             }
@@ -466,7 +465,7 @@ public class PIP extends javax.swing.JFrame {
             String pi = txtCodPIP.getText();
             String ww = "3";
             System.out.println("" + ww);
-            Vector<Uniproyectos> vUni = uFE.ubicar(pi, ww);
+            Vector<UniproyectosDTO> vUni = uFE.ubicar(pi, ww);
             for (int i = 0; i < vUni.size(); i++) {
                 txtSecUEPIP.setText(vUni.elementAt(i).getSector());
                 txtPliUEPIP.setText(vUni.elementAt(i).getPliego());
@@ -559,7 +558,6 @@ public class PIP extends javax.swing.JFrame {
         txtCodNC = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         txtNivEstudio = new javax.swing.JTextField();
-        btnBuscarPIP = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnNuevo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -593,6 +591,7 @@ public class PIP extends javax.swing.JFrame {
         txtnombProy = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtCodPIP = new javax.swing.JTextField();
+        btnBuscarPIP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -695,7 +694,7 @@ public class PIP extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14));
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -742,8 +741,8 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnBuscar2.setFont(new java.awt.Font("Tahoma", 1, 11));
-        btnBuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
+        btnBuscar2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBuscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         btnBuscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscar2ActionPerformed(evt);
@@ -773,8 +772,8 @@ public class PIP extends javax.swing.JFrame {
 
         txtCIPUiFPIPpr.setFont(new java.awt.Font("Tahoma", 0, 14));
 
-        btnBuscar4.setFont(new java.awt.Font("Tahoma", 1, 11));
-        btnBuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
+        btnBuscar4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBuscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-ayuda-icono-6888-16.png"))); // NOI18N
         btnBuscar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscar4ActionPerformed(evt);
@@ -1069,42 +1068,42 @@ public class PIP extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel17.setText("Estudios/Ex. Tec.");
 
-        txtEstudios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEstudios.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtEstudios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstudiosActionPerformed(evt);
             }
         });
 
-        txtObras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtObras.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtObras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtObrasActionPerformed(evt);
             }
         });
 
-        txtSuper.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSuper.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtSuper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSuperActionPerformed(evt);
             }
         });
 
-        txtEquipa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEquipa.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtEquipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEquipaActionPerformed(evt);
             }
         });
 
-        txtCapa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCapa.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtCapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCapaActionPerformed(evt);
             }
         });
 
-        txtOtros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtOtros.setFont(new java.awt.Font("Tahoma", 0, 14));
         txtOtros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOtrosActionPerformed(evt);
@@ -1114,7 +1113,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel46.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel46.setText("Fuente de Financiamiento");
 
-        txtFuente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFuente.setFont(new java.awt.Font("Tahoma", 0, 14));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1233,19 +1232,10 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnBuscarPIP.setFont(new java.awt.Font("Tahoma", 0, 14));
-        btnBuscarPIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda-de-archivos-de-documentos-de-zoom-icono-4140-16.png"))); // NOI18N
-        btnBuscarPIP.setText("BUSCAR PIP");
-        btnBuscarPIP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPIPActionPerformed(evt);
-            }
-        });
-
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14));
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vacio-icono-8134-16.png"))); // NOI18N
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-informe-icono-6797-16.png"))); // NOI18N
         btnNuevo.setText("NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1262,8 +1252,8 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alt-vaciar-la-papelera-icono-8617-16.png"))); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Delete.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1280,8 +1270,8 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14));
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/deletered-icono-4373-16.png"))); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Warning.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1291,7 +1281,7 @@ public class PIP extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tahoma", 0, 14));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir-de-mi-perfil-icono-3964-16.png"))); // NOI18N
-        btnRegresar.setText("REGRESAR");
+        btnRegresar.setText("ASIGNAR TDR ");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -1303,38 +1293,39 @@ public class PIP extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGrabar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
+                .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(123, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnGrabar, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(71, 71, 71))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         txtNivCali.setFont(new java.awt.Font("Tahoma", 0, 14));
@@ -1492,10 +1483,8 @@ public class PIP extends javax.swing.JFrame {
                                     .addComponent(txtCodNE, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                                 .addGap(19, 19, 19))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnBuscarPIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addGap(56, 56, 56)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1529,11 +1518,9 @@ public class PIP extends javax.swing.JFrame {
                                 .addComponent(cboNivCalifi, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                                 .addComponent(txtNivCali, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                             .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(27, 27, 27)
-                        .addComponent(btnBuscarPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(52, 52, 52)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))
+                        .addGap(46, 46, 46))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -1551,7 +1538,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel18.setText("Nom. Proyecto");
 
-        txtFechSnip.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtFechSnip.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtFechSnip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechSnipActionPerformed(evt);
@@ -1568,15 +1555,24 @@ public class PIP extends javax.swing.JFrame {
         txtPruebaNRO1.setBorder(null);
         txtPruebaNRO1.setOpaque(false);
 
-        txtnombProy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtnombProy.setFont(new java.awt.Font("Tahoma", 1, 14));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel1.setText("Nro. Registro PIP:");
 
-        txtCodPIP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodPIP.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtCodPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodPIPActionPerformed(evt);
+            }
+        });
+
+        btnBuscarPIP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscarPIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Search.png"))); // NOI18N
+        btnBuscarPIP.setText("BUSCAR PIP");
+        btnBuscarPIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPIPActionPerformed(evt);
             }
         });
 
@@ -1612,10 +1608,12 @@ public class PIP extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtFechSnip, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtnombProy, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(79, 79, 79)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtCodPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27)
+                                .addComponent(btnBuscarPIP))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1626,7 +1624,10 @@ public class PIP extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPruebaNRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtPruebaNRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnBuscarPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtCodDep, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1644,15 +1645,16 @@ public class PIP extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtFechSnip, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                                 .addComponent(jLabel24)
-                                .addComponent(jLabel1)
-                                .addComponent(txtCodPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
+                                .addComponent(jLabel1)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(jLabel18))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtnombProy)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtnombProy)
+                                    .addComponent(txtCodPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -1672,7 +1674,7 @@ public class PIP extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();

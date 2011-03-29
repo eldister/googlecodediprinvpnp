@@ -3,7 +3,7 @@ package dao;
 import conexion.Conexion;
 import dto.PipDTO;
 import dto.Tb_NomuniII;
-import dto.Uniproyectos;
+import dto.UniproyectosDTO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public class UniproyectosDAO {
 
     private Connection conn;
     private Statement st;
-    Vector<Uniproyectos> vUni = new Vector<Uniproyectos>();
+    Vector<UniproyectosDTO> vUni = new Vector<UniproyectosDTO>();
 
     public UniproyectosDAO() {
     }
@@ -29,11 +29,11 @@ public class UniproyectosDAO {
         conn.close();
     }
 
-    public Uniproyectos obtner(int regPIP) {
+    public UniproyectosDTO obtner(int regPIP) {
         return vUni.elementAt(regPIP);
     }
 
-    public Uniproyectos buscar(String regPip) {
+    public UniproyectosDTO buscar(String regPip) {
         for (int i = 0; i < vUni.size(); i++) {
             String id = obtner(i).getCod_UniPIP();
             if (id.equals(regPip)) {
@@ -50,7 +50,7 @@ public class UniproyectosDAO {
                 + "WHERE p.Cod_PIP = u.Cod_PIP "
                 + "AND u.Cod_NomUni = t.Cod_NomUniPer");
         while (rst.next()) {
-            Uniproyectos uni = new Uniproyectos();
+            UniproyectosDTO uni = new UniproyectosDTO();
             uni.setCod_UniPIP(rst.getString("u.Cod_UniPIP"));
             PipDTO pi = new PipDTO();
             pi.setCod_PIP(rst.getString("u.Cod_PIP"));
@@ -79,7 +79,7 @@ public class UniproyectosDAO {
                 + "AND uniproyectos.Cod_PIP = '" + reg + "' "
                 + "AND uniproyectos.Cod_NomUni= '" + ni + "' ");
         while (rst.next()) {
-            Uniproyectos uni = new Uniproyectos();
+            UniproyectosDTO uni = new UniproyectosDTO();
             PipDTO pi = new PipDTO();
             pi.setCod_PIP(rst.getString("uniproyectos.Cod_PIP"));
             uni.setCod_PIP(pi);
@@ -98,7 +98,7 @@ public class UniproyectosDAO {
         return vUni;
     }
 
-    public int agregarUNIPRO(Uniproyectos uni) throws SQLException {
+    public int agregarUNIPRO(UniproyectosDTO uni) throws SQLException {
         abrirConexiones();
         String sentenciaSQL = "INSERT INTO uniproyectos VALUES('" + uni.getCod_UniPIP()
                 + "','" + uni.getCod_CIP()
