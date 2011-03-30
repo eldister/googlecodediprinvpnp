@@ -6,9 +6,9 @@ public class Conexion {
 
     static String bd = "bd_proinv";
     static String login = "root";
-    //static String password = "admin";
-    static String password = "123123";
-    //static String password = "root";
+    static String password = "admin";   /*ALFRIADEZ YRIARTE*/
+    //static String password = "123123";
+    //static String password = "root";  /*ALFRIADEZ YRIARTE*/
     static String url = "jdbc:mysql://localhost/" + bd;
 
     static {
