@@ -45,14 +45,13 @@ public class PIP extends javax.swing.JFrame {
         Invisible();
         NoMostrarDatos();
         cargarSituacion();
-        cargarUNIPIP();
+        //cargarUNIPIP();
         cargarUniEjePR();
         cargarUniForPR();
         cargarUniForPRF();
         cargarNivCaliPIP();
         cargarNivEstPIP();
-        activaBotones(true, false, false, false, true, false, false, false, false);
-        txtPruebaNRO1.setEditable(true);
+        activaBotones(true, false, false, false, true, false, false, false, false);        
         NoEditable();
         centrar();
     }
@@ -84,8 +83,7 @@ public class PIP extends javax.swing.JFrame {
         txtGradoUFPR.setEditable(false);
         txtNomUFPR.setEditable(false);
         txtGrado.setEditable(false);
-        txtNombreUE.setEditable(false);
-        txtPruebaNRO1.setEditable(false);
+        txtNombreUE.setEditable(false);        
         txtNombDepart.setEditable(false);
         txtNombDist.setEditable(false);
         txtNombProv.setEditable(false);        
@@ -104,8 +102,7 @@ public class PIP extends javax.swing.JFrame {
         txtCodNC.setVisible(false);
         txtNivEstudio.setVisible(false);
         txtNivCali.setVisible(false);
-        txtCodSituPIP.setVisible(false);
-        txtPruebaNRO1.setVisible(false);
+        txtCodSituPIP.setVisible(false);        
     }
 
     public void NoEditable() {
@@ -287,12 +284,12 @@ public class PIP extends javax.swing.JFrame {
 
     private void grabaUFPRF() {
         try {
-            UniproyectosDAO upro = new UniproyectosDAO();
-            upro.cargarUniproyectos();
-            UniproyectosDTO u = upro.buscar(txtPruebaNRO1.getText());
-            if (u == null & txtCIPUFPIPprf.getText() != null) {
+            UniproyectosDAO upro = new UniproyectosDAO();                       
+            if (txtCIPUFPIPprf.getText()!= null) {
+                upro.cargarUniproyectos();
+                txtUFPRF.setText(""+upro.incrementaUNIPRO());
                 UniproyectosDTO up = new UniproyectosDTO();
-                up.setCod_UniPIP(txtPruebaNRO1.getText());
+                up.setCod_UniPIP(""+upro.incrementaUNIPRO());
                 up.setCod_CIP(txtCIPUFPIPprf.getText());
                     /*******************************/
                     /*******************************/
@@ -310,39 +307,47 @@ public class PIP extends javax.swing.JFrame {
                 upro.agregarUNIPRO(up);/*************FINAL******************/
                 JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 1","Exito", 1);
             }
-                if (txtCIPUiFPIPpr.getText() != null) {
+                if (txtCIPUiFPIPpr.getText()!= null) {
+                    upro.cargarUniproyectos();
+                    txtUFPR.setText(""+upro.incrementaUNIPRO());
                     UniproyectosDTO up = new UniproyectosDTO();
-                    int a1 = Integer.parseInt(txtPruebaNRO1.getText());
-                    int a2 = a1 + 1;
-                    up.setCod_UniPIP("" + a2);
+                    up.setCod_UniPIP(""+upro.incrementaUNIPRO());
                     up.setCod_CIP(txtCIPUiFPIPpr.getText());
-                    Tb_NomuniII tn = new Tb_NomuniII();
-                    tn.setCod_NomUniPer("2");
-                    up.setCod_NomUni(tn);
+                        /*******************************/
+                        /*******************************/
+                        Tb_NomuniII tn = new Tb_NomuniII();
+                        tn.setCod_NomUniPer("2");
+                        up.setCod_NomUni(tn);
                     up.setSector(txtSeUFPIP.getText());
                     up.setPliego(txtPliUFPIP.getText());
                     up.setNomUni(txtNomUFPIP.getText());
-                    PipDTO p = new PipDTO();
-                    p.setCod_PIP(txtCodPIP.getText());
-                    up.setCod_PIP(p);
+                            /*******************************/
+                            /*******************************/
+                            PipDTO p = new PipDTO();
+                            p.setCod_PIP(txtCodPIP.getText());
+                            up.setCod_PIP(p);
                     upro.agregarUNIPRO(up);
                     JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 2", "Exito", 1);
                 }
                     if (txtCIPUEPIP.getText() != null) {
+                        upro.cargarUniproyectos();
+                        txtUEPR.setText(""+upro.incrementaUNIPRO());
                         UniproyectosDTO up = new UniproyectosDTO();
-                        int a3 = Integer.parseInt(txtPruebaNRO1.getText());
-                        int a4 = a3 + 2;
-                        up.setCod_UniPIP("" + a4);
+                        up.setCod_UniPIP(""+upro.incrementaUNIPRO());
                         up.setCod_CIP(txtCIPUEPIP.getText());
-                        Tb_NomuniII tn = new Tb_NomuniII();
-                        tn.setCod_NomUniPer("3");
-                        up.setCod_NomUni(tn);
+                            /*******************************/
+                            /*******************************/
+                            Tb_NomuniII tn = new Tb_NomuniII();
+                            tn.setCod_NomUniPer("3");
+                            up.setCod_NomUni(tn);
                         up.setSector(txtSecUEPIP.getText());
                         up.setPliego(txtPliUEPIP.getText());
                         up.setNomUni(txtNomUEPIP.getText());
-                        PipDTO p = new PipDTO();
-                        p.setCod_PIP(txtCodPIP.getText());
-                        up.setCod_PIP(p);
+                                /*******************************/
+                                /*******************************/
+                                PipDTO p = new PipDTO();
+                                p.setCod_PIP(txtCodPIP.getText());
+                                up.setCod_PIP(p);
                         upro.agregarUNIPRO(up);
                         JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 3","Exito", 1);
             }
@@ -365,7 +370,7 @@ public class PIP extends javax.swing.JFrame {
     }
 //bien
 
-    private void cargarUNIPIP() {
+    /*private void cargarUNIPIP() {
         try {
             UniproyectosDAO uni = new UniproyectosDAO();
             Vector<UniproyectosDTO> vU = uni.cargarUniproyectos();
@@ -375,7 +380,7 @@ public class PIP extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-    }
+    }*/
 
     //bien
     private void cargarUniForPRF() {
@@ -446,6 +451,7 @@ public class PIP extends javax.swing.JFrame {
         txtDivision = new javax.swing.JTextField();
         txtComisaria = new javax.swing.JTextField();
         txtOtrosUP = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -532,6 +538,9 @@ public class PIP extends javax.swing.JFrame {
         cbodistri = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         txtlocal = new javax.swing.JTextField();
+        txtUFPR = new javax.swing.JTextField();
+        txtUEPR = new javax.swing.JTextField();
+        txtUFPRF = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -540,7 +549,6 @@ public class PIP extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         txtFechSnip = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        txtPruebaNRO1 = new javax.swing.JTextField();
         txtCodDist = new javax.swing.JTextField();
         txtCodProv = new javax.swing.JTextField();
         txtCodDep = new javax.swing.JTextField();
@@ -558,23 +566,24 @@ public class PIP extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION POLICIAL:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel5.setForeground(new java.awt.Color(0, 102, 51));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setText("Direccion / Region:");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel10.setText("Direccion: ");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setText("Division:");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel12.setText("Comisaria:");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel13.setText("Otros:");
 
-        txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtdireccion.setForeground(new java.awt.Color(0, 0, 153));
         txtdireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -582,7 +591,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtDivision.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtDivision.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtDivision.setForeground(new java.awt.Color(0, 0, 153));
         txtDivision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -590,7 +599,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtComisaria.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtComisaria.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtComisaria.setForeground(new java.awt.Color(0, 0, 153));
         txtComisaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -598,7 +607,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtOtrosUP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtOtrosUP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtOtrosUP.setForeground(new java.awt.Color(0, 0, 153));
         txtOtrosUP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -606,69 +615,83 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel34.setText("Region:");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtComisaria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(txtDivision, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(txtOtrosUP, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))))
-                .addContainerGap())
+                            .addComponent(jLabel10)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel34))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel13)))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtOtrosUP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtComisaria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDivision, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel10)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel34))
+                    .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11))
+                    .addComponent(txtDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel12))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(txtComisaria, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtComisaria, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(8, 8, 8)
                         .addComponent(jLabel13))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtOtrosUP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(txtOtrosUP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 5, 320, 190));
+
         jTabbedPane1.setForeground(new java.awt.Color(0, 102, 51));
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 13));
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel25.setText("Nombre:");
 
-        txtNomUFPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNomUFPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNomUFPIP.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtSeUFPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtSeUFPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtSeUFPIP.setForeground(new java.awt.Color(0, 0, 153));
         txtSeUFPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -676,7 +699,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtPliUFPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtPliUFPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtPliUFPIP.setForeground(new java.awt.Color(0, 0, 153));
         txtPliUFPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -684,25 +707,25 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel29.setText("Pliego:");
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel30.setText("Sector:");
 
-        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel41.setText("Persona ");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel20.setText("Nombre:");
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel26.setText("Grado:");
 
-        txtGradoUFPRF.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtGradoUFPRF.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtGradoUFPRF.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtNomUFPRF.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNomUFPRF.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNomUFPRF.setForeground(new java.awt.Color(0, 0, 153));
         txtNomUFPRF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -718,31 +741,31 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtCIPUFPIPprf.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCIPUFPIPprf.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCIPUFPIPprf.setForeground(new java.awt.Color(0, 0, 153));
 
-        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel43.setText("Responsable");
 
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel44.setText("Formular.");
 
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel45.setText("Persona ");
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel28.setText("Grado:");
 
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel32.setText("Nombre:");
 
-        txtNomUFPR.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNomUFPR.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNomUFPR.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtGradoUFPR.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtGradoUFPR.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtGradoUFPR.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtCIPUiFPIPpr.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCIPUiFPIPpr.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCIPUiFPIPpr.setForeground(new java.awt.Color(0, 0, 153));
 
         btnBuscarPRUF.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -753,7 +776,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel47.setText("Responsable");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -763,51 +786,66 @@ public class PIP extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel44)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel43))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPliUFPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addGap(12, 12, 12))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(txtGradoUFPR, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(txtGradoUFPR, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCIPUiFPIPpr, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPRUF, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNomUFPR, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCIPUiFPIPpr, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarPRUF, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNomUFPR, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNomUFPRF, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                        .addComponent(txtGradoUFPRF, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCIPUFPIPprf, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPRFUF, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(44, 44, 44))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addGap(8, 8, 8))
-                            .addComponent(jLabel20))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(txtGradoUFPRF, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCIPUFPIPprf, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarPRFUF, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNomUFPRF, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtSeUFPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                    .addComponent(txtNomUFPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
-                .addGap(44, 44, 44))
+                        .addComponent(jLabel43)
+                        .addGap(400, 400, 400))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel45)
+                        .addGap(427, 427, 427))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addGap(421, 421, 421))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel47)
+                        .addGap(400, 400, 400))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel41)
+                        .addGap(427, 427, 427))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(txtNomUFPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                        .addContainerGap(44, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(txtSeUFPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                        .addContainerGap(44, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(txtPliUFPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                        .addGap(44, 44, 44))))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -855,14 +893,13 @@ public class PIP extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtGradoUFPR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCIPUiFPIPpr, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addComponent(jLabel28)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtGradoUFPR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCIPUiFPIPpr, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel28))
                             .addComponent(btnBuscarPRUF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -872,7 +909,7 @@ public class PIP extends javax.swing.JFrame {
                         .addComponent(jLabel45)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel43)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("UNIDAD FORMULADORA ", jPanel8);
@@ -880,13 +917,13 @@ public class PIP extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel6.setFont(new java.awt.Font("Tahoma", 1, 11));
 
-        txtNombreUE.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNombreUE.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNombreUE.setForeground(new java.awt.Color(0, 0, 153));
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel36.setText("Responsable:");
 
-        txtSecUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtSecUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtSecUEPIP.setForeground(new java.awt.Color(0, 0, 153));
         txtSecUEPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -894,19 +931,19 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel38.setText("Sector:");
 
-        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel39.setText("Pliego:");
 
-        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel40.setText("Nombre:");
 
-        txtNomUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNomUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNomUEPIP.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtPliUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtPliUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtPliUEPIP.setForeground(new java.awt.Color(0, 0, 153));
         txtPliUEPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -914,16 +951,16 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel37.setText("Persona ");
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel19.setText("Grado:");
 
-        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel33.setText("Nombre:");
 
-        txtGrado.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtGrado.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtGrado.setForeground(new java.awt.Color(0, 0, 153));
 
         btnBuscarPRUE.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -934,7 +971,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtCIPUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCIPUEPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCIPUEPIP.setForeground(new java.awt.Color(0, 0, 153));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -946,34 +983,35 @@ public class PIP extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel36))
-                        .addGap(29, 29, 29)
+                            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNombreUE, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombreUE, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCIPUEPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPRUE, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCIPUEPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarPRUE, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSecUEPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                                    .addComponent(txtPliUEPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                                    .addComponent(txtNomUEPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))))
+                        .addGap(50, 50, 50))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel38))
-                        .addGap(59, 59, 59)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSecUEPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                            .addComponent(txtPliUEPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                            .addComponent(txtNomUEPIP, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))))
-                .addGap(50, 50, 50))
+                        .addComponent(jLabel37)
+                        .addGap(425, 425, 425))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1019,30 +1057,30 @@ public class PIP extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel33)
                             .addComponent(txtNombreUE, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("UNIDAD EJECUTORA ", jPanel6);
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("Otros Imprevistos");
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel23.setText("Otros Imprevistos:");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel15.setText("Capacitacion");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel15.setText("Capacitacion:");
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel22.setText("Equipamiento");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel22.setText("Equipamiento:");
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel21.setText("Supervision");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel21.setText("Supervision:");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel16.setText("Obras Civiles");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel16.setText("Obras Civiles:");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel17.setText("Estudios/Ex. Tec.");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel17.setText("Estudios/Ex. Tec.:");
 
-        txtEstudios.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtEstudios.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtEstudios.setForeground(new java.awt.Color(0, 0, 153));
         txtEstudios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1050,7 +1088,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtObras.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtObras.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtObras.setForeground(new java.awt.Color(0, 0, 153));
         txtObras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1058,7 +1096,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtSuper.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtSuper.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtSuper.setForeground(new java.awt.Color(0, 0, 153));
         txtSuper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1066,7 +1104,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtEquipa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtEquipa.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtEquipa.setForeground(new java.awt.Color(0, 0, 153));
         txtEquipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1074,7 +1112,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtCapa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCapa.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCapa.setForeground(new java.awt.Color(0, 0, 153));
         txtCapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1082,7 +1120,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        txtOtros.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtOtros.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtOtros.setForeground(new java.awt.Color(0, 0, 153));
         txtOtros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1090,10 +1128,10 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel46.setText("Fuente de Financiamiento");
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel46.setText("Fuente de Financiamiento:");
 
-        txtFuente.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtFuente.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtFuente.setForeground(new java.awt.Color(0, 0, 153));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1102,37 +1140,27 @@ public class PIP extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFuente, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE))
-                                .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addComponent(jLabel17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(46, 46, 46)))
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSuper, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(txtEstudios, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(txtObras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCapa, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(txtOtros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(txtEquipa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSuper, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(txtEstudios, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(txtObras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuente, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                    .addComponent(txtCapa, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                    .addComponent(txtOtros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                    .addComponent(txtEquipa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
         );
         jPanel7Layout.setVerticalGroup(
@@ -1165,58 +1193,71 @@ public class PIP extends javax.swing.JFrame {
                     .addComponent(jLabel23)
                     .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSuper, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtFuente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel46))
+                    .addComponent(jLabel46)
+                    .addComponent(txtFuente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(109, 109, 109))
         );
 
         jTabbedPane1.addTab("COMPONENTES", jPanel7);
 
-        cboSituPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel3.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 520, 306));
+
+        cboSituPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboSituPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboSituPIPActionPerformed(evt);
             }
         });
+        jPanel3.add(cboSituPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(856, 119, 130, 32));
+        jPanel3.add(txtCodSituPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 60, 63, 29));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel3.setText("\" SITUACION DEL PIP \"");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 140, -1));
 
         lblSituacion.setFont(new java.awt.Font("Tahoma", 1, 20));
+        jPanel3.add(lblSituacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, 151, 30));
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel27.setText("Nivel de Calificacion");
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel27.setText("Nivel de Calificacion:");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
 
-        cboNivEstu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cboNivEstu.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboNivEstu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboNivEstuActionPerformed(evt);
             }
         });
+        jPanel3.add(cboNivEstu, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 227, 172, 32));
 
-        cboNivCalifi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cboNivCalifi.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboNivCalifi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboNivCalifiActionPerformed(evt);
             }
         });
+        jPanel3.add(cboNivCalifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 267, 172, 34));
+        jPanel3.add(txtCodNE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1048, 228, -1, 33));
+        jPanel3.add(txtCodNC, new org.netbeans.lib.awtextra.AbsoluteConstraints(1048, 268, -1, 34));
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel31.setText("Nivel de Estudio");
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel31.setText("Nivel de Estudio:");
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, -1, -1));
 
-        txtNivEstudio.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNivEstudio.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNivEstudio.setForeground(new java.awt.Color(0, 0, 153));
         txtNivEstudio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNivEstudioActionPerformed(evt);
             }
         });
+        jPanel3.add(txtNivEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 174, 32));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-informe-icono-6797-16.png"))); // NOI18N
         btnNuevo.setText("NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -1225,7 +1266,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -1234,7 +1275,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Delete.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -1252,7 +1293,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Warning.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -1261,7 +1302,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAsignarTDR.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnAsignarTDR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir-de-mi-perfil-icono-3964-16.png"))); // NOI18N
         btnAsignarTDR.setText("ASIGNAR TDR ");
         btnAsignarTDR.addActionListener(new java.awt.event.ActionListener() {
@@ -1310,280 +1351,149 @@ public class PIP extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtNivCali.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 354, -1, -1));
+
+        txtNivCali.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNivCali.setForeground(new java.awt.Color(0, 0, 153));
+        jPanel3.add(txtNivCali, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 174, 34));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION GEOGRAFICA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel4.setForeground(new java.awt.Color(0, 102, 51));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel4.setText("Departamento:");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 42, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setText("Provincia:");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 80, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setText("Distrito:");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 118, -1, -1));
 
-        txtNombDepart.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNombDepart.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNombDepart.setForeground(new java.awt.Color(0, 0, 153));
+        jPanel4.add(txtNombDepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 160, 33));
 
-        txtNombProv.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNombProv.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNombProv.setForeground(new java.awt.Color(0, 0, 153));
+        jPanel4.add(txtNombProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, 32));
 
-        txtNombDist.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNombDist.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNombDist.setForeground(new java.awt.Color(0, 0, 153));
+        jPanel4.add(txtNombDist, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, 32));
 
-        cboDepar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cboDepar.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboDepar.setForeground(new java.awt.Color(0, 0, 153));
         cboDepar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboDeparActionPerformed(evt);
             }
         });
+        jPanel4.add(cboDepar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 160, 33));
 
-        cboprovin.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cboprovin.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboprovin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboprovinActionPerformed(evt);
             }
         });
+        jPanel4.add(cboprovin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, 32));
 
-        cbodistri.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cbodistri.setFont(new java.awt.Font("Tahoma", 1, 13));
         cbodistri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbodistriActionPerformed(evt);
             }
         });
+        jPanel4.add(cbodistri, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, 30));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel7.setText("Localidad:");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 161, -1, -1));
 
-        txtlocal.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtlocal.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtlocal.setForeground(new java.awt.Color(0, 0, 153));
         txtlocal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtlocalActionPerformed(evt);
             }
         });
+        jPanel4.add(txtlocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 146, 330, 32));
+        jPanel4.add(txtUFPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 40, -1));
+        jPanel4.add(txtUEPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 40, -1));
+        jPanel4.add(txtUFPRF, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 40, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombDepart, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(txtNombDist, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(txtNombProv, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbodistri, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cboDepar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cboprovin, 0, 199, Short.MAX_VALUE))
-                        .addContainerGap(20, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtlocal, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cboDepar, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addComponent(txtNombDepart, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cboprovin, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                        .addComponent(txtNombProv, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbodistri, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                        .addComponent(txtNombDist, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(txtlocal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 5, 470, 190));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(txtCodSituPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(cboSituPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(lblSituacion, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel27)
-                                    .addComponent(jLabel31))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cboNivCalifi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cboNivEstu, 0, 172, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNivEstudio)
-                                    .addComponent(txtNivCali, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtCodNC)
-                                    .addComponent(txtCodNE, javax.swing.GroupLayout.Alignment.LEADING)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(txtCodSituPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboSituPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSituacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel31)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cboNivEstu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNivEstudio, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addComponent(txtCodNE, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtCodNC, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                .addComponent(cboNivCalifi, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                .addComponent(txtNivCali, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(52, 52, 52)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 211, 1030, 530));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 249, 1030, 552));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Codigo SNIP");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 166, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel14.setText("Codigo SNIP:");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 100, -1));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Narrow", 1, 36));
         jLabel9.setText("REGISTRO DE PROYECTOS DE INVERSION");
         jPanel9.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 620, 51));
 
         lblImagenEscudo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img.jpg"))); // NOI18N
-        jPanel9.add(lblImagenEscudo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 2, 100, 101));
+        jPanel9.add(lblImagenEscudo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 2, 100, 100));
 
-        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 25, 808, 112));
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 808, 110));
 
-        txtCodSnip.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCodSnip.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCodSnip.setForeground(new java.awt.Color(0, 0, 153));
         txtCodSnip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodSnipActionPerformed(evt);
             }
         });
-        jPanel2.add(txtCodSnip, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 155, 132, 31));
+        jPanel2.add(txtCodSnip, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 132, 31));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel18.setText("Nom. Proyecto");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 214, 104, -1));
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel18.setText("Nom. Proyecto:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 110, -1));
 
-        txtFechSnip.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtFechSnip.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtFechSnip.setForeground(new java.awt.Color(0, 0, 153));
         txtFechSnip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechSnipActionPerformed(evt);
             }
         });
-        jPanel2.add(txtFechSnip, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 155, 128, 31));
+        jPanel2.add(txtFechSnip, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 128, 31));
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel24.setText("Fecha del SNIP");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 169, -1, -1));
-
-        txtPruebaNRO1.setFont(new java.awt.Font("Tahoma", 1, 14));
-        txtPruebaNRO1.setBorder(null);
-        txtPruebaNRO1.setOpaque(false);
-        jPanel2.add(txtPruebaNRO1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 33, 21));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel24.setText("Fecha del SNIP:");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
         jPanel2.add(txtCodDist, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 97, -1, 34));
         jPanel2.add(txtCodProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 49, -1, 37));
         jPanel2.add(txtCodDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 12, -1, 31));
 
-        txtnombProy.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtnombProy.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtnombProy.setForeground(new java.awt.Color(0, 0, 153));
-        jPanel2.add(txtnombProy, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 194, 446, 29));
+        jPanel2.add(txtnombProy, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 446, 29));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel1.setText("Codigo del:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, -1, -1));
 
-        txtCodPIP.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtCodPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtCodPIP.setForeground(new java.awt.Color(0, 0, 153));
         txtCodPIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodPIPActionPerformed(evt);
             }
         });
-        jPanel2.add(txtCodPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, 86, 31));
+        jPanel2.add(txtCodPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 86, 31));
 
-        btnBuscarPIP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBuscarPIP.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnBuscarPIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Search.png"))); // NOI18N
         btnBuscarPIP.setText("Buscar Proyecto de Inversion");
         btnBuscarPIP.addActionListener(new java.awt.event.ActionListener() {
@@ -1591,11 +1501,11 @@ public class PIP extends javax.swing.JFrame {
                 btnBuscarPIPActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBuscarPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, -1, 30));
+        jPanel2.add(btnBuscarPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, -1, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Proyecto de Inversion:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1609,8 +1519,8 @@ public class PIP extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(536, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(572, Short.MAX_VALUE))
         );
 
         pack();
@@ -1659,7 +1569,7 @@ public class PIP extends javax.swing.JFrame {
                 txtNombDist.setVisible(true);
                 txtNombProv.setVisible(true);
                 lblSituacion.setVisible(true);
-                cargarUNIPIP();
+                //cargarUNIPIP();
                 cargarUniEjePR();
                 cargarUniForPRF();
                 cargarUniForPR();
@@ -1756,45 +1666,47 @@ public class PIP extends javax.swing.JFrame {
 }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        try {
-            PipDAO tbpip = new PipDAO();
-            tbpip.cargarPIP();
-            PipDTO pip = tbpip.buscar(txtCodPIP.getText());
-            if (pip == null) {
-                PipDTO xpip = new PipDTO();
-                xpip.setCod_PIP(txtCodPIP.getText());
-                xpip.setSNIP(txtCodSnip.getText());
-                xpip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
-                xpip.setNom_Proinv(txtnombProy.getText());
-                    /*******************************/
-                    /*******************************/
-                    departamentoDTO tde = new departamentoDTO();
-                    tde.setCod_Dpto(txtCodDep.getText());
-                    xpip.setCod_Dpto(tde);
+        if(btnGrabar.isEnabled()){
+            //activaBotones(true, false, false, false, true, false, false, false, false);
+            try {
+                PipDAO tbpip = new PipDAO();
+                tbpip.cargarPIP();                
+                if (txtCodPIP.getText().isEmpty()) {
+                    txtCodPIP.setText(""+tbpip.incrementaCodigo());
+                    PipDTO xpip = new PipDTO();
+                    xpip.setCod_PIP(txtCodPIP.getText());
+                    xpip.setSNIP(txtCodSnip.getText());
+                    xpip.setFechSNIP(Date.valueOf("0000-00-00"));
+                    xpip.setNom_Proinv(txtnombProy.getText());
                         /*******************************/
                         /*******************************/
-                        provinciaDTO tpro = new provinciaDTO();
-                        tpro.setCod_Prov(txtCodProv.getText());
-                        xpip.setCod_Prov(tpro);
+                        departamentoDTO tde = new departamentoDTO();
+                        tde.setCod_Dpto(txtCodDep.getText());
+                        xpip.setCod_Dpto(tde);
                             /*******************************/
                             /*******************************/
-                            distritoDTO tdis = new distritoDTO();
-                            tdis.setCod_dist(txtCodDist.getText());
-                            xpip.setCod_Dist(tdis);
+                            provinciaDTO tpro = new provinciaDTO();
+                            tpro.setCod_Prov(txtCodProv.getText());
+                            xpip.setCod_Prov(tpro);
                                 /*******************************/
                                 /*******************************/
-                xpip.setLocaliPNP(txtlocal.getText());
-                xpip.setDireccPNP(txtdireccion.getText());
-                xpip.setDivisionPNP(txtDivision.getText());
-                xpip.setComisaria(txtComisaria.getText());
-                xpip.setOtrosPNP(txtOtrosUP.getText());
-                xpip.setEst_ExpTec(Double.parseDouble(txtEstudios.getText()));
-                xpip.setObra_Civ(Double.parseDouble(txtObras.getText()));
-                xpip.setSupervision(Double.parseDouble(txtSuper.getText()));
-                xpip.setEquipamiento(Double.parseDouble(txtEquipa.getText()));
-                xpip.setCapacitacion(Double.parseDouble(txtCapa.getText()));
-                xpip.setOtros_Imp(Double.parseDouble(txtOtros.getText()));
-                xpip.setFuente_Fina(Double.parseDouble(txtFuente.getText()));
+                                distritoDTO tdis = new distritoDTO();
+                                tdis.setCod_dist(txtCodDist.getText());
+                                xpip.setCod_Dist(tdis);
+                                    /*******************************/
+                                    /*******************************/
+                    xpip.setLocaliPNP(txtlocal.getText());
+                    xpip.setDireccPNP(txtdireccion.getText());
+                    xpip.setDivisionPNP(txtDivision.getText());
+                    xpip.setComisaria(txtComisaria.getText());
+                    xpip.setOtrosPNP(txtOtrosUP.getText());
+                    xpip.setEst_ExpTec(Double.parseDouble(txtEstudios.getText()));
+                    xpip.setObra_Civ(Double.parseDouble(txtObras.getText()));
+                    xpip.setSupervision(Double.parseDouble(txtSuper.getText()));
+                    xpip.setEquipamiento(Double.parseDouble(txtEquipa.getText()));
+                    xpip.setCapacitacion(Double.parseDouble(txtCapa.getText()));
+                    xpip.setOtros_Imp(Double.parseDouble(txtOtros.getText()));
+                    xpip.setFuente_Fina(Double.parseDouble(txtFuente.getText()));
                                     /*******************************/
                                     /*******************************/
                                     Tb_NivEstPIP tnEs = new Tb_NivEstPIP();
@@ -1810,64 +1722,73 @@ public class PIP extends javax.swing.JFrame {
                                             Tb_SituPIP tbs = new Tb_SituPIP();
                                             tbs.setCod_SituPIP(txtCodSituPIP.getText());
                                             xpip.setSituacion(tbs);
-                tbpip.agregarPIP(xpip);/*************FINAL******************/
-                /*************/
-                grabaUFPRF();
-                /*************/
-                JOptionPane.showMessageDialog(null,"Registro guardado satisfactoriamente en el Sistema...","Exito", 1);
-                lblSituacion.setVisible(true);
-            } else {
-                PipDTO apip = new PipDTO();
-                apip.setCod_PIP(txtCodPIP.getText());
-                apip.setSNIP(txtCodSnip.getText());
-                apip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
-                apip.setNom_Proinv(txtnombProy.getText());
-
-                departamentoDTO td = new departamentoDTO();
-                td.setCod_Dpto(txtCodDep.getText());
-                apip.setCod_Dpto(td);
-
-                provinciaDTO tpr = new provinciaDTO();
-                tpr.setCod_Prov(txtCodProv.getText());
-                apip.setCod_Prov(tpr);
-
-                distritoDTO tdi = new distritoDTO();
-                tdi.setCod_dist(txtCodDist.getText());
-                apip.setCod_Dist(tdi);
-
-                apip.setLocaliPNP(txtlocal.getText());
-                apip.setDireccPNP(txtdireccion.getText());
-                apip.setEst_ExpTec(Double.parseDouble(txtEstudios.getText()));
-                apip.setObra_Civ(Double.parseDouble(txtObras.getText()));
-                apip.setSupervision(Double.parseDouble(txtSuper.getText()));
-                apip.setEquipamiento(Double.parseDouble(txtEquipa.getText()));
-                apip.setCapacitacion(Double.parseDouble(txtCapa.getText()));
-                apip.setOtros_Imp(Double.parseDouble(txtOtros.getText()));
-                apip.setFuente_Fina(Double.parseDouble(txtFuente.getText()));
-
-                Tb_NivEstPIP tnE = new Tb_NivEstPIP();
-                tnE.setCod_EstPIP(txtCodNE.getText());
-                apip.setCod_NivEstPIP(tnE);
-
-                Tb_NivCaliPIP tnC = new Tb_NivCaliPIP();
-                tnC.setCod_NivCaliPIP(txtCodNC.getText());
-                apip.setCod_NivCaliPIP(tnC);
-
-                Tb_SituPIP tb = new Tb_SituPIP();
-                tb.setCod_SituPIP(txtCodSituPIP.getText());
-                apip.setSituacion(tb);
-                tbpip.actualizarPIP(apip);
-                /*************/
-                grabaUFPRF();
-                /*************/
-                JOptionPane.showMessageDialog(this,
+                    tbpip.agregarPIP(xpip);/*************FINAL******************/
+                    activaBotones(true, false, false, false, true, false, false, false, false);
+                    System.out.println("Hasta aca guarda la tabla PIP");
+                    /*************/
+                    grabaUFPRF();
+                    /*************/
+                    JOptionPane.showMessageDialog(null,"Registro guardado satisfactoriamente en el Sistema...","Exito", 1);
+                    lblSituacion.setVisible(true);
+                } else {
+                    PipDTO apip = new PipDTO();
+                    apip.setCod_PIP(txtCodPIP.getText());
+                    apip.setSNIP(txtCodSnip.getText());
+                    apip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
+                    apip.setNom_Proinv(txtnombProy.getText());
+                        /*******************************/
+                        /*******************************/
+                        departamentoDTO td = new departamentoDTO();
+                        td.setCod_Dpto(txtCodDep.getText());
+                        apip.setCod_Dpto(td);
+                            /*******************************/
+                            /*******************************/
+                            provinciaDTO tpr = new provinciaDTO();
+                            tpr.setCod_Prov(txtCodProv.getText());
+                            apip.setCod_Prov(tpr);
+                                /*******************************/
+                                /*******************************/
+                            distritoDTO tdi = new distritoDTO();
+                            tdi.setCod_dist(txtCodDist.getText());
+                            apip.setCod_Dist(tdi);
+                    apip.setLocaliPNP(txtlocal.getText());
+                    apip.setDireccPNP(txtdireccion.getText());
+                    apip.setEst_ExpTec(Double.parseDouble(txtEstudios.getText()));
+                    apip.setObra_Civ(Double.parseDouble(txtObras.getText()));
+                    apip.setSupervision(Double.parseDouble(txtSuper.getText()));
+                    apip.setEquipamiento(Double.parseDouble(txtEquipa.getText()));
+                    apip.setCapacitacion(Double.parseDouble(txtCapa.getText()));
+                    apip.setOtros_Imp(Double.parseDouble(txtOtros.getText()));
+                    apip.setFuente_Fina(Double.parseDouble(txtFuente.getText()));
+                            /*******************************/
+                            /*******************************/
+                            Tb_NivEstPIP tnE = new Tb_NivEstPIP();
+                            tnE.setCod_EstPIP(txtCodNE.getText());
+                            apip.setCod_NivEstPIP(tnE);
+                                /*******************************/
+                                /*******************************/
+                                Tb_NivCaliPIP tnC = new Tb_NivCaliPIP();
+                                tnC.setCod_NivCaliPIP(txtCodNC.getText());
+                                apip.setCod_NivCaliPIP(tnC);
+                                    /*******************************/
+                                    /*******************************/
+                                    Tb_SituPIP tb = new Tb_SituPIP();
+                                    tb.setCod_SituPIP(txtCodSituPIP.getText());
+                                    apip.setSituacion(tb);
+                        tbpip.actualizarPIP(apip);
+                        /*************/
+                        grabaUFPRF();
+                        /*************/
+                        JOptionPane.showMessageDialog(this,
                         "Datos actualizados satisfactoriamente",
                         "Exito", 1);
-                lblSituacion.setVisible(true);
+                        lblSituacion.setVisible(true);
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.toString());
             }
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
         }
+
 }//GEN-LAST:event_btnGrabarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -2066,10 +1987,6 @@ public class PIP extends javax.swing.JFrame {
         txtPliUFPIP.requestFocus();
 }//GEN-LAST:event_txtSeUFPIPActionPerformed
 
-    private void txtOtrosUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosUPActionPerformed
-        txtSeUFPIP.requestFocus();
-}//GEN-LAST:event_txtOtrosUPActionPerformed
-
     private void txtComisariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComisariaActionPerformed
         txtOtrosUP.requestFocus();
 }//GEN-LAST:event_txtComisariaActionPerformed
@@ -2081,6 +1998,10 @@ public class PIP extends javax.swing.JFrame {
     private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed
         txtDivision.requestFocus();
 }//GEN-LAST:event_txtdireccionActionPerformed
+
+    private void txtOtrosUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosUPActionPerformed
+        txtSeUFPIP.requestFocus();
+}//GEN-LAST:event_txtOtrosUPActionPerformed
 
     private void cargarComboDepartamento() {
         try {
@@ -2200,6 +2121,7 @@ public class PIP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -2264,10 +2186,12 @@ public class PIP extends javax.swing.JFrame {
     private javax.swing.JTextField txtOtrosUP;
     private javax.swing.JTextField txtPliUEPIP;
     private javax.swing.JTextField txtPliUFPIP;
-    private javax.swing.JTextField txtPruebaNRO1;
     private javax.swing.JTextField txtSeUFPIP;
     private javax.swing.JTextField txtSecUEPIP;
     private javax.swing.JTextField txtSuper;
+    private javax.swing.JTextField txtUEPR;
+    private javax.swing.JTextField txtUFPR;
+    private javax.swing.JTextField txtUFPRF;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtlocal;
     private javax.swing.JTextField txtnombProy;

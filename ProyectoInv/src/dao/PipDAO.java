@@ -204,9 +204,10 @@ import java.util.Vector;
         return iResultado;
     }
 
-    /*public int incrementaCodigo() throws SQLException{
+    public int incrementaCodigo() throws SQLException{
         abrirConexiones();
-        ResultSet rst = st.executeQuery("")
-    }*/
-
+        ResultSet rst = st.executeQuery("SELECT IF(MAX(Cod_PIP) IS NULL,1,MAX(Cod_PIP)+1) AS nuevo FROM pip");
+        rst.next();
+        return rst.getInt("nuevo");
+    }
 }

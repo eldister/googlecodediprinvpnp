@@ -695,7 +695,7 @@ public class DocOrigen extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (btnGuardar.isEnabled()) {
-            activaBotones(true, false, false, false, true, false);
+            //activaBotones(true, false, false, false, true, false);
             try {
                 DocumentosDAO tbtipo = new DocumentosDAO();
                 tbtipo.cargarDocumentos();   
@@ -713,7 +713,7 @@ public class DocOrigen extends javax.swing.JFrame {
                         tidoc.setCTip_Doc(txtCodTipDoc.getText());
                         xdoc.setCTip_Doc(tidoc);
                         tbtipo.agregarDocumento(xdoc);
-                        JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente", "Mensaje", 1);
+                        JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente en el Sistema...", "Mensaje", 1);
                         ultimoRegistro();
                         activaBotones(true, true, false, true, true, false);
                 } else{
