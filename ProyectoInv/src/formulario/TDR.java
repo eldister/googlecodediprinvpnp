@@ -16,7 +16,7 @@ public class TDR extends javax.swing.JFrame {
         centrar();
         this.setDefaultCloseOperation(TDR.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-
+        activaBotones(false, false, false, false);
         NoMostrarDatosPIP();
 
         txtDocumento1.setEditable(false);
@@ -40,10 +40,16 @@ public class TDR extends javax.swing.JFrame {
         txtdireccion.setText(PIP.direccion);
         txtotros.setText(PIP.otros);
         txtdivision.setText(PIP.division);
+    }    
 
-
+    private void activaBotones(boolean a, boolean b, boolean c, boolean d) {                
+        btnGrabar.setEnabled(a);
+        btnEditar.setEnabled(b);
+        btnCancelar.setEnabled(c);
+        btnEliminar.setEnabled(d);
     }
-     public void centrar() {
+
+    public void centrar() {
         Dimension pantallaTamano = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize((pantallaTamano.width), (pantallaTamano.height));
         Dimension tamanoPanel = TDRPanel.getSize();
@@ -66,8 +72,6 @@ public class TDR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
         TDRPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtnomProy = new javax.swing.JTextField();
@@ -113,75 +117,65 @@ public class TDR extends javax.swing.JFrame {
         txtFecha1 = new javax.swing.JTextField();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        btnCancelar1 = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnGrabar = new javax.swing.JButton();
         btnEnviaLog = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        lblImagenEscudo2 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        lblImagenEscudo3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TDRPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATOS GENERALES", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
+        TDRPanel.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Arial Narrow", 1, 36));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel-de-las-noticias-icono-4922-32.png"))); // NOI18N
-        jLabel14.setText("INFORMACION GENERAL TDR / DIVPRINV");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        TDRPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATOS GENERALES", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
-        TDRPanel.setFont(new java.awt.Font("Arial Narrow", 1, 24));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Nombre del Proyecto:");
 
-        txtnomProy.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtnomProy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtnomProy.setForeground(new java.awt.Color(0, 0, 153));
 
-        Localizacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "LOCALIZACION GEOGRAFICA DEL TDR:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        Localizacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICAION GEOGRAFICA:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Provincia:");
 
-        txtProvincia.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtProvincia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtProvincia.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtDistrito.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtDistrito.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDistrito.setForeground(new java.awt.Color(0, 0, 153));
         txtDistrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDistritoActionPerformed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Distrito:");
 
-        txtDepartamento.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtDepartamento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDepartamento.setForeground(new java.awt.Color(0, 0, 153));
         txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDepartamentoActionPerformed(evt);
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Departamento:");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Localidad:");
 
-        txtLocalidad.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtLocalidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtLocalidad.setForeground(new java.awt.Color(0, 0, 153));
         txtLocalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLocalidadActionPerformed(evt);
@@ -234,26 +228,30 @@ public class TDR extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Ubicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION POLICIAL:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        Ubicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION POLICIAL:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
-        txtotros.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtotros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtotros.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtcomisaria.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtcomisaria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtcomisaria.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtdivision.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtdivision.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtdivision.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtdireccion.setForeground(new java.awt.Color(0, 0, 153));
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Otros:");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Comisaria:");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Division:");
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("Direccion / Region:");
 
         javax.swing.GroupLayout UbicacionLayout = new javax.swing.GroupLayout(Ubicacion);
@@ -305,15 +303,16 @@ public class TDR extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Coordinador.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "COORDINADOR:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        Coordinador.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "COORDINADOR:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14));
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("CIP:");
 
         txtNombre.setEditable(false);
-        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(0, 0, 153));
 
         btnBuscarCoor.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnBuscarCoor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar-buscar-ampliar-icono-9630-16.png"))); // NOI18N
@@ -333,10 +332,12 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        txtCIP1.setFont(new java.awt.Font("Tahoma", 0, 14));
+        txtCIP1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCIP1.setForeground(new java.awt.Color(0, 0, 153));
 
         txtGrado.setEditable(false);
-        txtGrado.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtGrado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtGrado.setForeground(new java.awt.Color(0, 0, 153));
 
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vacio-icono-8134-16.png"))); // NOI18N
@@ -404,19 +405,21 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        txtAsigNumero.setFont(new java.awt.Font("Tahoma", 1, 11));
+        txtAsigNumero.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtAsigNumero.setForeground(new java.awt.Color(0, 0, 153));
         txtAsigNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAsigNumeroActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Nº. TDR:");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
 
-        txtSiglas1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtSiglas1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtSiglas1.setForeground(new java.awt.Color(0, 0, 153));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel18.setText("Siglas:");
@@ -430,16 +433,19 @@ public class TDR extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setText("Numero:");
 
-        txtNro1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtNro1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNro1.setForeground(new java.awt.Color(0, 0, 153));
         txtNro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNro1ActionPerformed(evt);
             }
         });
 
-        txtDocumento1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtDocumento1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDocumento1.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtFecha1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        txtFecha1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtFecha1.setForeground(new java.awt.Color(0, 0, 153));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -486,27 +492,27 @@ public class TDR extends javax.swing.JFrame {
 
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
-        btnEditar.setText("MODIFICAR");
+        btnEditar.setText("EDITAR");
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/no.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
 
-        btnCancelar1.setFont(new java.awt.Font("Tahoma", 1, 13));
-        btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Warning.png"))); // NOI18N
-        btnCancelar1.setText("CANCELAR");
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 13));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Warning.png"))); // NOI18N
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 13));
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
-        btnGuardar.setText("GUARDAR");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnGrabar.setFont(new java.awt.Font("Tahoma", 1, 13));
+        btnGrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
+        btnGrabar.setText("GRABAR");
+        btnGrabar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnGrabarActionPerformed(evt);
             }
         });
 
@@ -536,8 +542,8 @@ public class TDR extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAsigNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnomProy, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(183, 183, 183)
+                            .addComponent(txtnomProy, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addComponent(btnPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TDRPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -550,16 +556,16 @@ public class TDR extends javax.swing.JFrame {
                         .addComponent(Coordinador, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(TDRPanelLayout.createSequentialGroup()
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnGrabar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
                                 .addGap(27, 27, 27)
-                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TDRPanelLayout.createSequentialGroup()
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(11, Short.MAX_VALUE))
+                                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         TDRPanelLayout.setVerticalGroup(
             TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,14 +595,91 @@ public class TDR extends javax.swing.JFrame {
                     .addGroup(TDRPanelLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel21.setFont(new java.awt.Font("Arial Narrow", 1, 36));
+        jLabel21.setText("SISTEMA Y SUPERVISION ");
+
+        jLabel23.setFont(new java.awt.Font("Arial Narrow", 1, 36));
+        jLabel23.setText("DE PROYECTOS DE INVERSION");
+
+        lblImagenEscudo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblImagenEscudo2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel21))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblImagenEscudo2, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel21)
                         .addGap(6, 6, 6)
-                        .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel24.setFont(new java.awt.Font("Arial Narrow", 1, 36));
+        jLabel24.setText("INFORMACION GENERAL");
+
+        jLabel25.setFont(new java.awt.Font("Arial Narrow", 1, 36));
+        jLabel25.setText("DEL TERMINO DE REFERENCIA");
+
+        lblImagenEscudo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblImagenEscudo3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel24))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel25)))
+                .addGap(176, 176, 176))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblImagenEscudo3, 0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -604,19 +687,32 @@ public class TDR extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TDRPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(TDRPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(771, 771, 771))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(875, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(193, 193, 193)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(843, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(TDRPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(TDRPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(366, 366, 366)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(241, Short.MAX_VALUE)))
         );
 
         pack();
@@ -694,13 +790,13 @@ public class TDR extends javax.swing.JFrame {
         btnRegCoord.setVisible(true);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
 
-}//GEN-LAST:event_btnCancelar1ActionPerformed
+}//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_btnGuardarActionPerformed
+}//GEN-LAST:event_btnGrabarActionPerformed
 
     private void btnEnviaLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaLogActionPerformed
 
@@ -720,11 +816,11 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JPanel TDRPanel;
     private javax.swing.JPanel Ubicacion;
     private javax.swing.JButton btnBuscarCoor;
-    private javax.swing.JButton btnCancelar1;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEnviaLog;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGrabar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnPIP;
     private javax.swing.JButton btnRegCoord;
@@ -732,13 +828,18 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -746,7 +847,12 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel lblImagenEscudo1;
+    private javax.swing.JLabel lblImagenEscudo2;
+    private javax.swing.JLabel lblImagenEscudo3;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtAsigNumero;
     private javax.swing.JTextField txtCIP1;

@@ -157,6 +157,7 @@ import java.util.Vector;
                                                    "','"+pip.getCod_NivCaliPIP().getCod_NivCaliPIP()+
                                                    "','"+pip.getSituacion().getCod_SituPIP()+"')";
         int iResultado = st.executeUpdate(sentenciaSQL);
+        System.out.println(""+sentenciaSQL);
         cargarPIP();
         CerrarConexiones();
         return iResultado;
@@ -193,7 +194,8 @@ import java.util.Vector;
         CerrarConexiones();
         return iResultado;
     }
-        public int eliminarPIP(String Cod_PIP) throws SQLException {
+
+    public int eliminarPIP(String Cod_PIP) throws SQLException {
         abrirConexiones();
         String sentenciaSQL = "DELETE FROM pip WHERE Cod_PIP='"+Cod_PIP+"'";
         int iResultado = st.executeUpdate(sentenciaSQL);
@@ -201,4 +203,10 @@ import java.util.Vector;
         CerrarConexiones();
         return iResultado;
     }
+
+    /*public int incrementaCodigo() throws SQLException{
+        abrirConexiones();
+        ResultSet rst = st.executeQuery("")
+    }*/
+
 }
