@@ -129,6 +129,7 @@ public class UniproyectosDAO {
                                                       "Sector       ='"+actUNIPRO.getSector()+"'," +
                                                       "Pliego       ='"+actUNIPRO.getPliego()+"'," +
                                                       "Nombre_Unidad='"+actUNIPRO.getNomUni()+"'," +
+                                                      "Cod_PIP      ='"+actUNIPRO.getCod_PIP()+"'"+
                               "WHERE Cod_UniPIP='"+actUNIPRO.getCod_UniPIP()+"'";
         System.out.println("Datos guardados con satisfaccion");
         int iResultado = st.executeUpdate(sentenciaSQL);

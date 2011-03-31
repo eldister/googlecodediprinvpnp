@@ -306,6 +306,8 @@ public class PIP extends javax.swing.JFrame {
                         up.setCod_PIP(p);
                 upro.agregarUNIPRO(up);/*************FINAL******************/
                 JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 1","Exito", 1);
+            }else{
+
             }
                 if (txtCIPUiFPIPpr.getText()!= null) {
                     upro.cargarUniproyectos();
@@ -355,7 +357,6 @@ public class PIP extends javax.swing.JFrame {
             System.out.println(ex.toString());
         }
     }
-//bien
 
     private void cargarSituacion() {
         try {
@@ -368,21 +369,7 @@ public class PIP extends javax.swing.JFrame {
             System.out.println(ex.toString());
         }
     }
-//bien
 
-    /*private void cargarUNIPIP() {
-        try {
-            UniproyectosDAO uni = new UniproyectosDAO();
-            Vector<UniproyectosDTO> vU = uni.cargarUniproyectos();
-            for (int i = 0; i < vU.size(); i++) {
-                txtPruebaNRO1.setText(vU.lastElement().getCod_UniPIP());
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
-    }*/
-
-    //bien
     private void cargarUniForPRF() {
         try {
             UniproyectosDAO uFE = new UniproyectosDAO();
@@ -557,6 +544,7 @@ public class PIP extends javax.swing.JFrame {
         txtCodPIP = new javax.swing.JTextField();
         btnBuscarPIP = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1057,7 +1045,7 @@ public class PIP extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel33)
                             .addComponent(txtNombreUE, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("UNIDAD EJECUTORA ", jPanel6);
@@ -1284,7 +1272,7 @@ public class PIP extends javax.swing.JFrame {
             }
         });
 
-        btnGrabar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGrabar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnGrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
         btnGrabar.setText("GRABAR");
         btnGrabar.addActionListener(new java.awt.event.ActionListener() {
@@ -1506,6 +1494,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Proyecto de Inversion:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1666,8 +1655,7 @@ public class PIP extends javax.swing.JFrame {
 }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        if(btnGrabar.isEnabled()){
-            //activaBotones(true, false, false, false, true, false, false, false, false);
+        if(btnGrabar.isEnabled()){            
             try {
                 PipDAO tbpip = new PipDAO();
                 tbpip.cargarPIP();                
@@ -1676,7 +1664,7 @@ public class PIP extends javax.swing.JFrame {
                     PipDTO xpip = new PipDTO();
                     xpip.setCod_PIP(txtCodPIP.getText());
                     xpip.setSNIP(txtCodSnip.getText());
-                    xpip.setFechSNIP(Date.valueOf("0000-00-00"));
+                    xpip.setFechSNIP(Date.valueOf(txtFechSnip.getText()));
                     xpip.setNom_Proinv(txtnombProy.getText());
                         /*******************************/
                         /*******************************/
@@ -1753,6 +1741,9 @@ public class PIP extends javax.swing.JFrame {
                             apip.setCod_Dist(tdi);
                     apip.setLocaliPNP(txtlocal.getText());
                     apip.setDireccPNP(txtdireccion.getText());
+                    apip.setDivisionPNP(txtDivision.getText());
+                    apip.setComisaria(txtComisaria.getText());
+                    apip.setOtrosPNP(txtOtrosUP.getText());
                     apip.setEst_ExpTec(Double.parseDouble(txtEstudios.getText()));
                     apip.setObra_Civ(Double.parseDouble(txtObras.getText()));
                     apip.setSupervision(Double.parseDouble(txtSuper.getText()));
@@ -1777,10 +1768,10 @@ public class PIP extends javax.swing.JFrame {
                                     apip.setSituacion(tb);
                         tbpip.actualizarPIP(apip);
                         /*************/
-                        grabaUFPRF();
+                        //grabaUFPRF();
                         /*************/
                         JOptionPane.showMessageDialog(this,
-                        "Datos actualizados satisfactoriamente",
+                        "Datos actualizados satisfactoriamente en el Sistema",
                         "Exito", 1);
                         lblSituacion.setVisible(true);
                 }
@@ -1821,7 +1812,6 @@ public class PIP extends javax.swing.JFrame {
         btnBuscarPRUF.setEnabled(true);
         btnBuscarPRUE.setEnabled(true);
         btnBuscarPRFUF.setEnabled(true);
-
         txtCIPUFPIPprf.setEditable(false);
         txtCIPUiFPIPpr.setEditable(false);
         txtCIPUEPIP.setEditable(false);
@@ -2094,6 +2084,7 @@ public class PIP extends javax.swing.JFrame {
     private javax.swing.JComboBox cboSituPIP;
     private javax.swing.JComboBox cbodistri;
     private javax.swing.JComboBox cboprovin;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
