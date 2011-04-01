@@ -76,7 +76,7 @@ public class UniproyectosDAO {
 
     public Vector ubicar(String codPIP, String codUNI) throws SQLException {
         abrirConexiones();
-        ResultSet rst = st.executeQuery("SELECT uniproyectos.Cod_PIP,uniproyectos.Cod_CIP,tb_nomuniii.Cod_NomUniPer,tb_nomuniii.Des_NomUniPer,uniproyectos.Sector,uniproyectos.Pliego,uniproyectos.Nombre_Unidad "
+        ResultSet rst = st.executeQuery("SELECT uniproyectos.Cod_UniPIP,uniproyectos.Cod_PIP,uniproyectos.Cod_CIP,tb_nomuniii.Cod_NomUniPer,tb_nomuniii.Des_NomUniPer,uniproyectos.Sector,uniproyectos.Pliego,uniproyectos.Nombre_Unidad "
                                       + "FROM uniproyectos ,pip ,tb_nomuniii "
                                       + "WHERE pip.Cod_PIP = '"+codPIP+"' "
                                       + "AND uniproyectos.Cod_NomUni = tb_nomuniii.Cod_NomUniPer "
@@ -84,6 +84,7 @@ public class UniproyectosDAO {
                                       + "AND uniproyectos.Cod_NomUni= '"+codUNI+"' ");
         while (rst.next()) {
             UniproyectosDTO uni = new UniproyectosDTO();
+            uni.setCod_UniPIP(rst.getString("uniproyectos.Cod_UniPIP"));
             //*************************************\\
             //*************************************\\
             PipDTO pi = new PipDTO();
@@ -115,6 +116,7 @@ public class UniproyectosDAO {
                                                           + "','" + uni.getPliego()
                                                           + "','" + uni.getNomUni()
                                                           + "','" + uni.getCod_PIP().getCod_PIP() + "')";
+         System.out.println("123 "+sentenciaSQL);
         int iResultado = st.executeUpdate(sentenciaSQL);
         cargarUniproyectos();
         cerrarConexiones();
@@ -129,10 +131,11 @@ public class UniproyectosDAO {
                                                       "Sector       ='"+actUNIPRO.getSector()+"'," +
                                                       "Pliego       ='"+actUNIPRO.getPliego()+"'," +
                                                       "Nombre_Unidad='"+actUNIPRO.getNomUni()+"'," +
-                                                      "Cod_PIP      ='"+actUNIPRO.getCod_PIP()+"'"+
+                                                      "Cod_PIP      ='"+actUNIPRO.getCod_PIP().getCod_PIP()+"'"+
                               "WHERE Cod_UniPIP='"+actUNIPRO.getCod_UniPIP()+"'";
-        System.out.println("Datos guardados con satisfaccion");
-        int iResultado = st.executeUpdate(sentenciaSQL);
+        System.out.println("123 "+sentenciaSQL);
+        int iResultado = st.executeUpdate(sentenciaSQL);        
+        System.out.println(""+sentenciaSQL);
         cargarUniproyectos();
         cerrarConexiones();
         return iResultado;
