@@ -658,7 +658,7 @@ public class DocOrigen extends javax.swing.JFrame {
         if (btnBuscar.isEnabled()) {
             activaBotones(true, true, false, true, true, false);
             try {
-                String bus = JOptionPane.showInputDialog(null, "Ingrese Registro a buscar....","Buscar Registro", JOptionPane.QUESTION_MESSAGE);
+                String bus = JOptionPane.showInputDialog(null,"Ingrese Registro a buscar....","Buscar Registro", JOptionPane.QUESTION_MESSAGE);
                 DocumentosDAO tip = new DocumentosDAO();
                 tip.cargarDocumentos();
                 DocumentoDTO objDoc = tip.buscar(bus);                
@@ -669,11 +669,9 @@ public class DocOrigen extends javax.swing.JFrame {
                     txtSiglas.setText(objDoc.getSiglas());
                     txtFecha.setText(objDoc.getFechReg().toString());
                     cbotipdoc.setVisible(false);
-                    txtFecha.setVisible(true);
-                    MostrarDatos();
+                    txtFecha.setVisible(true);                    
                 } else {
-                    JOptionPane.showMessageDialog(this, "No se encuentra el registro",
-                            "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"No se encuentra el registro","Mensaje", JOptionPane.INFORMATION_MESSAGE);
                     ultimoRegistro();
                 }
             } catch (SQLException ex) {
@@ -694,8 +692,7 @@ public class DocOrigen extends javax.swing.JFrame {
 }//GEN-LAST:event_txtNroDocActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if (btnGuardar.isEnabled()) {
-            //activaBotones(true, false, false, false, true, false);
+        if (btnGuardar.isEnabled()) {            
             try {
                 DocumentosDAO tbtipo = new DocumentosDAO();
                 tbtipo.cargarDocumentos();   
@@ -713,7 +710,7 @@ public class DocOrigen extends javax.swing.JFrame {
                         tidoc.setCTip_Doc(txtCodTipDoc.getText());
                         xdoc.setCTip_Doc(tidoc);
                         tbtipo.agregarDocumento(xdoc);
-                        JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente en el Sistema...", "Mensaje", 1);
+                        JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente en el Sistema...","Mensaje", 1);
                         ultimoRegistro();
                         activaBotones(true, true, false, true, true, false);
                 } else{
@@ -727,7 +724,7 @@ public class DocOrigen extends javax.swing.JFrame {
                         tid.setCTip_Doc(txtCodTipDoc.getText());                    
                         xdoc.setCTip_Doc(tid);
                         tbtipo.actualizarDocumento(xdoc);
-                        JOptionPane.showMessageDialog(this, "Se actualizo registro de datos", "Mensaje", 1);
+                        JOptionPane.showMessageDialog(this,"Se actualizo registro de datos","Mensaje", 1);
                     }                
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
@@ -759,7 +756,7 @@ public class DocOrigen extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Los Datos se Eliminaron Satisfactoriamente","Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 ultimoRegistro();
             } else {
-                JOptionPane.showMessageDialog(this, "No se Eliminaron los Datos...", "Mensaje",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No se Eliminaron los Datos...","Mensaje",JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException f) {
             System.out.println(f.toString());

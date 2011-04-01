@@ -29,20 +29,21 @@ import javax.swing.JOptionPane;
 public class PIP extends javax.swing.JFrame {
 
     public static String departamento;
-    public static String distrito;
     public static String provincia;
+    public static String distrito;   
     public static String localidad;
-    public static String comisaria;
-    public static String division;
-    public static String otros;
     public static String direccion;
+    public static String division;
+    public static String comisaria;
+    public static String otros;
     public static String nombProy;
 
     public PIP() {
         initComponents();
+        btnBuscarPIP.setVisible(false);
         this.setDefaultCloseOperation(PIP.DISPOSE_ON_CLOSE);
         cargarComboDepartamento();
-        Invisible();
+        invisible();
         NoMostrarDatos();
         cargarSituacion();
         //cargarUNIPIP();
@@ -53,7 +54,7 @@ public class PIP extends javax.swing.JFrame {
         cargarNivEstPIP();
         activaBotones(true, false, false, false, true, false, false, false, false);        
         NoEditable();
-        centrar();
+        centrar();        
     }
 
     public void centrar() {
@@ -91,21 +92,18 @@ public class PIP extends javax.swing.JFrame {
         txtCIPUiFPIPpr.setEditable(false);
     }
 
-    private void Invisible() {
+    private void invisible() {
         txtCodDep.setVisible(false);
         txtCodDist.setVisible(false);
         txtCodProv.setVisible(false);
-        txtNombDepart.setVisible(false);
-        txtNombDist.setVisible(false);
-        txtNombProv.setVisible(false);
-        txtCodNE.setVisible(false);
-        txtCodNC.setVisible(false);
-        txtNivEstudio.setVisible(false);
-        txtNivCali.setVisible(false);
-        txtCodSituPIP.setVisible(false);        
+        txtUFPRF.setVisible(false);
+        txtUFPR.setVisible(false);
+        txtUEPR.setVisible(false);
+        txtCodSituPIP.setVisible(false);
     }
 
     public void NoEditable() {
+        txtCodPIP.setEditable(false);
         txtOtrosUP.setEditable(false);
         txtnombProy.setEditable(false);
         txtlocal.setEditable(false);
@@ -132,14 +130,26 @@ public class PIP extends javax.swing.JFrame {
         txtNomUFPIP.setEditable(false);
         txtPliUEPIP.setEditable(false);
         txtObras.setEditable(false);
-        txtOtros.setEditable(false);
-        txtCodPIP.setEditable(false);
-        cboDepar.setEnabled(false);
-        cboNivCalifi.setEnabled(false);
-        cboNivEstu.setEnabled(false);
-        cboSituPIP.setEnabled(false);
-        cbodistri.setEnabled(false);
-        cboprovin.setEnabled(false);
+        txtOtros.setEditable(false);        
+        cboDepar.setVisible(false);
+        cbodistri.setVisible(false);
+        cboprovin.setVisible(false);
+        cboNivCalifi.setVisible(false);
+        cboNivEstu.setVisible(false);
+        cboSituPIP.setVisible(false);
+        txtNombDepart.setVisible(true);
+        txtNombDist.setVisible(true);
+        txtNombProv.setVisible(true);
+        txtCodNE.setVisible(true);
+        txtCodNC.setVisible(true);
+        txtNivEstudio.setVisible(true);
+        txtNivCali.setVisible(true);
+        //cboDepar.setEnabled(false);
+        //cboNivCalifi.setEnabled(false);
+        //cboNivEstu.setEnabled(false);
+        //cboSituPIP.setEnabled(false);
+        //cbodistri.setEnabled(false);
+        //cboprovin.setEnabled(false);
     }
 
     public void Limpiar() {
@@ -181,9 +191,13 @@ public class PIP extends javax.swing.JFrame {
         txtNomUFPRF.setText(null);
         txtGradoUFPR.setText(null);
         txtNomUFPR.setText(null);
+        txtUFPRF.setText(null);
+        txtUFPR.setText(null);
+        txtUEPR.setText(null);
     }
 
     public void Editable() {
+        txtnombProy.requestFocus();
         txtOtrosUP.setEditable(true);
         txtnombProy.setEditable(true);
         txtlocal.setEditable(true);
@@ -206,14 +220,13 @@ public class PIP extends javax.swing.JFrame {
         txtNomUFPIP.setEditable(true);
         txtPliUEPIP.setEditable(true);
         txtObras.setEditable(true);
-        txtOtros.setEditable(true);
-        txtCodPIP.setEditable(true);
-        cboDepar.setEnabled(true);
-        cbodistri.setEnabled(true);
-        cboprovin.setEnabled(true);
-        cboNivCalifi.setEnabled(true);
-        cboNivEstu.setEnabled(true);
-        cboSituPIP.setEnabled(true);
+        txtOtros.setEditable(true);        
+        //cboDepar.setEnabled(true);
+        //cbodistri.setEnabled(true);
+        //cboprovin.setEnabled(true);
+        //cboNivCalifi.setEnabled(true);
+        //cboNivEstu.setEnabled(true);
+        //cboSituPIP.setEnabled(true);
         cboDepar.setVisible(true);
         cbodistri.setVisible(true);
         cboprovin.setVisible(true);
@@ -284,9 +297,9 @@ public class PIP extends javax.swing.JFrame {
 
     private void grabaUFPRF() {
         try {
-            UniproyectosDAO upro = new UniproyectosDAO();                       
-            if (txtCIPUFPIPprf.getText()!= null) {
-                upro.cargarUniproyectos();
+            UniproyectosDAO upro = new UniproyectosDAO();
+            upro.cargarUniproyectos();
+            if (txtUFPRF.getText().isEmpty()) {                
                 txtUFPRF.setText(""+upro.incrementaUNIPRO());
                 UniproyectosDTO up = new UniproyectosDTO();
                 up.setCod_UniPIP(""+upro.incrementaUNIPRO());
@@ -307,10 +320,30 @@ public class PIP extends javax.swing.JFrame {
                 upro.agregarUNIPRO(up);/*************FINAL******************/
                 JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 1","Exito", 1);
             }else{
+                System.out.println("elio12345");              
 
+                //upro.cargarUniproyectos();
+                UniproyectosDTO up = new UniproyectosDTO();
+                up.setCod_UniPIP(txtUFPRF.getText());
+                up.setCod_CIP(txtCIPUFPIPprf.getText());
+                    /*******************************/
+                    /*******************************/
+                    Tb_NomuniII tn = new Tb_NomuniII();
+                    tn.setCod_NomUniPer("1");
+                    up.setCod_NomUni(tn);
+                up.setSector(txtSeUFPIP.getText());
+                up.setPliego(txtPliUFPIP.getText());
+                up.setNomUni(txtNomUFPIP.getText());
+                        /*******************************/
+                        /*******************************/
+                        PipDTO p = new PipDTO();
+                        p.setCod_PIP(txtCodPIP.getText());
+                        up.setCod_PIP(p);
+                upro.actualizarUNIPRO(up);/*************FINAL******************/
+                JOptionPane.showMessageDialog(this,"Datos actualizados satisfactoriamente 1","Exito", 1);
             }
-                if (txtCIPUiFPIPpr.getText()!= null) {
-                    upro.cargarUniproyectos();
+                upro.cargarUniproyectos();
+                if (txtUFPR.getText().isEmpty()) {
                     txtUFPR.setText(""+upro.incrementaUNIPRO());
                     UniproyectosDTO up = new UniproyectosDTO();
                     up.setCod_UniPIP(""+upro.incrementaUNIPRO());
@@ -330,8 +363,29 @@ public class PIP extends javax.swing.JFrame {
                             up.setCod_PIP(p);
                     upro.agregarUNIPRO(up);
                     JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 2", "Exito", 1);
+                }else{
+                    upro.cargarUniproyectos();
+                    UniproyectosDTO up = new UniproyectosDTO();
+                    up.setCod_UniPIP(txtUFPR.getText());
+                    up.setCod_CIP(txtCIPUiFPIPpr.getText());
+                        /*******************************/
+                        /*******************************/
+                        Tb_NomuniII tn = new Tb_NomuniII();
+                        tn.setCod_NomUniPer("2");
+                        up.setCod_NomUni(tn);
+                    up.setSector(txtSeUFPIP.getText());
+                    up.setPliego(txtPliUFPIP.getText());
+                    up.setNomUni(txtNomUFPIP.getText());
+                            /*******************************/
+                            /*******************************/
+                            PipDTO p = new PipDTO();
+                            p.setCod_PIP(txtCodPIP.getText());
+                            up.setCod_PIP(p);
+                    upro.actualizarUNIPRO(up);
+                    JOptionPane.showMessageDialog(this,"Datos actualizados satisfactoriamente 2", "Exito", 1);
                 }
-                    if (txtCIPUEPIP.getText() != null) {
+                    upro.cargarUniproyectos();
+                    if (txtUEPR.getText().isEmpty()) {
                         upro.cargarUniproyectos();
                         txtUEPR.setText(""+upro.incrementaUNIPRO());
                         UniproyectosDTO up = new UniproyectosDTO();
@@ -352,7 +406,27 @@ public class PIP extends javax.swing.JFrame {
                                 up.setCod_PIP(p);
                         upro.agregarUNIPRO(up);
                         JOptionPane.showMessageDialog(this,"Datos guardados satisfactoriamente 3","Exito", 1);
-            }
+                    }else{
+                        upro.cargarUniproyectos();
+                        UniproyectosDTO up = new UniproyectosDTO();
+                        up.setCod_UniPIP(txtUEPR.getText());
+                        up.setCod_CIP(txtCIPUEPIP.getText());
+                            /*******************************/
+                            /*******************************/
+                            Tb_NomuniII tn = new Tb_NomuniII();
+                            tn.setCod_NomUniPer("3");
+                            up.setCod_NomUni(tn);
+                        up.setSector(txtSecUEPIP.getText());
+                        up.setPliego(txtPliUEPIP.getText());
+                        up.setNomUni(txtNomUEPIP.getText());
+                                /*******************************/
+                                /*******************************/
+                                PipDTO p = new PipDTO();
+                                p.setCod_PIP(txtCodPIP.getText());
+                                up.setCod_PIP(p);
+                        upro.actualizarUNIPRO(up);
+                        JOptionPane.showMessageDialog(this,"Datos actualizados satisfactoriamente 3","Exito", 1);
+                    }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
@@ -372,12 +446,11 @@ public class PIP extends javax.swing.JFrame {
 
     private void cargarUniForPRF() {
         try {
-            UniproyectosDAO uFE = new UniproyectosDAO();
-            String pi = txtCodPIP.getText();
-            String ww = "1";
-            System.out.println("" + ww);
-            Vector<UniproyectosDTO> vUni = uFE.ubicar(pi, ww);
+            UniproyectosDAO uFE = new UniproyectosDAO();           
+            Vector<UniproyectosDTO> vUni = uFE.ubicar(txtCodPIP.getText(),"1");
+            System.out.println("1"+"elio");
             for (int i = 0; i < vUni.size(); i++) {
+                txtUFPRF.setText(vUni.elementAt(i).getCod_UniPIP());                
                 txtSeUFPIP.setText(vUni.elementAt(i).getSector());
                 txtPliUFPIP.setText(vUni.elementAt(i).getPliego());
                 txtNomUFPIP.setText(vUni.elementAt(i).getNomUni());
@@ -387,32 +460,26 @@ public class PIP extends javax.swing.JFrame {
             System.out.println(ex.toString());
         }
     }
-//bien
 
     private void cargarUniForPR() {
         try {
-            UniproyectosDAO uFE = new UniproyectosDAO();
-            String pi = txtCodPIP.getText();
-            String ww = "2";
-            System.out.println("" + ww);
-            Vector<UniproyectosDTO> vUni = uFE.ubicar(pi, ww);
+            UniproyectosDAO uFE = new UniproyectosDAO();            
+            Vector<UniproyectosDTO> vUni = uFE.ubicar(txtCodPIP.getText(),"2");
             for (int i = 0; i < vUni.size(); i++) {
+                txtUFPR.setText(vUni.elementAt(i).getCod_UniPIP());                
                 txtCIPUiFPIPpr.setText(vUni.elementAt(i).getCod_CIP());
             }
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
     }
-//bien
 
     private void cargarUniEjePR() {
         try {
-            UniproyectosDAO uFE = new UniproyectosDAO();
-            String pi = txtCodPIP.getText();
-            String ww = "3";
-            System.out.println("" + ww);
-            Vector<UniproyectosDTO> vUni = uFE.ubicar(pi, ww);
+            UniproyectosDAO uFE = new UniproyectosDAO();            
+            Vector<UniproyectosDTO> vUni = uFE.ubicar(txtCodPIP.getText(),"3");
             for (int i = 0; i < vUni.size(); i++) {
+                txtUEPR.setText(vUni.elementAt(i).getCod_UniPIP());
                 txtSecUEPIP.setText(vUni.elementAt(i).getSector());
                 txtPliUEPIP.setText(vUni.elementAt(i).getPliego());
                 txtNomUEPIP.setText(vUni.elementAt(i).getNomUni());
@@ -1198,14 +1265,14 @@ public class PIP extends javax.swing.JFrame {
                 cboSituPIPActionPerformed(evt);
             }
         });
-        jPanel3.add(cboSituPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(856, 119, 130, 32));
+        jPanel3.add(cboSituPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 130, 32));
         jPanel3.add(txtCodSituPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 60, 63, 29));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel3.setText("\" SITUACION DEL PIP \"");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 140, -1));
 
-        lblSituacion.setFont(new java.awt.Font("Tahoma", 1, 20));
+        lblSituacion.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jPanel3.add(lblSituacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, 151, 30));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -1361,7 +1428,7 @@ public class PIP extends javax.swing.JFrame {
         jLabel6.setText("Distrito:");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 118, -1, -1));
 
-        txtNombDepart.setFont(new java.awt.Font("Tahoma", 1, 13));
+        txtNombDepart.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtNombDepart.setForeground(new java.awt.Color(0, 0, 153));
         jPanel4.add(txtNombDepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 160, 33));
 
@@ -1651,7 +1718,7 @@ public class PIP extends javax.swing.JFrame {
         comboPrimer();
         NoEditable();       
         lblSituacion.setVisible(false);        
-        cboSituPIP.setVisible(true);
+        
 }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
@@ -1714,10 +1781,13 @@ public class PIP extends javax.swing.JFrame {
                     activaBotones(true, false, false, false, true, false, false, false, false);
                     System.out.println("Hasta aca guarda la tabla PIP");
                     /*************/
+                    /*************/
                     grabaUFPRF();
+                    /*************/
                     /*************/
                     JOptionPane.showMessageDialog(null,"Registro guardado satisfactoriamente en el Sistema...","Exito", 1);
                     lblSituacion.setVisible(true);
+                    NoEditable();
                 } else {
                     PipDTO apip = new PipDTO();
                     apip.setCod_PIP(txtCodPIP.getText());
@@ -1768,12 +1838,13 @@ public class PIP extends javax.swing.JFrame {
                                     apip.setSituacion(tb);
                         tbpip.actualizarPIP(apip);
                         /*************/
-                        //grabaUFPRF();
                         /*************/
-                        JOptionPane.showMessageDialog(this,
-                        "Datos actualizados satisfactoriamente en el Sistema",
-                        "Exito", 1);
+                        grabaUFPRF();
+                        /*************/
+                        /*************/
+                        JOptionPane.showMessageDialog(this,"Datos actualizados satisfactoriamente en el Sistema","Exito", 1);
                         lblSituacion.setVisible(true);
+                        NoEditable();
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
@@ -1821,8 +1892,7 @@ public class PIP extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         activaBotones(false, false, true, false, false, true, true, true, true);
         Editable();
-        Limpiar();
-        txtnombProy.requestFocus();
+        Limpiar();        
 }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtNivEstudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNivEstudioActionPerformed
