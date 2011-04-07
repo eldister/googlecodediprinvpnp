@@ -133,23 +133,23 @@ public class TDR extends javax.swing.JFrame {
         setResizable(false);
 
         TDRPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATOS GENERALES", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
-        TDRPanel.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        TDRPanel.setFont(new java.awt.Font("Arial Narrow", 1, 24));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setText("Nombre del Proyecto:");
 
-        txtnomProy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtnomProy.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtnomProy.setForeground(new java.awt.Color(0, 0, 153));
 
         Localizacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICAION GEOGRAFICA:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel7.setText("Provincia:");
 
-        txtProvincia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtProvincia.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtProvincia.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtDistrito.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDistrito.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtDistrito.setForeground(new java.awt.Color(0, 0, 153));
         txtDistrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,10 +157,10 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel9.setText("Distrito:");
 
-        txtDepartamento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDepartamento.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtDepartamento.setForeground(new java.awt.Color(0, 0, 153));
         txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,13 +168,13 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel10.setText("Departamento:");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel13.setText("Localidad:");
 
-        txtLocalidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtLocalidad.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtLocalidad.setForeground(new java.awt.Color(0, 0, 153));
         txtLocalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,28 +230,28 @@ public class TDR extends javax.swing.JFrame {
 
         Ubicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION POLICIAL:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
-        txtotros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtotros.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtotros.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtcomisaria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtcomisaria.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtcomisaria.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtdivision.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtdivision.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtdivision.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtdireccion.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtdireccion.setForeground(new java.awt.Color(0, 0, 153));
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel15.setText("Otros:");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel16.setText("Comisaria:");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel17.setText("Division:");
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel19.setText("Direccion / Region:");
 
         javax.swing.GroupLayout UbicacionLayout = new javax.swing.GroupLayout(Ubicacion);
@@ -307,11 +307,11 @@ public class TDR extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14));
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel22.setText("CIP:");
 
         txtNombre.setEditable(false);
-        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtNombre.setForeground(new java.awt.Color(0, 0, 153));
 
         btnBuscarCoor.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -332,11 +332,11 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        txtCIP1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCIP1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtCIP1.setForeground(new java.awt.Color(0, 0, 153));
 
         txtGrado.setEditable(false);
-        txtGrado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtGrado.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtGrado.setForeground(new java.awt.Color(0, 0, 153));
 
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -405,7 +405,7 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        txtAsigNumero.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtAsigNumero.setFont(new java.awt.Font("Tahoma", 1, 11));
         txtAsigNumero.setForeground(new java.awt.Color(0, 0, 153));
         txtAsigNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -413,12 +413,12 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setText("Nº. TDR:");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
 
-        txtSiglas1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtSiglas1.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtSiglas1.setForeground(new java.awt.Color(0, 0, 153));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -433,7 +433,7 @@ public class TDR extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel6.setText("Numero:");
 
-        txtNro1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNro1.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtNro1.setForeground(new java.awt.Color(0, 0, 153));
         txtNro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,10 +441,10 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        txtDocumento1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDocumento1.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtDocumento1.setForeground(new java.awt.Color(0, 0, 153));
 
-        txtFecha1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtFecha1.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtFecha1.setForeground(new java.awt.Color(0, 0, 153));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -493,6 +493,11 @@ public class TDR extends javax.swing.JFrame {
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
         btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/no.png"))); // NOI18N
@@ -693,12 +698,12 @@ public class TDR extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(875, Short.MAX_VALUE))
+                .addContainerGap(943, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(193, 193, 193)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(843, Short.MAX_VALUE)))
+                    .addContainerGap(911, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -802,6 +807,10 @@ public class TDR extends javax.swing.JFrame {
 
 }//GEN-LAST:event_btnEnviaLogActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
@@ -833,13 +842,11 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -847,10 +854,8 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel lblImagenEscudo1;
     private javax.swing.JLabel lblImagenEscudo2;
     private javax.swing.JLabel lblImagenEscudo3;
     private javax.swing.JLabel lblNombre;
