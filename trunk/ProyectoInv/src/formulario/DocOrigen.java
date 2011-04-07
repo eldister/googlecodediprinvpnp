@@ -212,7 +212,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 36));
         jLabel3.setText("SISTEMA Y SUPERVISION ");
 
-        jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 36));
         jLabel4.setText("DE PROYECTOS DE INVERSION");
 
         lblImagenEscudo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img.jpg"))); // NOI18N
@@ -278,7 +278,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jLabel15.setText("Siglas:");
         DocOrigenPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 169, 50, -1));
 
-        cbotipdoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cbotipdoc.setFont(new java.awt.Font("Tahoma", 1, 13));
         cbotipdoc.setForeground(new java.awt.Color(0, 0, 153));
         cbotipdoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +291,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jLabel17.setText("Nro. de Doc.:");
         DocOrigenPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 76, -1, 27));
 
-        txtNroDoc.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtNroDoc.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNroDoc.setForeground(new java.awt.Color(0, 0, 153));
         txtNroDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,7 +304,7 @@ public class DocOrigen extends javax.swing.JFrame {
         jLabel1.setText("Tipo de Doc.:");
         DocOrigenPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 121, -1, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setText("Nro. de Registro:");
         DocOrigenPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 48, -1, -1));
 
@@ -319,7 +319,7 @@ public class DocOrigen extends javax.swing.JFrame {
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 14));
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
         btnModificar.setText("EDITAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
