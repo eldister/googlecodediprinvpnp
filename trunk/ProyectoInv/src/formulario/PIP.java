@@ -1110,11 +1110,11 @@ public class PIP extends javax.swing.JFrame {
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel27.setText("Nivel de Calificacion:");
-        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, -1, -1));
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel31.setText("Nivel de Estudio:");
-        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, -1, -1));
 
         txtNivEstudio.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNivEstudio.setForeground(new java.awt.Color(0, 0, 153));
@@ -1123,7 +1123,7 @@ public class PIP extends javax.swing.JFrame {
                 txtNivEstudioActionPerformed(evt);
             }
         });
-        jPanel3.add(txtNivEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, 180, 30));
+        jPanel3.add(txtNivEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 220, 30));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1192,7 +1192,7 @@ public class PIP extends javax.swing.JFrame {
 
         txtNivCali.setFont(new java.awt.Font("Tahoma", 1, 13));
         txtNivCali.setForeground(new java.awt.Color(0, 0, 153));
-        jPanel3.add(txtNivCali, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 180, 34));
+        jPanel3.add(txtNivCali, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 220, 34));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION GEOGRAFICA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel4.setForeground(new java.awt.Color(0, 102, 51));
@@ -1274,7 +1274,7 @@ public class PIP extends javax.swing.JFrame {
                 cboNivCalifiActionPerformed(evt);
             }
         });
-        jPanel3.add(cboNivCalifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 180, 30));
+        jPanel3.add(cboNivCalifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 220, 30));
 
         cboNivEstu.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboNivEstu.setForeground(new java.awt.Color(0, 0, 153));
@@ -1283,7 +1283,7 @@ public class PIP extends javax.swing.JFrame {
                 cboNivEstuActionPerformed(evt);
             }
         });
-        jPanel3.add(cboNivEstu, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, 180, 30));
+        jPanel3.add(cboNivEstu, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 220, 30));
 
         cboSituPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         cboSituPIP.setForeground(new java.awt.Color(0, 0, 153));
@@ -1293,8 +1293,8 @@ public class PIP extends javax.swing.JFrame {
             }
         });
         jPanel3.add(cboSituPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 130, 33));
-        jPanel3.add(txtNEs, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 63, 29));
-        jPanel3.add(txtNCa, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 63, 29));
+        jPanel3.add(txtNEs, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 250, 63, 29));
+        jPanel3.add(txtNCa, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 290, 63, 29));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1000, 520));
 
@@ -1561,6 +1561,7 @@ public class PIP extends javax.swing.JFrame {
                                             tbs.setCod_SituPIP(txtCodSituPIP.getText());
                                             xpip.setSituacion(tbs);
                     tbpip.agregarPIP(xpip);/*************FINAL******************/                    
+                    System.out.println("Vamos Avanzando");
                     /*************/
                     /*************/
                     grabaUFPRF();
@@ -1569,7 +1570,7 @@ public class PIP extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Registro guardado satisfactoriamente en el Sistema...","Exito", 1);
                     lblSituacion.setVisible(true);
                     NoEditable();
-                    activaBotones(true, false, false, false, true, false, false, false, false);
+                    activaBotones(true, true, false, true, false, false, false, false, false);
                 } else {
                     PipDTO apip = new PipDTO();
                     apip.setCod_PIP(txtCodPIP.getText());
@@ -1674,7 +1675,6 @@ public class PIP extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         activaBotones(false, false, true, false, false, true, true, true, true);
         cargarCombos();
-        //comboPrimer();
         Editable();
         Limpiar();        
 }//GEN-LAST:event_btnNuevoActionPerformed
@@ -1926,7 +1926,6 @@ public class PIP extends javax.swing.JFrame {
             System.out.println(ex.toString());
         }
     }
-//bien
 
     private void cargarNivCaliPIP() {
         try {

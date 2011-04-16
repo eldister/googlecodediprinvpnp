@@ -36,7 +36,7 @@ public class TipDocDAO {
 
     public TipDocDTO obtener(String nomDoc) throws SQLException{
         abrirConexion();
-        ResultSet rst = st.executeQuery("SELECT * FROM Tb_TipDoc WHERE Des_TDoc='"+nomDoc+"'");
+        ResultSet rst = st.executeQuery("SELECT * FROM Tb_TipDoc WHERE Des_TDoc="+nomDoc+"");
         TipDocDTO tdoc = null;
         if(rst.next()){
             return new TipDocDTO(rst.getString(1), rst.getString(2));

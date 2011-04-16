@@ -1,7 +1,7 @@
 package fondo;
 
-import dao.LoginDAO;
-import dto.LoginDTO;
+import dao.Tb_UsuarioDAO;
+import dto.Tb_UsuarioDTO;
 import formulario.DocOrigen;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -17,6 +17,7 @@ public class Principal extends javax.swing.JFrame {
     public static String nombusuario;
     public static String password;
     public static String CIP;
+    public static String nroREG;
 
     public Principal() {
         initComponents();
@@ -138,25 +139,26 @@ public class Principal extends javax.swing.JFrame {
         if ((txtusuario.getText().isEmpty()) || (txtcontraseña.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Ingrese su nombre de usuario y contraseña");
         } else {
-            try {
-                LoginDAO log = new LoginDAO();
-                log.cargarLogin();
+            try {               
+                Tb_UsuarioDAO tbu = new Tb_UsuarioDAO();
+                tbu.cargarUsuario();
                 Cargando.setIcon(new ImageIcon(getClass().getResource("/imagenes/loading2.gif")));
                 Cargando.setVisible(true);
                 btnaceptar.setVisible(false);
-                LoginDTO objE = log.validar(txtusuario.getText(), txtcontraseña.getText());
+               Tb_UsuarioDTO objE = tbu.buscarValidacion(txtusuario.getText(), txtcontraseña.getText());
                 if (objE != null) {
                     JOptionPane.showMessageDialog(this,
-                            "Bienvenido " + objE.getUsuario() + "  " + objE.getPassword(),
+                            "Bienvenido " + objE.getTPCOR()+"  "+objE.getMA13(),
                             "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-                    CIP=txtusuario.getText();
+                    CIP = txtusuario.getText();
                     btnaceptar.setVisible(false);
                     Cargando.setVisible(true);
+                    nroREG = objE.getCod_ID_Usu();
                     dispose();
                     new DocOrigen().setVisible(true);                 
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Sus datos son incorrectos, Revisalo ");
+                    JOptionPane.showMessageDialog(null, "Sus datos son incorrectos, Verifique el registro... ");
                     txtcontraseña.setText("");
                     btnaceptar.setVisible(true);
                     Cargando.setVisible(false);

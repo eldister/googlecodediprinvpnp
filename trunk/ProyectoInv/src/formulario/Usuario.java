@@ -1,7 +1,7 @@
 package formulario;
 
-import dao.UsuarioDAO;
-import dto.UsuarioDTO;
+import dao.Tb_UsuarioDAO;
+import dto.Tb_UsuarioDTO;
 import java.awt.Dimension;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -449,16 +449,14 @@ public class Usuario extends javax.swing.JFrame {
         if (btnBuscar.isEnabled()) {
             this.activaBotones(false, false, true, true);
             try {
-                UsuarioDAO u = new UsuarioDAO();
+                Tb_UsuarioDAO u = new Tb_UsuarioDAO();
                 u.cargarUsuario();
-                UsuarioDTO objD = u.buscar(txtNombUsuario.getText());
+                Tb_UsuarioDTO objD = u.buscarCIP(txtNombUsuario.getText());
 
-                if (objD != null) {
-
-                    txtNombUsuario.setText(objD.getUsuario());
-                    txtdni.setText(objD.getDNI());
-                    txtGrado.setText(objD.getTPCOD().getTPCOR());
-                    txtnombres.setText(objD.getNombres());
+                if (objD != null) {                    
+                    txtdni.setText(objD.getMA98());
+                    txtGrado.setText(objD.getTPCOR());
+                    txtnombres.setText(objD.getMA13());
                     txtnuevcontra.setText(objD.getPassword());
                     MostrarDatos();
                     if (txtNombUsuario.getText() == null) {
@@ -489,12 +487,13 @@ public class Usuario extends javax.swing.JFrame {
             limpiaDatos();
             this.activaBotones(false, false, true, false);
             try {
-                UsuarioDAO u = new UsuarioDAO();
-                u.cargarUsuario();
-                UsuarioDTO objD = u.buscar(txtNombUsuario.getText());
-             
+                Tb_UsuarioDAO u = new Tb_UsuarioDAO();
+                u.cargarUsuario_X_Maspol();
+                Tb_UsuarioDTO objD = u.buscarCIP(txtNombUsuario.getText());
                 if (objD != null) {
-                    txtGrado.setText(objD.getGrado());
+                    txtdni.setText(objD.getCod_ID_Usu());
+                    txtGrado.setText(objD.getMA13());
+                    txtnombres.setText(objD.getMA98());
                     NoMostrarDatos();
                 } else {
                     CboEstado.setVisible(true);
@@ -522,7 +521,7 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        if (btnActualizar.isEnabled()) {
+       /* if (btnActualizar.isEnabled()) {
             this.activaBotones(false, false, true, false);
             try {
                 UsuarioDAO u = new UsuarioDAO();
@@ -553,7 +552,7 @@ public class Usuario extends javax.swing.JFrame {
                 System.out.println(f.toString());
                 MostrarDatos();
             }
-        }
+        }*/
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     public static void main(String args[]) {

@@ -16,8 +16,8 @@ public class TDR extends javax.swing.JFrame {
         centrar();
         this.setDefaultCloseOperation(TDR.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        activaBotones(false, false, false, false);
-        NoMostrarDatosPIP();
+        activaBotones(true, true, true, true);
+        NoMostrarDatosPIP();        
 
         txtDocumento1.setEditable(false);
         txtFecha1.setEditable(false);
@@ -120,6 +120,15 @@ public class TDR extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnGrabar = new javax.swing.JButton();
         btnEnviaLog = new javax.swing.JButton();
+        jpnDocLog = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        btnEnviaLog1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -134,12 +143,15 @@ public class TDR extends javax.swing.JFrame {
 
         TDRPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATOS GENERALES", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
         TDRPanel.setFont(new java.awt.Font("Arial Narrow", 1, 24));
+        TDRPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel5.setText("Nombre del Proyecto:");
+        TDRPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 173, -1, 20));
 
         txtnomProy.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtnomProy.setForeground(new java.awt.Color(0, 0, 153));
+        TDRPanel.add(txtnomProy, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 163, 545, 30));
 
         Localizacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICAION GEOGRAFICA:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
@@ -228,6 +240,8 @@ public class TDR extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        TDRPanel.add(Localizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
         Ubicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "UBICACION POLICIAL:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
         txtotros.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -303,6 +317,8 @@ public class TDR extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        TDRPanel.add(Ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
         Coordinador.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "COORDINADOR:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(0, 102, 53))); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14));
@@ -332,7 +348,7 @@ public class TDR extends javax.swing.JFrame {
             }
         });
 
-        txtCIP1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCIP1.setFont(new java.awt.Font("Tahoma", 1, 14));
         txtCIP1.setForeground(new java.awt.Color(0, 0, 153));
 
         txtGrado.setEditable(false);
@@ -396,6 +412,8 @@ public class TDR extends javax.swing.JFrame {
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        TDRPanel.add(Coordinador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 480, 120));
+
         btnPIP.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnPIP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/la-flecha-verde-de-la-derecha-icono-6651-32.png"))); // NOI18N
         btnPIP.setText("IR AL PIP");
@@ -404,6 +422,7 @@ public class TDR extends javax.swing.JFrame {
                 btnPIPActionPerformed(evt);
             }
         });
+        TDRPanel.add(btnPIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 143, 160, 30));
 
         txtAsigNumero.setFont(new java.awt.Font("Tahoma", 1, 11));
         txtAsigNumero.setForeground(new java.awt.Color(0, 0, 153));
@@ -412,9 +431,11 @@ public class TDR extends javax.swing.JFrame {
                 txtAsigNumeroActionPerformed(evt);
             }
         });
+        TDRPanel.add(txtAsigNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 121, 116, 31));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel11.setText("Nº. TDR:");
+        TDRPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 128, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
 
@@ -490,7 +511,9 @@ public class TDR extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 13));
+        TDRPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 26, -1, -1));
+
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sincronizacion-actualiza-la-recarga-icono-4348-16.png"))); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -498,12 +521,14 @@ public class TDR extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
+        TDRPanel.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, 130, 30));
 
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 13));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/no.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        TDRPanel.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, 130, 30));
 
-        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 13));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Warning.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -511,8 +536,9 @@ public class TDR extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        TDRPanel.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 130, 30));
 
-        btnGrabar.setFont(new java.awt.Font("Tahoma", 1, 13));
+        btnGrabar.setFont(new java.awt.Font("Tahoma", 1, 11));
         btnGrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3floppy-guardar-el-desmantelamiento-icono-4124-16.png"))); // NOI18N
         btnGrabar.setText("GRABAR");
         btnGrabar.addActionListener(new java.awt.event.ActionListener() {
@@ -520,96 +546,92 @@ public class TDR extends javax.swing.JFrame {
                 btnGrabarActionPerformed(evt);
             }
         });
+        TDRPanel.add(btnGrabar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 130, 30));
 
         btnEnviaLog.setFont(new java.awt.Font("Tahoma", 1, 13));
         btnEnviaLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/la-flecha-verde-de-la-derecha-icono-6651-32.png"))); // NOI18N
-        btnEnviaLog.setText("ENVIAR LOGISTICA");
+        btnEnviaLog.setText("REGISTRO DE DOCUMENTO PARA DIRLOG - PNP");
         btnEnviaLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviaLogActionPerformed(evt);
             }
         });
+        TDRPanel.add(btnEnviaLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 314, 30));
 
-        javax.swing.GroupLayout TDRPanelLayout = new javax.swing.GroupLayout(TDRPanel);
-        TDRPanel.setLayout(TDRPanelLayout);
-        TDRPanelLayout.setHorizontalGroup(
-            TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TDRPanelLayout.createSequentialGroup()
-                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel5))
-                        .addGap(4, 4, 4)
-                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAsigNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnomProy, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Localizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Coordinador, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(TDRPanelLayout.createSequentialGroup()
-                                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnGrabar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
-                                .addGap(27, 27, 27)
-                                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))))
-                .addContainerGap(89, Short.MAX_VALUE))
+        jpnDocLog.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel20.setText("Documento Enviado a Logistica:");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel14.setText("Tipo Doc.:");
+
+        jTextField6.setFont(new java.awt.Font("Tahoma", 1, 13));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel26.setText("Nº Doc.:");
+
+        jTextField5.setFont(new java.awt.Font("Tahoma", 1, 13));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel27.setText("Fecha:");
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 13));
+
+        javax.swing.GroupLayout jpnDocLogLayout = new javax.swing.GroupLayout(jpnDocLog);
+        jpnDocLog.setLayout(jpnDocLogLayout);
+        jpnDocLogLayout.setHorizontalGroup(
+            jpnDocLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnDocLogLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addGap(1, 1, 1)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel26)
+                .addGap(2, 2, 2)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel27)
+                .addGap(5, 5, 5)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
-        TDRPanelLayout.setVerticalGroup(
-            TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TDRPanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel11)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addComponent(txtAsigNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(txtnomProy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnPIP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(Localizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(Ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Coordinador, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(TDRPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(TDRPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEnviaLog, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        jpnDocLogLayout.setVerticalGroup(
+            jpnDocLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnDocLogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnDocLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnDocLogLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jpnDocLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel20)))
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpnDocLogLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpnDocLogLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel27))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        TDRPanel.add(jpnDocLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
+
+        btnEnviaLog1.setFont(new java.awt.Font("Tahoma", 1, 13));
+        btnEnviaLog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Info.png"))); // NOI18N
+        btnEnviaLog1.setText("ENVIAR A DIRLOG - PNP");
+        btnEnviaLog1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviaLog1ActionPerformed(evt);
+            }
+        });
+        TDRPanel.add(btnEnviaLog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 314, 30));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -691,33 +713,33 @@ public class TDR extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(TDRPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(771, 771, 771))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(943, Short.MAX_VALUE))
+                .addGap(144, 144, 144))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(TDRPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(58, 58, 58))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(193, 193, 193)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(911, Short.MAX_VALUE)))
+                    .addContainerGap(112, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(TDRPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TDRPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(366, 366, 366)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(241, Short.MAX_VALUE)))
+                    .addContainerGap(265, Short.MAX_VALUE)))
         );
 
         pack();
@@ -774,9 +796,6 @@ public class TDR extends javax.swing.JFrame {
         txtcomisaria.setEditable(false);
         txtdireccion.setEditable(false);
         txtdivision.setEditable(false);
-
-
-
         this.dispose();
 }//GEN-LAST:event_btnPIPActionPerformed
 
@@ -804,12 +823,18 @@ public class TDR extends javax.swing.JFrame {
 }//GEN-LAST:event_btnGrabarActionPerformed
 
     private void btnEnviaLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaLogActionPerformed
-
+        dispose();
+        new DocGenerados().setVisible(true);
 }//GEN-LAST:event_btnEnviaLogActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnEnviaLog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaLog1ActionPerformed
+        dispose();
+        new OrdenServicioDirlog().setVisible(true);
+    }//GEN-LAST:event_btnEnviaLog1ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -829,6 +854,7 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEnviaLog;
+    private javax.swing.JButton btnEnviaLog1;
     private javax.swing.JButton btnGrabar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnPIP;
@@ -837,16 +863,20 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -856,6 +886,10 @@ public class TDR extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JPanel jpnDocLog;
     private javax.swing.JLabel lblImagenEscudo2;
     private javax.swing.JLabel lblImagenEscudo3;
     private javax.swing.JLabel lblNombre;

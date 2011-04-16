@@ -1,7 +1,5 @@
 package formulario;
 
-import dao.UsuarioDAO;
-import dto.UsuarioDTO;
 import java.awt.Dimension;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -248,7 +246,7 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        if (btnActualizar.isEnabled()) {
+       /* if (btnActualizar.isEnabled()) {
             try {
                 UsuarioDAO u = new UsuarioDAO();
                 u.cargarUsuario();
@@ -262,7 +260,7 @@ public class Registrarse extends javax.swing.JFrame {
                 System.out.println(f.toString());
                 MostrarDatos();
             }
-        }
+        }*/
 }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -284,7 +282,7 @@ public class Registrarse extends javax.swing.JFrame {
 }//GEN-LAST:event_txtNombUsuarioActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        try {
+        /*try {
             UsuarioDAO tip = new UsuarioDAO();
             Vector<UsuarioDTO> vDocu = tip.cargarUsuario();
             UsuarioDTO objDoc = tip.buscar(txtNombUsuario.getText());
@@ -307,7 +305,7 @@ public class Registrarse extends javax.swing.JFrame {
             System.out.println(ex.toString());
         }
         btnActualizar.setEnabled(true);
-        txtnuevcontra.setEditable(true);
+        txtnuevcontra.setEditable(true);*/
 }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
