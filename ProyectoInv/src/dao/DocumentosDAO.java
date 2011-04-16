@@ -2,6 +2,7 @@ package dao;
 
 import conexion.Conexion;
 import dto.DocumentoDTO;
+import dto.Tb_UsuarioDTO;
 import dto.TipDocDTO;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -44,21 +45,25 @@ public class DocumentosDAO {
 
     public Vector cargarDocumentos() throws SQLException {
         abrirConexion();
-        ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg, doc.Cod_CIP_REGDOC, tb.CTip_Doc, tb.Des_TDoc " +
-                                        "FROM documentos doc,tb_tipdoc tb " +
-                                        "WHERE doc.CTip_Doc = tb.CTip_Doc");
+        ResultSet rst = st.executeQuery("SELECT doc.Cod_RegDoc, doc.Nro_Doc, doc.Siglas, doc.FechReg, tbu.Cod_Id_Usu, tbu.Cip_Usuario, tb.CTip_Doc, tb.Des_TDoc " +
+                                        "FROM documentos doc,tb_tipdoc tb,tb_usuario tbu " +
+                                        "WHERE doc.CTip_Doc = tb.CTip_Doc " +
+                                        "AND doc.Cod_ID_Usu = tbu.Cod_ID_Usu");
         while (rst.next()) {
             DocumentoDTO doc = new DocumentoDTO();
             doc.setNroRegistro(rst.getString("doc.Cod_RegDoc"));
             doc.setNro_Doc(rst.getString("doc.Nro_Doc"));
             doc.setSiglas(rst.getString("doc.Siglas"));
             doc.setFechReg(rst.getDate("doc.FechReg"));
-            doc.setCod_CIP_REGDOC(rst.getString("doc.Cod_CIP_REGDOC"));
-            /**/TipDocDTO tb = new TipDocDTO();
-                tb.setCTip_Doc(rst.getString("tb.CTip_Doc"));
-                tb.setTDoc(rst.getString("tb.Des_TDoc"));
-                doc.setCTip_Doc(tb);
-                vDoc.addElement(doc);
+            /**/Tb_UsuarioDTO tbu = new Tb_UsuarioDTO();
+                tbu.setCod_ID_Usu(rst.getString("tbu.Cod_Id_Usu"));
+                tbu.setCip_Usuario(rst.getString("tbu.Cip_Usuario"));
+                doc.setCod_ID_Usu(tbu);
+            /**//**/TipDocDTO tb = new TipDocDTO();
+                    tb.setCTip_Doc(rst.getString("tb.CTip_Doc"));
+                    tb.setTDoc(rst.getString("tb.Des_TDoc"));
+                    doc.setCTip_Doc(tb);
+                    vDoc.addElement(doc);
         }
         rst.close();
         cerrarConexion();
@@ -72,7 +77,7 @@ public class DocumentosDAO {
                                                           "','"+doc.getNro_Doc()+
                                                           "','"+doc.getSiglas()+
                                                           "','"+doc.getFechReg()+
-                                                          "','"+doc.getCod_CIP_REGDOC()+"')";
+                                                          "','"+doc.getCod_ID_Usu().getCod_ID_Usu()+"')";
         int iResultado = st.executeUpdate(sentenciaSQL);
         cargarDocumentos();
         cerrarConexion();
@@ -95,7 +100,7 @@ public class DocumentosDAO {
                                                     "Nro_Doc       ='"+dco.getNro_Doc()+"'," +
                                                     "Siglas        ='"+dco.getSiglas()+"'," +
                                                     "FechReg       ='"+dco.getFechReg()+"'," +
-                                                    "Cod_CIP_REGDOC='"+dco.getCod_CIP_REGDOC()+"'"+
+                                                    "Cod_ID_Usu    ='"+dco.getCod_ID_Usu().getCod_ID_Usu()+"'"+
                               "WHERE Cod_RegDoc='"+dco.getNroRegistro()+"'";
         System.out.println("123 "+sentenciaSQL);
         int iResultado = st.executeUpdate(sentenciaSQL);

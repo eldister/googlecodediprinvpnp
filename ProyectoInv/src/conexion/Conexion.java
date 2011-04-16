@@ -7,8 +7,7 @@ public class Conexion {
     static String bd = "bd_proinv";
     static String login = "root";
     static String password = "admin";   /*ALFRIADEZ YRIARTE*/
-    //static String password = "123123";
-    //static String password = "root";  /*ALFRIADEZ YRIARTE*/
+    //static String password = "123123";    
     static String url = "jdbc:mysql://localhost/" + bd;
 
     static {
@@ -19,7 +18,6 @@ public class Conexion {
     }
 
     public static Connection getConnection() {
-            
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, login, password);
@@ -28,7 +26,6 @@ public class Conexion {
             System.out.println("Error: Con fuente de datos \n" + e);
         }
         return conn;
-
         /***************************/
         /***************************/
         /***************************/

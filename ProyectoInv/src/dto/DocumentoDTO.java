@@ -5,22 +5,22 @@ import java.sql.Date;
 
 public class DocumentoDTO {
     private String NroRegistro;
-    private TipDocDTO CTip_Doc ;    /**TABLA RELACIONADA**/
+    private TipDocDTO CTip_Doc ;        /**TABLA RELACIONADA**/
     private String Nro_Doc;
     private String Siglas;
     private Date FechReg;
-    private String Cod_CIP_REGDOC;
+    private Tb_UsuarioDTO Cod_ID_Usu;     /**TABLA RELACIONADA**/
 
     public DocumentoDTO() {
     }
 
-    public DocumentoDTO(String NroRegistro, TipDocDTO CTip_Doc, String Nro_Doc, String Siglas, Date FechReg, String Cod_CIP_REGDOC) {
+    public DocumentoDTO(String NroRegistro, TipDocDTO CTip_Doc, String Nro_Doc, String Siglas, Date FechReg, Tb_UsuarioDTO Cod_ID_Usu) {
         this.NroRegistro = NroRegistro;
         this.CTip_Doc = CTip_Doc;
         this.Nro_Doc = Nro_Doc;
         this.Siglas = Siglas;
         this.FechReg = FechReg;
-        this.Cod_CIP_REGDOC = Cod_CIP_REGDOC;
+        this.Cod_ID_Usu = Cod_ID_Usu;
     }
 
     /**
@@ -94,16 +94,16 @@ public class DocumentoDTO {
     }
 
     /**
-     * @return the Cod_CIP_REGDOC
+     * @return the Cod_ID_Usu
      */
-    public String getCod_CIP_REGDOC() {
-        return Cod_CIP_REGDOC;
+    public Tb_UsuarioDTO getCod_ID_Usu() {
+        return Cod_ID_Usu;
     }
 
     /**
-     * @param Cod_CIP_REGDOC the Cod_CIP_REGDOC to set
+     * @param Cod_ID_Usu the Cod_ID_Usu to set
      */
-    public void setCod_CIP_REGDOC(String Cod_CIP_REGDOC) {
-        this.Cod_CIP_REGDOC = Cod_CIP_REGDOC;
+    public void setCod_ID_Usu(Tb_UsuarioDTO Cod_ID_Usu) {
+        this.Cod_ID_Usu = Cod_ID_Usu;
     }
 }
